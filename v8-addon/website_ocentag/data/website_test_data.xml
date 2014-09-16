@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+		<record id="menu_websitetest" model="website.menu">
+			<field name="name">Website</field>
+			<field name="url">/website-ocentag</field>
+			<field name="parent_id" ref="website.main_menu" />
+			<field name="sequence" type="int">100</field>
+		</record>
+	</data>
+</openerp>

@@ -1,0 +1,37 @@
+.gridcolumn1,.gridcolumn3,.gridcolumn4,.gridcolumn5,.gridcolumn6,.gridcolumn7,.gridcolumn8,
+.gridcolumn9,.gridcolumn10,.gridcolumn11,.gridcolumn12,.gridcolumn13,.gridcolumn14
+{
+	float:left;
+	width:6.9%;
+	padding-top:5px;
+	height:30px;
+	border-right: 1px solid #D9D9D9;	
+}
+.gridcolumn2
+{
+	float:left;
+	width:8%;
+	padding-top:5px;
+	height:30px;
+	border-right: 1px solid #D9D9D9;	
+}
+.gridcolumn0
+{
+	float:left;
+	width:5%;
+	padding-top:4px;
+	padding-left:3px;
+	height:30px;
+	border-right: 1px solid #D9D9D9;
+}
+.gridcolumn15
+{
+	float:left;
+	width:4%;
+	height:30px;
+	padding-top:2px;
+}
+.gridcolumn16,.gridcolumn17,.gridcolumn18,.gridcolumn19,.gridcolumn20
+{
+	display:none;
+}

@@ -1,0 +1,94 @@
+.gridcolumn22
+{
+float:left;
+	padding-top:5px;
+	height:30px;
+	border-right: 1px solid #D9D9D9;	
+	width : 6%;
+}
+.gridcolumn1,.gridcolumn3,.gridcolumn4,.gridcolumn5,.gridcolumn6,.gridcolumn7,.gridcolumn8,
+.gridcolumn9,.gridcolumn10,.gridcolumn11,.gridcolumn12,.gridcolumn13,.gridcolumn14,.gridcolumn16,.gridcolumn17,
+.gridcolumn18,.gridcolumn19,.gridcolumn20,.gridcolumn21
+{
+	float:left;
+	padding-top:5px;
+	height:30px;
+	border-right: 1px solid #D9D9D9;	
+}
+.gridcolumn2
+{
+	float:left;
+	padding-top:5px;
+	height:30px;
+	border-right: 1px solid #D9D9D9;	
+}
+.gridcolumn0
+{
+	float:left;
+	padding-top:4px;
+	padding-left:3px;
+	height:30px;
+	border-right: 1px solid #D9D9D9;
+	width: 3%;
+}
+.gridcolumn15
+{
+	float:left;
+	height:30px;
+	padding-top:2px;
+	width: 3%
+}
+.gridcolumn1
+{
+	width:4%;
+}
+.gridcolumn11
+{
+	width: 5.2%;	
+}
+.gridcolumn5,.gridcolumn6,.gridcolumn7,.gridcolumn8,.gridcolumn9,.gridcolumn18
+{
+	width: 4.2%;	
+}
+.gridcolumn20
+{
+	width: 4%;	
+}
+.gridcolumn12,.gridcolumn13,.gridcolumn14
+{
+	width: 10.8%;	
+}
+.gridcolumn16 > span
+{
+	color: #228b22;
+	font-weight: bolder !important;
+}
+
+.gridcolumn21 > span
+{
+	color: #006400;
+	font-weight: bolder !important;
+}
+
+.gridcolumn16
+{
+	width: 6.2%;
+	color: #228b22;
+}
+.gridcolumn21
+{
+	color: #006400;
+	width: 4.8%;
+}
+.gridcolumn2
+{
+	width: 5%;
+}
+.gridcolumn17,.gridcolumn19
+{
+	width: 6%;	
+}
+.gridcolumn10,.gridcolumn3,.gridcolumn4
+{
+	width: 5%;	
+}

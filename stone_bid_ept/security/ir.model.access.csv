@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stone_bid_ept,stone.bid.ept,model_stone_bid_ept,,1,1,1,1
+
+

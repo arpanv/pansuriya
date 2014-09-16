@@ -1,0 +1,1648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<template id="index" name="Website main Form">
+			<t t-call="website.layout">
+				<t t-set="head">
+					<link rel='stylesheet' href='/website_pansuriya/static/src/css/website_pansuriya.css' />
+
+					<!-- <link type="text/css" href="/website_pansuriya/static/src/css/styles.css"
+						rel="stylesheet" media="screen" />-->
+					<link rel="stylesheet" type="text/css" media="all"
+						id="icon_icomoon_css" href="/website_pansuriya/static/src/css/icomoon.css" />
+					<link rel="stylesheet" type="text/css" media="all" id="rs-settings-css"
+						href="/website_pansuriya/static/src/css/revslider.css" />
+					<link rel="stylesheet" type="text/css" media="all" id="main_css"
+						href="/website_pansuriya/static/src/css/style.css" />
+					<link rel="stylesheet" type="text/css" media="all" id="main_css"
+						href="/website_pansuriya/static/src/css/responsive.css" />
+					<link rel="stylesheet" type="text/css"
+						href="/website_pansuriya/static/src/bootstrap/css/bootstrap.min.css" />
+					<link rel="stylesheet" type="text/css"
+						href="/website_pansuriya/static/src/tipsy/front.css" />
+					<link type="text/css"
+						href="/website_pansuriya/static/src/magicmagnify/magicmagnify.css" rel="stylesheet"
+						media="screen" />
+					<link type="text/css"
+						href="/website_pansuriya/static/src/magicmagnify/magicscroll.css" rel="stylesheet"
+						media="screen" />
+					<link type="text/css" href="/website_pansuriya/static/src/css/font-awesome.css"
+						rel="stylesheet" media="screen" />
+
+					<!-- Custom grid code -->
+					<link rel="stylesheet" href="/website_pansuriya/static/src/css/customGrid/style.css"
+						type="text/css" /> 
+					<link rel="stylesheet" href="/website_pansuriya/static/src/css/customGrid/login.css"
+						type="text/css" />
+<!-- 					<link rel="stylesheet" href="/website_pansuriya/static/src/css/customGrid/logout.css" -->
+<!-- 						type="text/css" /> -->
+					<link rel="stylesheet"
+						href="/website_pansuriya/static/src/css/customGrid/responsive_grid.css" />
+					<link rel="stylesheet" href="/website_pansuriya/static/src/css/other.css" />
+					<link rel="stylesheet" href="/website_pansuriya/static/src/css/prettyPhoto.css" />
+					
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/website_pansuriya.js" />
+					<!-- <script type="text/javascript" src="/website_pansuriya/static/src/js/json2.js" /> -->
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/custom_scrollerbar.js" />
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/jquery.countdown.js" />
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/jClocksGMT.js" />
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/jquery.prettyPhoto.js" />
+					<script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+					
+					<script type="text/javascript">
+                            var pusher = new Pusher('83c063b15546d28a09c6', {encrypted: true});                            
+					</script>
+					<script>
+					    var channel = pusher.subscribe('ocentag_bid_channel');
+					    channel.bind('bidevent', function(data) {
+					        showMessageCustom(data.message);
+					        refreshBidColumn(data.product_id, data.bid_amount, data.product_bid_count);
+					        if (data.is_extend_time != 'false')
+					        {
+					            reInitTimer(data.product_id, data.extend_time);
+					        }
+					    });					    
+					</script>
+				</t>
+				<div id="wrap">
+					<t t-raw="0" />
+				</div>
+			</t>
+		</template>
+		
+		<template id="website.show_sign_in" optional="enabled" inherit_id="website.layout" name="Show Sign In" groups="base.group_public">
+		    <xpath expr="//ul[@id='top_menu']" position="inside">
+		        <li class="divider" t-ignore="true" t-if="website.user_id == user_id"/>
+		        <li t-ignore="true" t-if="website.user_id == user_id">
+		            <a t-attf-href="/web/login">
+		                <b>Sign in</b>
+		            </a>
+		        </li>
+		    </xpath>
+		</template>
+		
+		<template id="website_pansuriya_checkout_signin" inherit_id="website_sale.checkout">
+		    <xpath expr="//small[@groups='base.group_public']" position="replace">
+		         or <a class='btn btn-primary' t-if="website.user_id == user_id" t-attf-href="/web?redirect=#{ request.httprequest.url }">Sign in</a>
+		    </xpath>
+		</template>
+		
+		<template id="website_test_form" name="Website Test Form">
+			<t t-call="website_pansuriya.index">
+
+				<div class="oe_structure" />
+				<div class="container">
+					<form action="/website-test/submit" method="post">
+						<span class="name">Name</span>
+						:
+						<input type="text" name="txtName" value="" placeholder="Name" />
+						<br />
+						<span class="email">Email</span>
+						:
+						<input type="text" name="txtEmail" value="" placeholder="Email" />
+						<br />
+						<input type="submit" value="Send" />
+					</form>
+				</div>
+
+			</t>
+		</template>
+		<template id="website_test_form_thanks" name="Website Test Form Thanks">
+			<t t-call="website_pansuriya.index">
+
+				<div class="oe_structure" />
+				<div class="container name">
+					Thanks
+				</div>
+				<div class="oe_structure" />
+
+			</t>
+		</template>
+
+
+		<template id="website_test_search_stone" name="Website Test Search Stone">
+			<t t-call="website_pansuriya.index">			
+				<div style="display: none;">
+		
+		            <div id="prettyPhotoLinks">
+		
+		            </div>
+		            <div id="preload_container">
+		                sample
+		            </div>
+		        </div>
+				<div class="container">
+				<div class="container_12_ clearfix">
+					<div class="content" style="max-width: 1024px;margin:0px auto;">
+						<section id="search">
+							<div class="tabbable tabbable_red">
+								<ul class="nav-tabs">
+									<li class="active with_icon">
+										<a href="#search_tab_1" data-toggle="tab">
+											<i class="icomoon-search"></i>
+											Search Certified
+										</a>
+									</li>
+
+									<li class="with_icon" style="display:none;">
+										<a href="#search_tab_2" data-toggle="tab">
+											<i class="icomoon-search"></i>
+											Search Noncertified
+										</a>
+									</li>
+									<li class="with_icon" style="display:none;">
+										<a href="#search_tab_3" data-toggle="tab">
+											<i class="icomoon-search"></i>
+											Search small goods
+										</a>
+									</li>
+
+								</ul>
+
+								<div class="tab-content">
+									<div class="tab-pane active" id="search_tab_1">
+										<form id="homepage_search" action="/website-test/submit">
+											<div class="row">
+												<div class="span3">
+
+													<label for="shape" class="dropdown_label">Shape</label>
+													<select style="width: 165px;float:left;" name="shape"
+														id="shape" class="select">
+														<option value="">Any</option>
+														<t t-foreach="product_shapes" t-as="shape">
+															<option t-att-value="shape.id"><t t-esc="shape.name"/></option> 
+														</t>		
+													</select>
+												</div>
+												<div class="span3">
+													<div class="myspan1">
+														<label for="carat" class="dropdown_label">Carat</label>
+														<input type="text" class="input-text" name="carat"
+															id="carat" placeholder="00.00"  />
+													</div>
+													<div class="myspan0">
+														<span class="range_delimiter">-</span>
+													</div>
+													<div class="myspan1">
+														<label for="carat" class="dropdown_label">&#160; </label>
+														<input type="text" class="input-text" name="carat_to"
+															id="carat_to" placeholder="00.00"  />
+													</div>
+												</div>
+												<div class="span3">
+
+													<div class="myspan1">
+
+														<label for="color" class="dropdown_label">Color</label>
+														<select style="" name="color" id="color" class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_colors" t-as="color">
+															<option t-att-value="color.seq"><t t-esc="color.name"/></option> 
+															</t>
+														</select>
+													</div>
+													<div class="myspan0">
+														<span class="range_delimiter">-</span>
+													</div>
+													<div class="myspan1">
+
+														<label for="color_to" class="dropdown_label">&#160; </label>
+														<select style="" name="color_to" id="color_to"
+															class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_colors" t-as="color">
+															<option t-att-value="color.seq"><t t-esc="color.name"/></option> 
+															</t>
+														</select>
+													</div>
+												</div>
+												<div class="span3">
+
+													<div class="myspan1">
+
+														<label for="clarity" class="dropdown_label">Clarity</label>
+														<select style="" name="clarity" id="clarity" class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_clarities" t-as="clarity">
+															<option t-att-value="clarity.seq"><t t-esc="clarity.name"/></option> 
+															</t>
+														</select>
+													</div>
+													<div class="myspan0">
+														<span class="range_delimiter">-</span>
+													</div>
+													<div class="myspan1">
+
+														<label for="clarity_to" class="dropdown_label">&#160; </label>
+														<select style="" name="clarity_to" id="clarity_to"
+															class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_clarities" t-as="clarity">
+															<option t-att-value="clarity.seq"><t t-esc="clarity.name"/></option>
+															</t>
+														</select>
+													</div>
+
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="span3">
+													<div class="myspan1">
+
+														<label for="cut" class="dropdown_label">Cut</label>
+														<select name="cut" id="cut" class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_cuts" t-as="cut">
+															<option t-att-value="cut.seq"><t t-esc="cut.name"/></option>
+															</t>
+														</select>
+													</div>
+													<div class="myspan0">
+														<span class="range_delimiter">-</span>
+													</div>
+													<div class="myspan1">
+														<label for="cut_to" class="dropdown_label">&#160; </label>
+														<select name="cut_to" id="cut_to" class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_cuts" t-as="cut">
+															<option t-att-value="cut.seq"><t t-esc="cut.name"/></option> 
+															</t>
+														</select>
+													</div>
+
+												</div>
+												<div class="span3">
+
+													<div class="myspan1">
+
+														<label for="polish" class="dropdown_label">Polish</label>
+														<select name="polish" id="polish" class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_polishes" t-as="polish">
+															<option t-att-value="polish.seq"><t t-esc="polish.name"/></option> 
+															</t>
+														</select>
+													</div>
+													<div class="myspan0">
+														<span class="range_delimiter">-</span>
+													</div>
+													<div class="myspan1">
+
+														<label for="polish_to" class="dropdown_label">&#160; </label>
+														<select name="polish_to" id="polish_to" class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_polishes" t-as="polish">
+															<option t-att-value="polish.seq"><t t-esc="polish.name"/></option>
+															</t>
+														</select>
+													</div>
+
+												</div>
+												<div class="span3">
+
+													<div class="myspan1">
+
+														<label for="symmetry" class="dropdown_label">Symmetry</label>
+														<select name="symmetry" id="symmetry" class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_symmetries" t-as="symmetry">
+															<option t-att-value="symmetry.seq"><t t-esc="symmetry.name"/></option> 
+															</t>
+														</select>
+													</div>
+													<div class="myspan0">
+														<span class="range_delimiter">-</span>
+													</div>
+													<div class="myspan1">
+
+														<label for="symmetry_to" class="dropdown_label">&#160; </label>
+														<select name="symmetry_to" id="symmetry_to" class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_symmetries" t-as="symmetry">
+															<option t-att-value="symmetry.seq"><t t-esc="symmetry.name"/></option>
+															</t>
+														</select>
+													</div>
+												</div>
+												<div class="span3">
+													<div class="myspan1">
+
+														<label for="fluorescence" class="dropdown_label">Fluorescence</label>
+														<select name="fluorescence" id="fluorescence"
+															class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_fluorescence_intensities" t-as="fluorescence">
+															<option t-att-value="fluorescence.seq"><t t-esc="fluorescence.name"/></option> 
+															</t>
+														</select>
+													</div>
+													<div class="myspan0">
+														<span class="range_delimiter">-</span>
+													</div>
+													<div class="myspan1">
+														<label for="fluorescence" class="dropdown_label">&#160; </label>
+														<select name="fluorescence_to" id="fluorescence_to"
+															class="select">
+															<option value="">Any</option>
+															<t t-foreach="product_fluorescence_intensities" t-as="fluorescence">
+															<option t-att-value="fluorescence.seq"><t t-esc="fluorescence.name"/></option>
+															</t>
+														</select>
+													</div>
+
+												</div>
+											</div>
+											<div class="row last_row">
+												<div class="span3">
+
+													<label for="lab" class="dropdown_label">Lab</label>
+													<select style="width: 165px;float:left;" name="lab"
+														id="lab" class="select">
+														<option value="">Any</option>
+														<t t-foreach="product_labs" t-as="lab">
+															<option t-att-value="lab.id"><t t-esc="lab.name"/></option>
+														</t>
+													</select>
+												</div>
+												<div class="span3">
+													<div class="myspan1">
+														<label for="table" class="dropdown_label">Table</label>
+														<input type="text" class="input-text" name="table"
+															id="table" placeholder="00.00" />
+													</div>
+													<div class="myspan0">
+														<span class="range_delimiter">-</span>
+													</div>
+													<div class="myspan1">
+														<label for="table" class="dropdown_label">&#160; </label>
+														<input type="text" class="input-text" name="table_to"
+															id="table_to" placeholder="00.00" />
+													</div>
+												</div>
+											</div>
+
+											<div class="" id="headingAdvanceSearch">
+												<img src="/website_pansuriya/static/src/images/pointer_side.png" width="20px" />
+												<img src="/website_pansuriya/static/src/images/pointer_down.png" width="20px" style="display: none" />
+												ADVANCE SEARCH
+											</div>
+
+											<div id="divAdvanceSearch" style="display: none;">
+												<!-- location -->
+												<div class="advanceSearchSection advance_location">
+													<div class="row" id="headingAdvanceSearch">Location</div>
+													<div class="row">
+														<div style="float: left; width: 173px">
+															<div class="locationScroll" style="height: 191px;overflow: hidden;">
+
+																<select size="13" style="width: 195px;" multiple="multiple"
+																	name="selLocation" id="selLocation" class="select">
+																	<option value="">Any Location</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<!-- Measurement div -->
+												<div class="advanceSearchSection advance_measurement">
+													<div class="row" id="headingAdvanceSearch">Measurements</div>
+													<div class="row">
+														<div class="myspan1">
+															<label for="m1" class="dropdown_label">M1(Length)</label>
+															<input type="text" class="input-text" name="m1" id="m1"
+																placeholder="00.00" />
+														</div>
+														<div class="myspan0">
+															<span class="range_delimiter">-</span>
+														</div>
+														<div class="myspan1">
+															<label for="m1_to" class="dropdown_label">&#160; </label>
+															<input type="text" class="input-text" name="m1_to"
+																id="m1_to" placeholder="00.00" />
+														</div>
+													</div>
+													<div class="row">
+														<div class="myspan1">
+															<label for="m2" class="dropdown_label">M2(Width)</label>
+															<input type="text" class="input-text" name="m2" id="m2"
+																placeholder="00.00" />
+														</div>
+														<div class="myspan0">
+															<span class="range_delimiter">-</span>
+														</div>
+														<div class="myspan1">
+															<label for="m2_to" class="dropdown_label">&#160; </label>
+															<input type="text" class="input-text" name="m2_to"
+																id="m2_to" placeholder="00.00" />
+														</div>
+													</div>
+													<div class="row">
+														<div class="myspan1">
+															<label for="m3" class="dropdown_label">M3(Height)</label>
+															<input type="text" class="input-text" name="m3" id="m3"
+																placeholder="00.00" />
+														</div>
+														<div class="myspan0">
+															<span class="range_delimiter">-</span>
+														</div>
+														<div class="myspan1">
+															<label for="m3_to" class="dropdown_label">&#160; </label>
+															<input type="text" class="input-text" name="m3_to"
+																id="m3_to" placeholder="00.00" />
+														</div>
+													</div>
+												</div>
+												<!-- gridle div -->
+												<div class="advanceSearchSection advance_gridle">
+													<div class="row" id="headingAdvanceSearch">Girdle</div>
+													<div class="row" style="width: 90%">
+
+
+														<label for="girdle_from" class="dropdown_label">From</label>
+														<div style="width: 127px; overflow: hidden; text-align: right;">
+															<select name="girdle_from" id="girdle_from" class="select"
+																style="width: 127px;">
+															<option value="">Any</option>
+															<t t-foreach="product_girdles" t-as="girdle">
+																<option t-att-value="girdle.seq"><t t-esc="girdle.name"/></option>
+															</t>
+															</select>
+														</div>
+													</div>
+													<div class="row" style="width: 90%">
+
+														<label for="girdle_to" class="dropdown_label">To</label>
+														<div style="width: 127px; overflow: hidden; text-align: right;">
+															<select name="girdle_to" id="girdle_to" class="select"
+																style="width: 127px">
+																<option value="">Any</option>
+																<t t-foreach="product_girdles" t-as="girdle">
+																	<option t-att-value="girdle.seq"><t t-esc="girdle.name"/></option>
+																</t>
+															</select>
+														</div>
+													</div>
+												</div>
+												<!-- culet div -->
+												<div class="advanceSearchSection advance_culet" style="">
+													<div class="row" id="headingAdvanceSearch">Culet</div>
+													<div class="row">
+														<div style="float: left; width: 100px;">
+
+															<label for="culet_size" class="dropdown_label">Size</label>
+															<div style="overflow: hidden; height: 126px; width: 85px;">
+																<select style="width: 165px;" multiple="multiple"
+																	name="culet_size" id="culet_size" size="12" class="select">
+																	<t t-foreach="product_culet_sizes" t-as="culet_size">
+																		<option t-att-value="culet_size.id"><t t-esc="culet_size.name"/></option>
+																	</t>
+																</select>
+															</div>
+														</div>
+														<div class="divCuletConditionSearch">
+
+															<label for="culet_condition" class="dropdown_label">Condition
+															</label>
+															<div style="overflow: hidden;height: 100px;width: 70px;">
+																<select multiple="multiple" size="12"
+																	name="culet_condition" id="culet_condition" class="select">
+																	<t t-foreach="product_culet_conditions" t-as="culet_condition">
+																		<option t-att-value="culet_condition.id"><t t-esc="culet_condition.name"/></option>
+																	</t>
+																</select>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div style="display: block">
+													<!-- price div -->
+													<div class="advanceSearchSection advance_price">
+														<div class="row" id="headingAdvanceSearch">Price</div>
+														<div class="row" style="padding-bottom: 5px;">
+															<div class="myspan1 advance_price_col2">
+																<label for="carat_price" class="dropdown_label">$/CRT</label>
+																<input type="text" class="input-text" name="carat_price"
+																	id="carat_price" placeholder="00.00" />
+															</div>
+															<div class="myspan0">
+																<span class="range_delimiter">-</span>
+															</div>
+															<div class="myspan1 advance_price_col2">
+																<label for="carat_price_to" class="dropdown_label">&#160; </label>
+																<input type="text" class="input-text" name="carat_price_to"
+																	id="carat_price_to" placeholder="00.00" />
+															</div>
+
+															<div class="myspan1 advance_price_col1">
+																<label for="price" class="dropdown_label"
+																	style="padding-bottom: 3px;font-size: 11px;">Total Price</label>
+																<input type="text" class="input-text" name="price"
+																	id="price" placeholder="00.00" />
+															</div>
+															<div class="myspan0">
+																<span class="range_delimiter">-</span>
+															</div>
+															<div class="myspan1 advance_price_col2">
+																<label for="price_to" class="dropdown_label">&#160; </label>
+																<input type="text" class="input-text" name="price_to"
+																	id="price_to" placeholder="00.00" />
+															</div>
+
+															<div class="myspan1 advance_price_col1">
+																<label for="back" class="dropdown_label">Back(%)</label>
+																<input type="text" class="input-text" name="back"
+																	id="back" placeholder="00.00" />
+															</div>
+															<div class="myspan0">
+																<span class="range_delimiter">-</span>
+															</div>
+															<div class="myspan1 advance_price_col2">
+																<label for="back_to" class="dropdown_label">&#160; </label>
+																<input type="text" class="input-text" name="back_to"
+																	id="back_to" placeholder="00.00" />
+															</div>
+														</div>
+													</div>
+													<!-- report no and reference number -->
+													<div class="advanceSearchSection advance_report_reference">
+														<div class="row">
+															<div class="myspan1 advance_report">
+																<label for="report_no" class="dropdown_label">Report No.</label>
+																<input type="text" class="input-text" name="report_no"
+																	id="report_no" placeholder="" />
+															</div>
+															<div class="myspan1 advance_reference clearboth_responsive">
+																<label for="reference_no" class="dropdown_label">Reference
+																	No.
+																</label>
+																<input type="text" class="input-text" name="reference_no"
+																	id="reference_no" placeholder="" />
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="row" style="clear: both;padding-right: 100px;">
+												<div class="span5 clear_submit_buttons" style="float: right">
+													<a href="javascript:void(0);" style="margin-left: 10px"
+														class="clear_filters">
+														<i class="icon-remove"></i>
+														Clear filters
+													</a>
+													<!-- <button id="btnSearch" style="cursor: pointer;" class="button yellow right" 
+														type="submit">Search</button> --> 
+													<a id="btnSearch" style="cursor: pointer;" onclick="sendReq('click');" class="button yellow right">Search</a>
+												</div>
+											</div>
+										</form>
+									</div>
+
+									<div class="tab-pane" id="search_tab_2">
+										Coming Soon
+									</div>
+									<div class="tab-pane" id="search_tab_3">
+										Coming Soon
+									</div>
+
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+
+
+				<section id="featured_news" style="max-width: 1024px;margin:0px auto" class="clearfix">
+					<div class="tabbable">
+						<ul class="nav-tabs">
+							<li class="active">
+								<a href="#featured_news_tab_1" data-toggle="tab" id="grid1">Certified
+									Stone</a>
+							</li>
+							<!-- <li> <a href="#featured_news_tab_2" style="display: none;" data-toggle="tab" 
+								id="grid2">NonCertified Stone</a> </li> -->
+							<li id="compareProdli">
+								<a href="#featured_news_tab_3" data-toggle="tab" class="compareProd">compare
+									&amp; checkout(0)</a>
+							</li>
+							<li>
+								<a href="#featured_news_tab_4" data-toggle="tab" id="grid3">My Bids
+								</a>
+							</li>
+							<div class="productsummary">
+								<span id="carat"></span>
+								<span id="carat_price"></span>
+								<span id="discount" style="margin-right: 0px;"></span>
+							</div>
+						</ul>
+
+
+						<div class="tab-content">
+							<div class="tab-pane active" id="featured_news_tab_1">
+								<div class="divgrid">
+									<div class="gridhead">
+										<div onclick="gridSortData('sku')" title="Referance"
+											class="gridcolumn1">
+											Ref
+											<img class="divsku" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('shape')" title="Shape" class="gridcolumn2">
+											Shape
+											<img class="divshape" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('carat')" title="Carat" class="gridcolumn3">
+											Carat
+											<img class="divcarat" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('color')" title="Color" class="gridcolumn4">
+											Color
+											<img class="divcolor" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('clarity')" title="Clarity"
+											class="gridcolumn5">
+											Clr
+											<img class="divclarity" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('cut')" title="Cut" class="gridcolumn6">
+											Cut
+											<img class="divcut" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('polish')" title="Polish"
+											class="gridcolumn7">
+											Pol
+											<img class="divpolish" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('symmetry')" title="Symmetry"
+											class="gridcolumn8">
+											Sym
+											<img class="divdivsymmetry" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('florescence')" title="Fluorescence"
+											class="gridcolumn9">
+											Flr
+											<img class="divflorescence" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="gridSortData('table')" title="Table" class="gridcolumn11">
+											Table
+											<img class="divtable" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="measurement" class="gridcolumn12">
+											Measurement
+										</div>
+										<div onclick="gridSortData('lab')" title="Lab" class="gridcolumn20">
+											Lab
+											<img class="divlab" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="gridSortData('rapnet_price')" title="Rapnet Price"
+											class="gridcolumn17">
+											Rapnet
+											<img class="divrapnet_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('carat_price')" title="Carat Price"
+											class="gridcolumn18">
+											PPC
+											<img class="divcarat_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('price')" title="Price" class="gridcolumn19">
+											Payable
+											<img class="divprice" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div class="gridcolumn0">&#160;
+										</div>
+										<div onclick="gridSortData('back_percentage')" title="Back Percentage"
+											class="gridcolumn16">
+											Live Rate
+											<img class="divback_percentage" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('customer_bid_amount')" title="Customer Bid"
+											class="gridcolumn21">
+											My Bid
+											<img class="divcustomer_bid_amount" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="Customer Bid" class="gridcolumn22">
+											Bids End
+										</div>
+										<div class="gridcolumn15">
+											<a href="javascript:void(0);" class="chkHead" onclick="chkClickAll(this)">
+												<img class="imgChk" alt="check" src="/website_pansuriya/static/src/images/uncheck_box.png"/>
+											</a>
+										</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="DivGridInnerData"></div>
+									<div class="gridhead">
+										<div onclick="gridSortData('sku')" title="Referance"
+											class="gridcolumn1">
+											Ref
+											<img class="divsku" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('shape')" title="Shape" class="gridcolumn2">
+											Shape
+											<img class="divshape" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('carat')" title="Carat" class="gridcolumn3">
+											Carat
+											<img class="divcarat" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('color')" title="Color" class="gridcolumn4">
+											Color
+											<img class="divcolor" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('clarity')" title="Clarity"
+											class="gridcolumn5">
+											Clr
+											<img class="divclarity" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('cut')" title="Cut" class="gridcolumn6">
+											Cut
+											<img class="divcut" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('polish')" title="Polish"
+											class="gridcolumn7">
+											Pol
+											<img class="divpolish" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('symmetry')" title="Symmetry"
+											class="gridcolumn8">
+											Sym
+											<img class="divdivsymmetry" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('florescence')" title="Fluorescence"
+											class="gridcolumn9">
+											Flr
+											<img class="divflorescence" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="gridSortData('table')" title="Table" class="gridcolumn11">
+											Table
+											<img class="divtable" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="measurement" class="gridcolumn12">
+											Measurement
+										</div>
+										<div onclick="gridSortData('lab')" title="Lab" class="gridcolumn20">
+											Lab
+											<img class="divlab" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="gridSortData('rapnet_price')" title="Rapnet Price"
+											class="gridcolumn17">
+											Rapnet
+											<img class="divrapnet_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('carat_price')" title="Carat Price"
+											class="gridcolumn18">
+											PPC
+											<img class="divcarat_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('price')" title="Price" class="gridcolumn19">
+											Payable
+											<img class="divprice" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div class="gridcolumn0">&#160;
+										</div>
+										<div onclick="gridSortData('back_percentage')" title="Back Percentage"
+											class="gridcolumn16">
+											Live Rate
+											<img class="divback_percentage" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('customer_bid_amount')" title="Customer Bid"
+											class="gridcolumn21">
+											My Bid
+											<img class="divcustomer_bid_amount" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="" class="gridcolumn22">
+											Bids End
+										</div>
+
+										<div class="gridcolumn15">
+											<a href="javascript:void(0);" style="display:none" class="chkHead"
+												onclick="chkClickAll(this)">
+												<img class="imgChk" alt="check" src="/website_pansuriya/static/src/images/uncheck_box.png"/>
+											</a>
+										</div>
+									</div>
+									<div id="divMoreProductLoad" style="text-align: center;font-size: 14px;display: none;">More Stones Loading..!!!
+									</div>
+									<div id="divNoMoreProduct"
+										style="text-align: center;font-size: 14px;display: none;color:#66ccdd;">No More Stones Found</div>
+								</div>
+							</div>
+							<!-- <div class="tab-pane" id="featured_news_tab_2"> Coming Soon </div> 
+								- -->
+							<div class="tab-pane" id="featured_news_tab_3">
+								<div class="divgrid">
+									<div class="gridhead">
+										<div onclick="compareSortData('sku')" title="Referance"
+											class="gridcolumn1">
+											Ref
+											<img id="comparedivsku" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('shape')" title="Shape"
+											class="gridcolumn2">
+											Shape
+											<img id="comparedivshape" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('carat')" title="Carat"
+											class="gridcolumn3">
+											Carat
+											<img id="comparedivcarat" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('color')" title="Color"
+											class="gridcolumn4">
+											Color
+											<img id="comparedivcolor" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('clarity')" title="Clarity"
+											class="gridcolumn5">
+											Clr
+											<img id="comparedivclarity" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('cut')" title="Cut" class="gridcolumn6">
+											Cut
+											<img id="comparedivcut" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('polish')" title="Polish"
+											class="gridcolumn7">
+											Pol
+											<img id="comparedivpolish" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('symmetry')" title="Symmetry"
+											class="gridcolumn8">
+											Sym
+											<img id="comparedivsymmetry" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('florescence')" title="Fluorescence"
+											class="gridcolumn9">
+											Flr
+											<img id="comparedivflorescence" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="compareSortData('table')" title="Table"
+											class="gridcolumn11">
+											Table
+											<img id="comparedivtable" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="measurement" class="gridcolumn12">
+											Measurement
+										</div>
+
+
+										<div onclick="gridSortData('lab')" title="Lab" class="gridcolumn20">
+											Lab
+											<img id="comparedivlab" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="compareSortData('rapnet_price')" title="Rapnet Price"
+											class="gridcolumn17">
+											Rapnet
+											<img id="comparedivrapnet_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('carat_price')" title="Carat Price"
+											class="gridcolumn18">
+											PPC
+											<img id="comparedivcarat_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('price')" title="Price"
+											class="gridcolumn19">
+											Payable
+											<img id="comparedivprice" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div class="gridcolumn0">&#160;
+										</div>
+										<div onclick="compareSortData('back_percentage')" title="Back Percentage"
+											class="gridcolumn16">
+											Live Rate
+											<img id="comparedivback_percentage" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('customer_bid_amount')"
+											title="Customer Bid" class="gridcolumn21">
+											My Bid
+											<img class="comparedivcustomer_bid_amount" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="Customer Bid" class="gridcolumn22">
+											Bids End
+										</div>
+
+
+
+										<div class="gridcolumn15">
+											<a href="javascript:void(0);" class="chkHead"></a>
+										</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="CompareGridInnerData"></div>
+
+									<div class="gridhead">
+										<div onclick="compareSortData('sku')" title="Referance"
+											class="gridcolumn1">
+											Ref
+											<img id="comparedivsku" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('shape')" title="Shape"
+											class="gridcolumn2">
+											Shape
+											<img id="comparedivshape" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('carat')" title="Carat"
+											class="gridcolumn3">
+											Carat
+											<img id="comparedivcarat" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('color')" title="Color"
+											class="gridcolumn4">
+											Color
+											<img id="comparedivcolor" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('clarity')" title="Clarity"
+											class="gridcolumn5">
+											Clr
+											<img id="comparedivclarity" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('cut')" title="Cut" class="gridcolumn6">
+											Cut
+											<img id="comparedivcut" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('polish')" title="Polish"
+											class="gridcolumn7">
+											Pol
+											<img id="comparedivpolish" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('symmetry')" title="Symmetry"
+											class="gridcolumn8">
+											Sym
+											<img id="comparedivsymmetry" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('florescence')" title="Fluorescence"
+											class="gridcolumn9">
+											Flr
+											<img id="comparedivflorescence" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="compareSortData('table')" title="Table"
+											class="gridcolumn11">
+											Table
+											<img id="comparedivtable" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="measurement" class="gridcolumn12">
+											Measurement
+										</div>
+
+
+										<div onclick="gridSortData('lab')" title="Lab" class="gridcolumn20">
+											Lab
+											<img id="comparedivlab" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="compareSortData('rapnet_price')" title="Rapnet Price"
+											class="gridcolumn17">
+											Rapnet
+											<img id="comparedivrapnet_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('carat_price')" title="Carat Price"
+											class="gridcolumn18">
+											PPC
+											<img id="comparedivcarat_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('price')" title="Price"
+											class="gridcolumn19">
+											Payable
+											<img id="comparedivprice" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div class="gridcolumn0">&#160;
+										</div>
+										<div onclick="compareSortData('back_percentage')" title="Back Percentage"
+											class="gridcolumn16">
+											Live Rate
+											<img id="comparedivback_percentage" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="compareSortData('customer_bid_amount')"
+											title="Customer Bid" class="gridcolumn21">
+											My Bid
+											<img class="comparedivcustomer_bid_amount" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="Customer Bid" class="gridcolumn22">
+											Bids End
+										</div>
+
+										<div class="gridcolumn15">
+											<a href="javascript:void(0);" class="chkHead"></a>
+										</div>
+									</div>
+								</div>
+								<div style="margin: 0px auto; text-align: center; display: none"
+									id="divBulkAddToCart">
+									<a id="btnBulkAddToCart" href="javascript:void(0);" onclick="bulkAddToCart();"
+										title="Add All Products to Cart" class="button red span4"
+										style="background: #ff6666;
+                               padding: 3px 10px 6px;
+                               -webkit-border-radius: 3px;
+                               -moz-border-radius: 3px;
+                               border-radius: 3px;
+                               color: #fff;
+                               font-size: 12px;
+                               line-height: 24px;
+                               display: block;
+                               width: 175px;
+                               margin: 0px auto;
+                               text-decoration: none;">Add All Products to Cart</a>
+								</div>
+							</div>
+							<div class="tab-pane" id="featured_news_tab_4">
+								<div class="divgrid">
+									<div class="gridhead">
+										<div onclick="gridSortData('sku')" title="Referance"
+											class="gridcolumn1">
+											Ref
+											<img class="divsku" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('shape')" title="Shape" class="gridcolumn2">
+											Shape
+											<img class="divshape" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('carat')" title="Carat" class="gridcolumn3">
+											Carat
+											<img class="divcarat" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('color')" title="Color" class="gridcolumn4">
+											Color
+											<img class="divcolor" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('clarity')" title="Clarity"
+											class="gridcolumn5">
+											Clr
+											<img class="divclarity" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('cut')" title="Cut" class="gridcolumn6">
+											Cut
+											<img class="divcut" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('polish')" title="Polish"
+											class="gridcolumn7">
+											Pol
+											<img class="divpolish" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('symmetry')" title="Symmetry"
+											class="gridcolumn8">
+											Sym
+											<img class="divdivsymmetry" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('florescence')" title="Fluorescence"
+											class="gridcolumn9">
+											Flr
+											<img class="divflorescence" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="gridSortData('table')" title="Table" class="gridcolumn11">
+											Table
+											<img class="divtable" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="measurement" class="gridcolumn12">
+											Measurement
+										</div>
+										<div onclick="gridSortData('lab')" title="Lab" class="gridcolumn20">
+											Lab
+											<img class="divlab" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="gridSortData('rapnet_price')" title="Rapnet Price"
+											class="gridcolumn17">
+											Rapnet
+											<img class="divrapnet_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('carat_price')" title="Carat Price"
+											class="gridcolumn18">
+											PPC
+											<img class="divcarat_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('price')" title="Price" class="gridcolumn19">
+											Payable
+											<img class="divprice" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div class="gridcolumn0">&#160;
+										</div>
+										<div onclick="gridSortData('back_percentage')" title="Back Percentage"
+											class="gridcolumn16">
+											Live Rate
+											<img class="divback_percentage" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('customer_bid_amount')" title="Customer Bid"
+											class="gridcolumn21">
+											My Bid
+											<img class="divcustomer_bid_amount" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="Customer Bid" class="gridcolumn22">
+											Bids End
+										</div>
+
+
+										<div class="gridcolumn15">
+											<a href="javascript:void(0);" class="chkHead" onclick="">
+
+											</a>
+										</div>
+									</div>
+									<div style="clear: both;"></div>
+									<div class="DivMyBidInnerData"></div>
+									<div class="gridhead">
+										<div onclick="gridSortData('sku')" title="Referance"
+											class="gridcolumn1">
+											Ref
+											<img class="divsku" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('shape')" title="Shape" class="gridcolumn2">
+											Shape
+											<img class="divshape" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('carat')" title="Carat" class="gridcolumn3">
+											Carat
+											<img class="divcarat" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('color')" title="Color" class="gridcolumn4">
+											Color
+											<img class="divcolor" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('clarity')" title="Clarity"
+											class="gridcolumn5">
+											Clr
+											<img class="divclarity" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('cut')" title="Cut" class="gridcolumn6">
+											Cut
+											<img class="divcut" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('polish')" title="Polish"
+											class="gridcolumn7">
+											Pol
+											<img class="divpolish" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('symmetry')" title="Symmetry"
+											class="gridcolumn8">
+											Sym
+											<img class="divdivsymmetry" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('florescence')" title="Fluorescence"
+											class="gridcolumn9">
+											Flr
+											<img class="divflorescence" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="gridSortData('table')" title="Table" class="gridcolumn11">
+											Table
+											<img class="divtable" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="measurement" class="gridcolumn12">
+											Measurement
+										</div>
+
+
+										<div onclick="gridSortData('lab')" title="Lab" class="gridcolumn20">
+											Lab
+											<img class="divlab" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+
+										<div onclick="gridSortData('rapnet_price')" title="Rapnet Price"
+											class="gridcolumn17">
+											Rapnet
+											<img class="divrapnet_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('carat_price')" title="Carat Price"
+											class="gridcolumn18">
+											PPC
+											<img class="divcarat_price" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('price')" title="Price" class="gridcolumn19">
+											Payable
+											<img class="divprice" style="" src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div class="gridcolumn0">&#160;
+										</div>
+										<div onclick="gridSortData('back_percentage')" title="Back Percentage"
+											class="gridcolumn16">
+											Bid
+											<img class="divback_percentage" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="gridSortData('customer_bid_amount')" title="Customer Bid"
+											class="gridcolumn21">
+											My Bid
+											<img class="divcustomer_bid_amount" style=""
+												src="/website_pansuriya/static/src/images/arrow_up_down.png"/>
+										</div>
+										<div onclick="" title="Customer Bid" class="gridcolumn22">
+											Bids End
+										</div>
+
+										<div class="gridcolumn15">
+											<a href="javascript:void(0);" style="display:none" class="chkHead">
+
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+			<div id="overlay">
+	<div id="bidModelDiv" class="bidModelDiv"></div>	
+</div>	
+	<div class="hidden_bid_data" style="display:none;"></div><!-- if customer back press then this use-->
+	<div class="hidden_modelbidamount" style="display:none;"></div><!-- if customer back press then this use-->
+	<div class="hidden_placebid_button" style="display:none;"></div> <!-- button onclick value store when he toward confirm -->
+	
+	<div class="raisebidmodel">
+		<i class="icon-remove fr closemodel" onclick="hideOverlay()"></i>
+		
+		<div style="width:100%;">
+		  <div style="margin:0px auto;width:300px">
+				<img style="width: 30px; height: 30px; float: left; margin-top: 15px;" src="/website_pansuriya/static/src/images/model_right.png" />
+				<span class="maxbid_info">You're the highest bidder on this stone,<br/> but you're close to outbid</span>			
+		  </div>		
+		</div>		
+		<div style="font-size:13px;padding-bottom:15px;">Increase your chances of winning by raising your max bid</div>
+		<span class="bidamount_error"></span>
+		<div style="width:100%;">
+			<div class="" style="display:inline-block;padding-left: 100px;">
+				<input class="raisebidamount" type="text" style="border: 1px solid black;
+		border-radius: 0;				
+		padding: 10px;
+		width: 130px;"/>
+		<div style="font-size:9px;padding-left:25px;" class="minbid"></div>
+		<div style="font-size:14px;padding-left:25px;"><span style="padding-right:5px;display:inline-block;">Current Bid</span><span style="color:#0D8605;font-weight:bold;" class="modelcurrentbidmainspan"></span>
+			<span style="display:inline-block;padding:5px;" class="modelprice"></span>
+		</div>
+		<div style="font-size:14px;display:inline-block;padding-right:5px;"><span style="color:#0D8605;" class="product_bid_count"></span></div>
+			</div>
+			<div class="raisebidbutton" style="display: inline-block;
+				float: right;">
+				<button style="background-color: #6CD;
+				border: medium none;
+				color: #FFF;
+				padding: 20px 20px 60px;
+				cursor: pointer;
+				font-size: 14px;
+				margin-right: 80px;
+				position: relative;
+				">RAISE YOUR BID</button>
+			</div>
+		</div>			
+	</div>	
+
+			</t>
+		</template>
+		
+		<template id="ajax_popup" name="Ajax Popup">
+			
+					<link rel="stylesheet" type="text/css" media="all" id="main_css" href="/website_pansuriya/static/src/css/styles.css" />
+					<link rel="stylesheet" type="text/css" media="all" id="main_css" href="/website_pansuriya/static/src/css/style.css" />
+					<link rel="stylesheet" type="text/css" media="all" id="main_css" href="/website_pansuriya/static/src/css/responsive.css" />							
+					<link rel="stylesheet" type="text/css" media="all" id="icon_icomoon_css" href="/website_pansuriya/static/src/css/ajax_popup.css" />
+					
+					<link type="text/css" href="/website_pansuriya/static/src/magicmagnify/magicmagnify.css" rel="stylesheet" media="screen" />
+<!-- 					<link type="text/css" href="/website_pansuriya/static/src/css/styles.css" rel="stylesheet" media="screen" /> -->
+					
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/jquery-1.8.3.min.js"></script>
+					
+					<!-- <script type="text/javascript" src="/website_pansuriya/static/src/js/jquery.ajax-wishlist-compare.js" />
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/jquery.ajax-addtocart.js" /> 					
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/jquery.tinytimer.min.js" /> -->
+					
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/magicscroll.js" />
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/magicmagnify.js" />					
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/ajax_popup.js" />
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/jquery.prettyPhoto.js" />
+					
+				<a style="display:none" id="tmpprettyPhoto" href=""></a>
+
+				<div style="display:none" id="div_pretty">test</div>
+						
+				<div t-foreach="stone_objects" t-as="stone" id="myModal" style="background-color: #F4F4F4 !important">
+					<div class="askpopup" style="display:none;">
+				        <div style="text-align:center;">
+				            <div><span class="spancolor">Stone checking request</span></div>
+				            <div style="margin-bottom:20px;">
+				                <span class="spancolor">1- </span><span class="spancontent">Milky</span>
+				                <span class="spancolor">2- </span><span class="spancontent">Tinge</span>			
+				            </div>
+				            <table style="width:100%;" cellspacing="3px">
+				                <tr>
+				                    <td><textarea cols="3" rows="3" id="txtarea" style="background-color:#666666;width:165px;height:50px;color:white;font-size:14px;" placeholder="Message"></textarea></td>
+				                    <td id="askpopupsend" style="font-family:'TeXGyreAdventorRegular';cursor: pointer;background-color:#666666;height: 38px;width:50px;color:white;text-align: center;border: 1px solid;">Send
+				                    </td>
+				                </tr>
+				            </table>
+				        </div>
+				    </div>
+				   <article class="box clearfix item_main" style="width:855px;height: 500px;margin-bottom: 0px">
+        
+                <div class="popupMainDiv">
+            <div class="popupLeftMainDiv txt-center">
+                <div class="popupLeftMainDivHeading">
+                        Certificate#:  
+                        <a style="color: #d43162;" target="_blank" href="-"><span t-field="stone.certificate_no"/></a>
+                        <a style="color: #d43162;" target="_blank" href="-">VIEW</a>
+                </div>
+                <div class="attributeRow">
+                    <div class="labelDiv fl">Stone ID</div>                    
+                    <div class="labelDiv fl">Shape</div> 
+                    <div class="labelDiv fl">Carat</div>
+                    <div class="labelDiv fl">Clarity</div>
+                    <div class="labelDiv fl">Cut</div>
+                    <div class="labelDiv fl">Polish</div>
+                    <div class="labelDiv fl">Symm.</div>
+                    <div class="labelDiv fl">Flourecense</div>
+                    <div class="labelDiv fl">Graded By</div>
+                    <div class="labelDiv fl">Measurements</div>
+                </div>
+                <div class="attributeRow">
+                    <div class="valueDiv fl" t-field="stone.default_code" />
+                    <div class="valueDiv fl" t-field="stone.shape_id.name" />
+                    <div class="valueDiv fl" t-field="stone.weight" />
+                    <div class="valueDiv fl" t-field="stone.clarity_id.name" />
+                    <div class="valueDiv fl" t-field="stone.cut_id.name" />
+                    <div class="valueDiv fl" t-field="stone.polish_id.name" />
+                    <div class="valueDiv fl" t-field="stone.symmetry_id.name" />
+                    <div class="valueDiv fl" t-field="stone.fluorescence_intensity_id.name" />
+                    <div class="valueDiv fl" t-field="stone.lab_id.name" />
+                    <div class="valueDiv fl">
+                    	<span t-field="stone.product_length" />*<span t-field="stone.product_width" />*<span t-field="stone.product_height" />
+                    </div>                    
+                </div>
+                <div class="attributeRow">                                                                                
+                    <div class="labelDiv fl">Depth</div>
+                    <div class="labelDiv fl">Table</div> 
+                    <div class="labelDiv fl">Girdle</div>
+                    <div class="labelDiv fl">CR Height</div>
+                    <div class="labelDiv fl">CR Angle</div>
+                    <div class="labelDiv fl">Pav Angle</div>
+                    <div class="labelDiv fl">Pav Height</div>
+                    <div class="labelDiv fl">Laser</div>
+                    <div class="labelDiv fl">Girdle Cond.</div>
+                    <div class="labelDiv fl">Culet</div>
+                </div>
+                <div class="attributeRow">
+                    <div class="valueDiv fl" t-field="stone.product_depth" />
+                    <div class="valueDiv fl" t-field="stone.product_table" />
+                    <div class="valueDiv fl" t-field="stone.girdle_condition" />                    	
+                    
+                    <div class="valueDiv fl" t-field="stone.crown_height" />
+                    <div class="valueDiv fl" t-field="stone.crown_angle" />
+                    <div class="valueDiv fl" t-field="stone.pavilion_height" />
+                    <div class="valueDiv fl" t-field="stone.pavilion_depth" />
+                    <div class="valueDiv fl" t-field="stone.laser_inspection" />
+                    <div class="valueDiv fl" t-field="stone.girdle_condition" />
+                    <div class="valueDiv fl" t-field="stone.culet_id.name" />
+                </div>                               
+                
+                <div class="attributeRow">                                                                                                     
+                    <div class="labelDiv fl">Diameter</div>
+                    <!-- <div class="labelDiv fl">Girdle Thin</div>
+                    <div class="labelDiv fl">Girdle Thick</div> -->
+                    <div class="labelDiv fl">Girdle</div>
+                    <div class="labelDiv fl">Shade</div>
+                    <div class="labelDiv fl">Eye Clean</div>
+                    <div class="labelDiv fl">HnA</div>
+                    <div class="labelDiv fl">Star Length</div>
+                    <div class="labelDiv fl">Lower Half</div>
+                    <div class="labelDiv fl">Natts</div>
+                    <div class="labelDiv fl">Browness</div>
+                </div>
+                <div class="attributeRow">
+                    <div class="valueDiv fl" t-field="stone.diameter" />
+                    <div class="valueDiv fl" t-field="stone.girdle_id.name" />
+                    <div class="valueDiv fl" t-field="stone.shade" />
+                    <div class="valueDiv fl" t-field="stone.eye_clean" />
+                    <div class="valueDiv fl" t-field="stone.hna" />
+                    <div class="valueDiv fl" t-field="stone.star_length" />
+                    <div class="valueDiv fl" t-field="stone.lower_half" />
+                    <div class="valueDiv fl" t-field="stone.natts" />
+                    <div class="valueDiv fl" t-field="stone.browness" />
+                </div>                
+                <div class="attributeRow">                                                                                
+                    <div class="labelDiv fl">Color</div>
+                    <div class="labelDiv fl">Treatment</div>
+                    <div class="labelDiv fl">Milky</div>
+                    <div class="labelDiv fl">Tinge</div>
+                    <div class="labelDiv fl">Fan. Color</div>
+                    <div class="labelDiv fl txt-left" style="width: 400px;padding-left: 10px;">Comment</div>
+                </div>
+                <div class="attributeRow" style="border-bottom: 1px solid lightgray;">                                        
+                    <div class="valueDiv fl" t-field="stone.color_id.name" />
+                    <div class="valueDiv fl" t-field="stone.treatment" />
+                    <div class="valueDiv fl" t-field="stone.milky" />
+                    <div class="valueDiv fl" t-field="stone.tinge" />
+                    <div class="valueDiv fl" t-field="stone.fancy_color_intensity.name" />
+                    <div class="valueDiv fl txt-left" style="width: 400px;padding-left: 10px;">-</div>                    
+                </div>                
+            </div>
+            
+            <div class="popupPart_2_Main" style="height: 270px;">
+                <div class="popupPart_2">
+                    <div style="background-color: #EEE3AE;height: 36px;margin-top: 10px;">
+                    </div>
+                    <input type="hidden" name="customer_id" id="customer_id" value="50" />
+                    <div class="left item_images clearfix" style="margin-top: -25px;margin-left: 10px;box-shadow: 0px 0px 2px 0px #999999;padding: 0px;">
+                        <div class="image_box" style="padding-bottom: 0px; border: 0px solid lightgray; border-top:none;">
+                                                            <div id="no_image">
+                                    <img src="/website_pansuriya/static/src/images/no-available-image.png" alt="No Image Available" style="height:250px;width:250px" />
+                                </div>
+                                                    </div>                    
+                                            </div>
+                        <div class="fl" style="margin-top: -25px;width: auto;">							
+                            <div class="priceMainDiv txt-center" style="width: 315px;">
+                                <div style="background-color: white;color: #333;box-shadow: 0px 0px 1px 1px lightgray;">
+                                    <div class="priceDivRow">
+                                        <div class="priceDiv fl">Rapnet Price</div>
+                                        <div class="priceDiv fl">Price Per Carat $</div>
+                                        <div class="priceDiv fl">Total Price</div>
+                                    </div>
+                                    <div class="priceDivRow">
+                                        <div class="priceDiv fl" t-field="stone.rapnet_price" />
+                                        <div class="priceDiv fl" t-field="stone.price_caret" />
+                                        <div class="priceDiv fl" t-field="stone.list_price" />
+                                    </div>                            
+                                </div>
+                            </div>                            
+                            <div class="item_footer row clearfix" style="width: 100%;margin-left: 10px;margin-top: 10px;border-left: 1px solid #66ccdd;">
+                              <form id="product_addtocart_form" action="/shop/cart/update" method="post">
+                                  <div class="addtocart_shipping">
+									  											<div class="price shipping" style="height: 58px;border-top: 1px solid #66ccdd;width: 110px !important;border-bottom: 1px solid #66ccdd;">
+                                          
+                                          <span style="font-size: 14px;color: #d43162;">Back (%):
+                                          <span t-field="stone.discount" />
+                                          </span> 
+                                          
+                                          <span class="ship_excl" style="font-family: NovecentowideBookRegular">(SHIPPING EXCLUDED)</span>
+                                          </div>
+											                                     
+																			
+                                      <div class="shipping" style="margin-right: 3px;width: 100px;">
+                                          <div class="make-offer" style="background-color: #66ccdd;height: 31px;">
+                                              <span class="ship_offer">Place Bid</span>
+                                          </div>
+                                          <div class="inpt_offer" style="width:100%;height: 27px;border: 1px solid #66ccdd;">
+											<div class="search btn_make_offer" style="float: right;height: 25px;">
+												<a href="#" id="lnk_mk_offer" onclick="saveBid('5','-50','')" data-id="5"><img src="/website_pansuriya/static/src/images/make_offer_icon.png" style="vertical-align: baseline;width:16px; height:16px;" /></a>
+											</div>
+                                              <input id="bid_price" disabled="disabled" status="login" value="-" type="text" style="width: 78px;height:24px;" class="offer-txt" />
+                                          </div>
+
+                                      </div>
+                                     <div class="addtocart" style="float:left;width: 117px;">
+                                          <div class="cart-btn">                                       			                                         
+                                              <a class="add-to-cart" is_auction="0" style="height: 27px;margin-bottom: 3px;text-decoration: none;" href="javascript:void(0)" data-id="5" id="btnAddToCart" >Add to cart</a>                                              
+                                              <a class="add-to-watchlist" style="height: 28px;text-decoration: none;" href="javascript:void(0)" data-id="5" id="btnAddToWatchList">Add to Watchlist</a>
+                                          </div>
+                                      </div>
+                                                                        </div>
+                              </form>
+                              <div class="no-display">
+                                  <input type="hidden" name="product" id="product_addtocart_id" value=""/>
+                                  <input type="hidden" class="hidden" id="popup_stone_id" t-field="stone.id" />
+                              </div>
+                              <script type="text/javascript">
+                                  //<![CDATA[
+                                  //var productAddToCartForm = new VarienForm('product_addtocart_form');
+                                  /*var loaderBckImg = 'http://192.168.1.18/ocentag/skin/frontend/default/milano/images/loading.gif';
+                                  var successMsg = 'was successfully added to your shopping cart.';
+                                  var continueMsg = 'Continue shopping';
+                                  var cartUrl = 'http://192.168.1.18/ocentag/checkout/cart/';
+                                  var cartMsg = 'View cart & checkout';
+                                  var errorMsg = 'Error';*/
+                                  //jQuery('.rating-links > a').click(function(e){ e.preventDefault(); jQuery('#product_tabs_product_review > a').click(); });
+                                  //]]>
+                              </script>
+                          </div>
+                            
+                                                        
+                            <div style="padding: 5px 0px 5px 0px;width: 315px;text-align: center;font-size: 14px;">
+                                <strong>Seller:</strong> 
+                                <font color="#d43162">-</font>                            </div>
+                                                       
+                                                     
+                        </div> 
+                    </div>
+                </div>            
+        </div>
+        
+        
+        
+        
+                
+        
+        
+        
+        
+        <div class="pop_bkg" style="display:none;"></div>
+        <input type="hidden" name="customer_id" id="customer_id" value="50" />
+        <div class="left item_images clearfix" style="display: none;margin-top: -40px;margin-left: 17px;margin-right: 17px;box-shadow: 0px 0px 2px 0px #999999;padding: 0px;">
+            <div class="image_box" style="padding-bottom: 0px; border: 0px solid lightgray; border-top:none;">
+                                    <div id="no_image">
+                        <img src="http://192.168.1.18/ocentag/media/catalog/product/placeholder/default/no-available-image.png" alt="No Image Available" style="height:330px;width:330px" />
+                    </div>
+                            </div>
+            <div id="divLoginAlert" style="height:18px"><a style="display: none;color: red;" href="javascript:void(0)">Login Required</a></div>
+			            <div class="item_footer row clearfix" style="width: 100%;">
+                
+                <form id="product_addtocart_form" href="/shop/cart/update">
+
+
+
+
+                    
+                    <div class="addtocart_shipping">
+                        <div class="price shipping" style="height: 58px;
+border-top: 1px solid #66ccdd;
+width: 90px !important;
+border-bottom: 1px solid #66ccdd;">
+                            <span class="ship_price">$2787.70</span>
+                            <span class="ship_excl" style="font-family: NovecentowideBookRegular">(SHIPPING EXCLUDED)</span>
+  
+                      </div>
+                        <div class="shipping" style="margin-right: 3px;">
+                            <div class="make-offer" style="background-color: #66ccdd;height: 31px;">
+                                <span class="ship_offer">Make Offer</span>
+                            </div>
+                            <div class="inpt_offer" style="width:100%;height: 27px;">
+<div class="search btn_make_offer" style="float: right;height: 25px;">
+                                <a href="#" id="lnk_mk_offer" data-id="5"><img src="http://192.168.1.18/ocentag/skin/themeforest/images/make_offer_icon.png" style="vertical-align: baseline;width:16px; height:16px;" /></a>
+                            </div>
+                                <input type="text" style="width: 88px;height:24px" id="txt_make_offer" class="offer-txt" status="login" value="-50" />
+                            </div>
+                            
+                        </div>
+                        
+
+                <div class="no-display">
+                    <input type="hidden" name="product" id="product_addtocart_id" value="" />
+                </div>
+                
+            </div>
+        </form></div>        
+    </div></article>
+				    
+				</div>
+				
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/jquery.countdown.js"></script>
+					<script type="text/javascript" src="/website_pansuriya/static/src/js/ajax_popup2.js"></script>
+					
+					
+		</template>
+		
+	</data>
+</openerp>

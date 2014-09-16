@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="view_wizard_sale_discount_ept" model="ir.ui.view">
+			<field name="name">view.wizard.sale.discount.ept</field>
+			<field name="model">wizard.sale.discount.ept</field>
+			<field name="arch" type="xml">
+				<form string="Set Discount" version="7.0">
+					<group colspan="2" col="5">
+						<field name="operation" required="1" />
+						<field name="value" required="1" attrs="{'invisible':[('operation','=','set_default_discount')]}" />
+						<footer>
+							<button name="set_discount" string="Set" type="object" class="oe_highlight"/>
+						</footer>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+    	<record id="act_wizard_sale_discount_ept_action" model="ir.actions.act_window">
+            <field name="name">Set Discount</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.sale.discount.ept</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="view_wizard_sale_discount_ept"/>  
+            <field name="target">new</field>                      
+        </record>
+    </data>
+</openerp>

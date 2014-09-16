@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="mageneto_instance_extended_ept" model="ir.ui.view">
+            <field name="name">magento.instance.extended.ept</field>
+            <field name="model">magento.instance.website</field>
+            <field name="inherit_id" ref="magento_integration.instance_website_form_view"/>      
+            <field name="arch" type="xml">
+            
+            	<xpath expr = "//button[@string='Export Catalog']" position="after">
+            		<button name="get_attribute_sets"
+                     	type="object" class="oe_highlight" string='Import Attributes'/>
+            	</xpath>
+            	
+<!--             	<xpath expr="//button[@string='Export Catalog']" position="attributes"> -->
+<!-- 						<attribute name = "type">action</attribute> -->
+<!-- 						<attribute name = "string">Import Attribute</attribute> -->
+<!-- 				</xpath> -->
+            
+	           	<xpath expr = "//notebook/page[@string='Magento Products']" position="after">
+	           		<page string="Attribute Sets">
+	           			<group>
+	           				<field name = "attribute_ids" nolabel="1" readonly="1"/>
+	           			</group>
+	           		</page>
+	           	</xpath>
+	           	
+            </field>
+        </record>
+	</data>
+</openerp>               

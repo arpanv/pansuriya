@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        
+        <record id="message_form_ept" model="ir.sequence.type">
+            <field name="name">Message Sequence Form</field>
+            <field name="code">form.sequence</field>
+        </record>
+        <record id="seq_message_form" model="ir.sequence">
+            <field name="name">Message Sequence</field>
+            <field name="code">form.sequence</field>
+            <field name="prefix">FORM</field>
+            <field name="padding">6</field>
+        </record>
+    </data>
+</openerp>

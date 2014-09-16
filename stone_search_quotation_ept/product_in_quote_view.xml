@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="selected_product_in_quote_ept">
+			<field name="name">selected.product.in.quote.ept</field>
+			<field name="model">product.in.quote</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Selecte Customer And Create Quotation" version = "7.0">
+					<sheet>
+						<group>
+							<field name = "partner_id" on_change="on_change_partner_id(partner_id)" required="1" domain="[('customer','=',True)]"/>
+							<field name="order_id" domain="[('partner_id','=',partner_id),('state','=','draft')]"/>
+						</group>
+						<footer>
+                        	<button name="create_quote_ept" string="Create Quotation" type="object" class="oe_highlight"/>
+							or
+							<button string="Cancel" class="oe_link" special="cancel"/>
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<act_window name="Add To Quote" 
+		    res_model="product.in.quote"
+			src_model="product.product" 
+			view_mode="form" 
+			view_type="form"
+			target="new" 
+			multi="True" 
+			key2="client_action_multi"
+			id="action_add_to_quote_ept"
+			view_id="selected_product_in_quote_ept"/>
+		
+	</data>
+</openerp>

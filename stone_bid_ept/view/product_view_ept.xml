@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<openerp>
+	<data>
+		<record id='stone_form_view_inherit_ept2' model='ir.ui.view'>
+			<field name = 'name'>stone.form.view.inherit.ept</field>
+			<field name="model">product.product</field>
+			<field name = 'inherit_id' ref='product.stone_form_view_ept'/>
+			<field name = 'arch' type = 'xml'>
+				<notebook position='inside'>
+					<page string='Bid Info'>
+						<group>
+							<field name = 'current_bid_amount' />
+						</group>
+							<field name = 'stone_bid_ids' nolabel="1"/>
+					</page>
+				</notebook>
+			</field>
+		</record>
+		
+<!-- 		<record id='stone_form_view_inherit_ept1' model='ir.ui.view'> -->
+<!-- 			<field name = 'name'>stone.form.view.inherit.ept</field> -->
+<!-- 			<field name="model">product.product</field> -->
+<!-- 			<field name = 'inherit_id' ref='product.stone_form_view_ept'/> -->
+<!-- 			<field name = 'arch' type = 'xml'> -->
+<!-- 				<field name='seller_id' position='after'> -->
+<!-- 					<field name = 'current_bid_amount' /> -->
+<!-- 				</field> -->
+<!-- 			</field> -->
+<!-- 		</record>				 -->
+	</data>
+</openerp>

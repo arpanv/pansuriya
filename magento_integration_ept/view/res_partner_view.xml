@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record id="view_partner_form_ept" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field eval="1" name="priority"/>
+            <field name="arch" type="xml">
+            	<field name="website" position="after">
+            		<field name="is_manufacture"/>
+            	</field>
+            	<xpath expr="//page[@string='Internal Notes']" position="after">
+            		<page string="Extra Informations">
+            			<group>
+            				<group string="Company Informations">
+	            				<field name="company_name_ept" placeholder="Company Name"/>
+	            				<field name="owner_name_ept" placeholder="Enter Owner Name"/>	            				
+            				</group>
+            				
+            				<group string="Member Of">
+            					<field name="members_of_trade_portal_ept"/>
+            					<field name="members_of_trade_association_ept"/>
+            				</group>
+            				
+            				<group string="Contact Informations">
+            					<field name="alternate_email_ept" placeholder="e.g info@yourcompany.com"/>
+            					<field name="contact_mobile_number_ept" placeholder="e.g. +91-999..."/>
+            					<field name="contact_number_ept" placeholder="e.g. +91-999..."/>
+            					<field name="extension_ept"/>
+            				</group>
+            				
+            				<group string="Business Information">
+            					<field name="nature_of_business_ept"/>
+            					<field name="broker_ept"/>
+            					<field name="agent_ept"/>
+            					<field name="dun_bradstreet_number_ept"/>            					
+            				</group>
+            				            				            				
+            				
+            				<group string="Bank Details">
+            					<field name="branch_name_ept" string="Branch Name"/>
+            					<field name="branch_address_ept" string="Branch Address"/>     
+            					<field name="branch_city_ept" string="City"/>
+            					<field name="branch_state_ept" string="State"/>
+            					<field name="branch_postal_code_ept" string="Zip Code"/>            					       					
+            				</group>
+            				
+            				<group string="Third Party Reference">
+            					<field name="third_party_name_ept"/>
+            					<field name="third_party_contact_number_ept"/>     
+            					<field name="third_party_address_ept"/>
+            					<field name="third_party_email_ept"/>            					       					
+            				</group>
+            				<group string="Misc.">
+            					<field name="gender_ept"/>
+            					<field name="birthdate_ept"/>
+            					<field name="anniversary_date_ept"/>
+            				</group>
+            			</group>
+            			
+            		</page>
+            	</xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

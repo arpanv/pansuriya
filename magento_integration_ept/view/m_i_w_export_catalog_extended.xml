@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record id="magento_instance_website_export_catalog_view_ept" model="ir.ui.view">
+			<field name="name">magento.instance.website.export.catalog.view.ept</field>
+			<field name="model">magento.instance.website.export_catalog</field>
+			<field name="inherit_id" ref="magento_integration.view_magento_export_catalog"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//field[@name='products']" position="attributes">            		
+            		<attribute name = "domain">[('is_certified','=',True)]</attribute>
+            	</xpath>
+            </field>
+		</record>
+    </data>
+</openerp>
+
+<!-- domain=[('is_certified','=',True)] in .py-->

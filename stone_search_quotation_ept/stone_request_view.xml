@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+		<record id="view_picking_out_search_inherit" model="ir.ui.view">
+	            <field name="name">stock.picking.search.inherit</field>
+	            <field name="model">stock.picking</field>
+	            <field name="arch" type="xml">
+	                <search string="Picking list">
+	                    <filter icon="terp-check" name="backorder" string="Back Order" domain="[('backorder_id','=',True)]"/>
+	                    <filter icon="terp-camera_test" name="requested" string="Requested" domain="[('requested','=',True)]"/>
+	                    <filter icon="terp-dialog-close" name="returned" string="Returned" domain="[('is_returned','=',True)]"/>
+	                </search>    
+	            </field>
+	        </record>
+	
+		<record model = "ir.ui.view" id = "select_product_request_ept">
+			<field name = "name">select.product.request.ept</field>
+			<field name = "model">stone.request</field>
+			<field name = "type">form</field>
+			<field name = "arch" type = "xml">
+				<form string = "Select Customer and create Internal Stock Move" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "partner_id" required = '1' domain = "[('customer','=',True)]"/>
+								<field name = "src_location" required = '1' />
+								<field name = "dest_location" required = '1' />
+<!-- 								domain = "[('usage','=','internal')]" -->
+							</group>
+						</group>
+						<footer>
+                        	<button name = "confirm_stone_request" string = "Confirm Request" type = "object" class = "oe_highlight"/>
+                        	<button name = "confirm_stone_request_view" string = "Confirm Request And View" type = "object" class = "oe_highlight"/>
+							<button string = "Cancel" class = "oe_link" special = "cancel"/>
+						</footer>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<act_window name = "Add To Request" 
+		    		res_model = "stone.request"
+					src_model = "product.product" 
+					view_mode = "form" 
+					view_type = "form"
+					target = "new" 
+					multi = "True" 
+					key2 = "client_action_multi"
+					id = "action_add_to_request"
+					view_id = "select_product_request_ept"/>
+	</data>
+</openerp>

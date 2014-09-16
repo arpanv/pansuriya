@@ -1,0 +1,248 @@
+body{
+font-family:"Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.productsummary
+            {
+                color: #444;
+                border-left: 1px solid transparent;
+                border-top: 1px solid transparent;
+                border-right: 1px solid transparent;
+                padding: 20px 0px 0px 0px;        
+                float: right;        
+                font-weight: 800;
+
+            }
+            .productsummary > span 
+            {
+                display: inline-block;
+                float: left;
+                padding: 3px;
+                background-color: #eeeeee;
+                margin: 0px 3px 0px 3px;
+            }
+
+
+            .makebid_button
+            {		
+                /*position:absolute;
+                margin-left:-38px;
+                display:none;		
+                background-color: black;
+                opacity: 0.8;
+                color: white;
+                border: none;
+                cursor: pointer;
+                position: absolute; */
+				margin: 0px auto;
+				display: none;
+				background-color: black;
+				opacity: 0.8;
+				color: white;
+				border: none;
+				cursor: pointer;
+				margin-top: -5px;
+				line-height: 1.3;
+				position: absolute;
+				width: 49px;
+				margin-left: -24px;
+            }
+            .makebid_div
+            {
+                display: none;
+                position: absolute;
+                margin-left: 5px;
+                margin-top: 3px;
+                padding: 10px;
+                background-color: black;
+                opacity: 0.8;
+                z-index:9999;
+            }
+            /* tooltip start */
+
+            .gridrow {outline:none; }
+            .gridrow strong {line-height:30px;}
+            .gridrow:hover {text-decoration:none;} 
+            .gridrow custom_span {
+                z-index:10;
+                display:none; 
+                padding:14px 20px;
+                margin-top:40px; 
+                margin-left:-160px;
+                width:240px; 
+                line-height:16px;
+            }
+            .gridrow:hover custom_span{
+                display:inline; position:absolute; 
+                border:2px solid #FFF;  color:#EEE;
+                background:#000 url(src/css-tooltip-gradient-bg.png) repeat-x 0 0;
+            }
+            .callout {z-index:20;position:absolute;border:0;top:-14px;left:120px;}
+
+            /*CSS3 extras*/
+            .gridrow custom_span
+            {
+                border-radius:2px;
+                -moz-border-radius: 2px;
+                -webkit-border-radius: 2px;
+
+                -moz-box-shadow: 0px 0px 8px 4px #666;
+                -webkit-box-shadow: 0px 0px 8px 4px #666;
+                box-shadow: 0px 0px 8px 4px #666;
+
+                opacity: 0.8;
+            }
+            /* tooltip end */
+            #overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 10000;
+                text-align: center;  
+                display:none;      
+            }
+
+            #overlay:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: rgba(0, 0, 0, 0.8); 	   
+                z-index: 0;
+            }
+
+            .bidModelDiv{
+                background-color: #F6F6F6;      
+                width:590px;      
+                position:relative;      
+                z-index: 1;      
+                -webkit-box-shadow: 0px 0px 30px 4px rgba(0,0,0,0.9);
+                -moz-box-shadow: 0px 0px 30px 4px rgba(0,0,0,0.9);
+                box-shadow: 0px 0px 30px 4px rgba(0,0,0,0.9);	
+            }
+
+            .raisebidmodel
+            {
+                background-color: #F6F6F6;      
+                width:590px;      
+                position:relative;      
+                z-index: 1;      
+                -webkit-box-shadow: 0px 0px 30px 4px rgba(0,0,0,0.9);
+                -moz-box-shadow: 0px 0px 30px 4px rgba(0,0,0,0.9);
+                box-shadow: 0px 0px 30px 4px rgba(0,0,0,0.9);
+                display:none;
+            }
+
+            .bidModelContent{
+                font-size:13px;
+            }
+            .modelauctiontimer{
+                letter-spacing:-2px;
+            }
+            .modelbidamount
+            {
+                border: 1px solid black;
+                border-radius: 0;				
+                padding: 10px;
+                width: 100px;
+            }
+            .modelrow
+            {
+                padding:5px;
+                text-align:left;
+                clear:both;
+            }
+            .placebidbutton
+            {
+                background-color: #66ccdd;
+                border: medium none;
+                color: white;
+                padding: 40px 20px 15px 20px;
+                cursor:pointer;	
+                font-size:14px;	
+                margin-top:0px;
+            }
+            .modeltimermainspan{
+                font-weight:bold;
+                font-size:18px;
+                color:#5AA254;
+            }
+            .modelcurrentbidmainspan{
+                font-size:16px;
+                font-weight:bold;
+                color:#157514;
+                padding:0px 5px 0px 5px;
+            }
+            .model_label
+            {
+                color:#676767;
+                text-transform:uppercase;		
+                font-weight:bold;
+            }
+            .modelbidamountmainspan{
+                display:inline-block;
+                vertical-align:middle;		
+            }
+            .placebidbuttonmaindiv{		
+                text-align:right;		
+                display:inline-block;
+            }
+            .modelheading{		
+            }
+            .model_bid_data
+            {
+                background-color:#E2E2E2;
+                margin:0 20px;
+            }
+            .ref{font-size:20px;color:#424242;}
+            .reflabel{color:#676767;font-size:14px;font-weight:bold;}
+            .product_bid_count{display:inline-block;padding:0 10px;}
+            .bold{font-weight:bold;}
+            .fr{float:right;}
+            .closemodel{cursor:pointer;position:absolute;top:0;right:0;padding:9px;}
+            .txt-center{text-align:center;}	
+            .bidamount_error{font-size:11px;color:red;}
+            .confirminfo{font-size:11px;color:#424242;display:none;}
+            .modelprice{display:inline-block;padding: 0px 5px 0px 5px;color:#424242;font-weight:bold;}	
+            .gmt_timer{
+                display:block;
+                font-size:10px;
+                padding-bottom:10px;
+                color: #424242;
+                font-weight:bold;
+            }
+            .minbid{font-size:9px;display:block;}
+            .model_change_data {display:inline-block;vertical-align:bottom;}
+            .confirm_bid_amount{font-weight:bold;font-size:20px;color:#09850D;}
+            .confirmreturn{float:right;margin-right:16px;}
+            .modelbacklink{display:none;margin-right: 83px;}
+            .confirmprice{padding: 0px 0px 0px 20px;}	
+            .change_data_class{			
+                width: auto;
+                display: inline-block;
+                padding: 5px 20px 0px 110px;
+            }
+            .maxbid_info{
+                font-size:12px;
+                color:#0D8605;
+                display:inline-block;
+                padding-top:10px;
+            }
+            .modeltimer
+            {
+                color: #067600;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            .model_current_bid
+            {
+                color: #067600;
+                font-weight: bold;
+                font-size: 15px;
+                display: inline-block;
+                padding: 0px 10px 0px 10px;
+            }	

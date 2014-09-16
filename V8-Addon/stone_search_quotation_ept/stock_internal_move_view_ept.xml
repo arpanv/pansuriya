@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="view_picking_search_inherit" model="ir.ui.view">
+	            <field name="name">stock.picking.internal.search</field>
+	            <field name="model">stock.picking</field>
+	            <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+	            <field name="arch" type="xml">
+		            <field name="name" position = "after">   
+	                    <filter icon="terp-check" name="backorder" string="Back Order" domain="[('backorder_id','!=',False)]"/>
+	                    <filter icon="terp-camera_test" name="requested" string="Requested" domain="[('requested','=',True)]"/>
+	                    <filter icon="terp-dialog-close" name="returned" string="Returned" domain="[('is_returned','=',True)]"/>
+	                </field>    
+	            </field>
+	      </record>
+	
+		<record id="stock_internal_move_tree_ept" model="ir.ui.view">
+    		<field name="name">stock.internal.move.view.ept</field>
+			<field name="model">stock.picking</field>
+			<field eval="12" name="priority"/>
+			<field name="arch" type="xml">
+				<tree colors="blue:state == 'draft';green:state == 'assigned';grey:state == 'done';red:state not in ('cancel', 'done') and date &lt; current_date" string="Picking list">
+                    <field name="name"/>
+                    <field name="backorder_id" readonly="1" attrs="{'invisible': [('backorder_id','=',False)]}"/>
+					<field name="requester_uid"/>
+                    <field name="date"/>
+                    <field name="invoice_state" invisible="1" />
+                    <field name="state"/>
+                </tree>
+			</field>
+    	</record>
+    	
+		<record id="stock_internal_move_form_ept" model="ir.ui.view">
+            <field name="name">stock.internal.move.form.ept</field>
+            <field name="model">stock.picking</field>
+            <field name="arch" type="xml">
+                <form string="Internal Move List" version="7.0">
+	                <header>
+	                    <button name="draft_force_assign" states="draft" string="Confirm" type="object" class="oe_highlight" groups="base.group_user"/>
+	                    <button name="draft_validate" states="draft" string="Confirm &amp; Transfer" type="object" class="oe_highlight" groups="base.group_user"/>
+	                    <button name="action_assign" states="confirmed" string="Check Availability" type="object" class="oe_highlight"/>
+	                    <button name="force_assign" states="confirmed" string="Force Availability" type="object" class="oe_highlight" groups="base.group_user"/>
+	                    <button name="action_process" states="assigned" string="Confirm &amp; Transfer" groups="stock.group_stock_user" type="object" class="oe_highlight"/>
+	                    <button name="" string="Create Invoice/Refund"  attrs="{'invisible': ['|','|',('state','&lt;&gt;','done'),('invoice_state','=','invoiced'),('invoice_state','=','none')]}"  type="action" class="oe_highlight" groups="base.group_user"/>
+	                    <button name="" string="Reverse Transfer" states="done" type="action" groups="base.group_user"/>
+	                    <button name="button_cancel" states="assigned,confirmed,draft" string="Cancel Transfer" groups="base.group_user"/>
+	                    <field name="state" widget="statusbar" statusbar_visible="draft,assigned,done"/>
+	                </header>
+	                <sheet>
+	                    <h1>
+	                        <field name="name" class="oe_inline" attrs="{'invisible': [('name','=','/')]}" readonly="1"/>
+	                    </h1>
+	                    <group>
+	                        <group>
+	                            <field name="partner_id" domain="[('customer','=',True)]" string="Customer"/>
+                            	<field name="backorder_id" attrs="{'invisible': [('backorder_id','=',False)]}" readonly="1" />
+	                            <field name="dest_loc_id"/>
+	                            <field name="date" readonly="1"/>
+	                            <field name="requested" readonly="1"/>
+	                            <field name="invoice_state" invisible="1"/>
+	                        </group>
+	                        <group>
+	                            <field name="is_returned" readonly="1"/>
+								<field name="requester_uid" readonly="1"/>
+								<field name="issued_uid" readonly="1" attrs="{'invisible':['|',('is_returned','=',True),('issued_uid','=',False)]}" />
+								<field name="returned_uid" readonly="1" attrs="{'invisible':[('returned_uid','=',False)]}"/>	
+	                            <field name="total_pro" readonly="1"/>
+	                            <field name="is_fully_returned" readonly="1"/>
+	                        </group>
+	                    </group>
+	                    <notebook>
+	                        <page string="Products">
+	                            <field name="move_lines" >
+	                            	 <tree string="Stone movement">
+                    					<field name="product_id"/>
+                    					<field name="product_rfid"/>
+                    					<field name="state"/>
+                					</tree>
+	                            </field>
+	                        </page>
+	                    </notebook>
+	                </sheet>
+	        	</form>
+            </field>
+        </record>
+        
+		 <record id="view_move_form_inherit_ept" model="ir.ui.view">
+	           <field name="name">move.form.inherit.ept</field>
+	           <field name="model">stock.move</field>
+	           <field name="inherit_id" ref="stock.view_move_form"/>
+	           <field name="arch" type="xml">
+		           <field name="product_id" position = "after">
+		 	          	<field name="product_rfid"/>   
+	               </field>    
+	            </field>
+	     </record>
+             
+        <record id="action_stock_picking_ept" model="ir.actions.act_window">
+            <field name="name">Internal Moves</field>
+            <field name="res_model">stock.picking</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="domain">[('requested','=',True)]</field>
+        </record>
+        
+        <record id="action_stock_internal_move_tree_ept" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="stock_internal_move_tree_ept"/>
+            <field name="act_window_id" ref="action_stock_picking_ept"/>
+        </record>
+        
+        <record id="action_stock_internal_move_form_ept" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="stock_internal_move_form_ept"/>
+            <field name="act_window_id" ref="action_stock_picking_ept"/>
+        </record>
+        
+     	<menuitem id="menu_stock_picking_EPT"
+     	name="Stone Request"
+        action="action_stock_picking_ept"
+        parent="base.menu_sales"/>
+	</data>
+</openerp>

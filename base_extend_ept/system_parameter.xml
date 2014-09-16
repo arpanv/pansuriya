@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="True">
+		<record id="base_login_system_parameter_ept" model="ir.config_parameter">            
+            <field name="key">base_url_ept</field>
+            <field name="value">http://weberpsystem.com:8069</field>
+		</record>
+	</data>
+</openerp>

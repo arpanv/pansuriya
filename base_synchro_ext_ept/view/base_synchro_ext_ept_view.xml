@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+       <record id="base_synchro_obj_inherit_form" model="ir.ui.view">
+            <field name="name">base.synchro.obj.inherit.form</field>
+            <field name="model">base.synchro.obj</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base_synchro.view_transfer_form"/>
+            <field name="arch" type="xml">
+                <field name="synchronize_date" position="after">
+                	<newline/>
+                	<field name="sync_only"/>
+                </field>
+            </field>
+    	</record>
+<!-- Import catalog from pansuriya -->
+        <record id="ir_cron_import_catalog_from_pansuriya" model="ir.cron">
+            <field name="name">Import catalog from pansuriya EPT</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model">base.synchro</field>
+            <field name="function">download_product</field>
+            <field name="args">()</field>
+            <field name="active" eval="False"/>
+        </record>
+    </data>
+</openerp>

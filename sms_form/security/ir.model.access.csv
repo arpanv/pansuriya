@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_message_main_ept1,access_message_main_ept1,model_message_ept,portal.group_anonymous,1,1,1,1
+access_message_main_ept2,access_message_main_ept2,model_partner_message_ept,portal.group_anonymous,1,1,1,1
+access_message_main_ept3,access_message_main_ept3,account.model_account_sequence_fiscalyear,portal.group_anonymous,1,1,1,1
+access_message_main_ept4,access_message_main_ept4,smsclient.model_sms_smsclient_queue,portal.group_anonymous,1,1,1,1
+access_message_main_ept5,access_message_main_ept5,model_message_notification_ept,portal.group_anonymous,1,1,1,1

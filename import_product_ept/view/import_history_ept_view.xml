@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+    	<record id="import_history_ept_tree_view" model="ir.ui.view">
+    		<field name="name">import.history.ept.tree.view</field>
+    		<field name="model">import.history.ept</field>
+    		<field name="arch" type="xml">
+	    		<tree string="Import History Tree">
+    				<field name="imported_by" string="Imported By" />                	
+		                <field name="imported_date" string="Date" />
+				<field name="total_stones" string="Total"/>
+                		<field name="imported_product" string="Imported" />
+	                        <field name="not_imported_product" string="Not Imported" />
+    				<field name="updated_product" string="Updated" />                    
+			</tree>
+		</field>
+	    </record>
+	    
+    	<record id="import_history_ept_form_view" model="ir.ui.view">
+    		<field name="name">import.history.ept.form.view</field>
+    		<field name="model">import.history.ept</field>
+    		<field name="arch" type="xml">
+	    		<form string="Import History Form" version="7.0">
+		    		<sheet>
+		    			<group String="Stone Import" >
+		    				<field name="imported_by" string="Imported By" readonly="1" />                	
+			                        <field name="imported_date" string="Date" readonly="1" />
+		            	        </group>
+		    			<group String="Import History" >  
+						<field name="total_stones" string="Total"/>              	
+		                    		<field name="imported_product" string="Imported" />
+		                    		<field name="not_imported_product" string="Not Imported" />
+		    				<field name="updated_product" string="Updated" />		                    
+			                </group>
+			              	<group>
+			                    <field name="file" filename="file_path" string="Imported File" readonly="1"/>
+			                    <field name="reimported_file" filename="file_path" attrs="{'invisible':[('not_imported_product','=',0)]}" string="Reimportable File"/>
+			               </group>
+                    		</sheet>
+	    		</form>
+	    	</field>
+    	</record>
+    	
+    	<record id="action_import_history_ept" model="ir.actions.act_window">
+            <field name="name">Import History</field>
+            <field name="res_model">import.history.ept</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    	    	
+    	<menuitem id="menu_import_history_ept"
+     	name="Import History"
+        action="action_import_history_ept"
+        parent="base.menu_sales"/>
+    	
+    </data>
+</openerp>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="message_form_view_ept" model="ir.ui.view">
+            <field name="name">message.form..view.ept</field>
+            <field name="model">message.ept</field>
+            <field name="type">form</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <form string="Message" version="7.0">
+                 <sheet>
+                 	<div>
+                 	    <div style="font-size:36px;font-weight:bold;text-align:center;"><label string="Surat Diamond Bourse"/></div>
+                 	    <div style="color:white;"><label string="." /></div>
+                 	    <div style="font-size:16px;font-weight:bold;text-align:center;"><u><label string="Membership Proposal Form"/></u></div>
+                 	    <div style="color:white;"><label string="." /></div>
+                 	    <div style="font-size:16px;font-weight:bold;text-align:center;color:red;"><label string="Mumbai &amp; Surat based members doesn't need to fill this form, offline form is compulsory."/><br/></div>
+                 	    <div style="color:white;"><label string="." /></div>
+                 		<h1><field name="seq_ept" invisible="1"/></h1>
+                 	</div>
+                	<group>
+						<div style="width: 60%%">
+	                		<group colspan="4">
+	                			<field name="change_state" invisible = "1"/>
+			                    <field name="company_name" required="1" string="Company Name*"/>
+			                    <field name="customer_name" required="1" string="Name*"/>
+			                    <field name="email2" on_change="mail_validater2(email2)" required="1" string="Company Email*" context="{'field_name':email2}"/>
+								<label for="contry_code" string="Mobile No*"></label>
+								<div>
+									<field name="contry_code" placeholder="Country Code"  nolabel="1" style="width: 30%%" required="1"/>
+									<field name="phone_no" placeholder="Mobile No."  nolabel="1" style="width: 68%%" on_change="number_validater(phone_no)" required="1" string="Mobile No.*"/>
+								</div>
+								<field name="lend_line_no" string="Land Line No." attrs="{'invisible' : [('change_state', '=', False)]}"/>
+								<field name="email1" attrs="{'invisible' : [('change_state', '=', False)], 'required' : [('change_state', '=', True)]}" context="{field_name':'email1}" on_change="mail_validater(email1)" string="Personal Email*" />
+								<field name="business_nature" attrs="{'invisible' : [('change_state', '=', False)], 'required' : [('change_state', '=', True)]}"/>
+							</group>
+						</div>
+					</group>
+					<group attrs="{'invisible' : [('change_state', '=', False)]}">
+						<div style="width: 60%%">
+							<group colspan="4" >
+								<label for="address" string="Address*"></label>
+								<div>
+									<field name="address" nolabel="1" style="width: 100%%" attrs="{'required' : [('change_state', '=', True)]}"/>
+									<div>
+										<field name="country_id" class="oe_no_button" widget="selection"
+										       placeholder="Select Country" style="width: 40%%" options='{"no_open": True}'/>
+										<field name="city"  
+										       attrs="{'invisible':[('country_id','=',False)]}" 
+										       placeholder="City" style="width: 55%%"  />
+									</div>
+								</div>
+								<field name="required_area" attrs="{'required' : [('change_state', '=', True)]}"/>
+			                </group>
+							<group colspan="4" string="No. of Parking Required" attrs="{'invisible' : [('change_state', '=', False)]}">
+								<field name="four_wheeler" attrs="{'invisible' : [('change_state', '=', False)]}"/>
+								<field name="two_wheeler" attrs="{'invisible' : [('change_state', '=', False)]}"/>
+							</group>
+						</div>
+					</group>
+					<group attrs="{'invisible' : [('change_state', '=', False)]}" >
+						<group string="Name of Proprietor/Partner/Directores" >
+							<div>
+							  <field name="partner1" nolabel="1" placeholder="Name" attrs="{'required' : [('change_state', '=', True)]}"/>
+							  <field name="partner2" nolabel="1" placeholder="Name"/>
+							  <field name="partner3" nolabel="1" placeholder="Name"/>
+							  <field name="partner4" nolabel="1" placeholder="Name"/>
+							  <field name="partner5" nolabel="1" placeholder="Name"/>
+							</div>
+						</group>
+						<group string="Phone No" >
+							<div>
+								<field name="phone1" nolabel="1" placeholder="Phone No." attrs="{'required' : [('change_state', '=', True)]}"/>
+								<field name="phone2" nolabel="1" placeholder="Phone No."/>
+								<field name="phone3" nolabel="1" placeholder="Phone No."/>
+								<field name="phone4" nolabel="1" placeholder="Phone No."/>
+								<field name="phone5" nolabel="1" placeholder="Phone No."/>
+							</div>
+						</group>
+					</group>
+					<group attrs="{'invisible' : [('change_state', '=', False)]}" >
+						<group>
+							<div>
+								<h3>Terms and Conditions</h3>
+								1. The designated Surat Diamond Bourse will have only diamond related activities except diamond manufacturing.<br/>
+								2. Approximate price per SQFT within the Bourse would be INR 8000 considering current conditions. It might change based on actuals.<br/>
+								3. Approximate builder's loading would be 35%%.<br/>
+								4. Every payment will only be accepted through bank transfer.<br/>
+								5. All applicants will be required to pay (Approximately) 30%% of value of their required are at the time of land purchase.<br/>
+								6. Office would be handed over to Applicant Company only after clearing the outstanding dues of purchase.<br/>
+								7. Interested parties will be required to deposit 10%% of their total value within 90 days from date of filing the form.<br/>
+								8. Second sales of alloted property would not take place till the project completion and committee comes out with the transfer norms.<br/>
+								9. All legal matters fall under the Surat Jurisdiction.<br/>
+								10. The final allotment of the space will be strictly based on space application made in this form.<br/>
+								11. The committee reserves the right to change any norms without prior notice.<br/>
+								<br/>
+								<br/>
+								<h4>Accept Terms and Conditions  <field name="terms_agreed" /></h4>
+							</div>
+						</group>
+					</group>
+				<footer>
+					<button type="object" name="submit_information" string="Next" readonly="1" class="oe_highlight" attrs="{'invisible' : [('change_state', '=', True)]}"/>
+					<button type="object" name="send_message" string="Submit" class="oe_highlight"
+					         attrs="{'invisible':[('change_state', '=', False)],'readonly':[('business_nature','=',False)]}"/>
+				</footer>
+				</sheet>		
+                </form>
+            </field>
+        </record>
+        
+        <record id="message_send_notification_ept" model="ir.ui.view">
+            <field name="name">message.send.notification.ept</field>
+            <field name="model">message.notification.ept</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Notification" version="7.0">
+                 		<h1><label string = "Thank you for registration. You will soon receive confirmation SMS/Email."/></h1>
+				<footer>
+					<button type="object" name="form_close" string="Ok" />
+				</footer>				
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="view_message_ept_tree_1">
+			<field name="name">view.message.ept.tree.1</field>
+			<field name="model">message.ept</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Contact Inforemation">
+                    <field name='create_date' />
+					<field name='seq_ept' string="Form #"/>
+					<field name='company_name'  string="Company Name*"/>
+					<field name="customer_name" string="Name*"/>
+					<field name="email2" string="Company Email*" />
+					<field name="phone_no" string="Mobile No.*"/>
+				</tree>
+			</field>
+		</record>
+		
+		
+		<record id="action_message_form_ept_1" model="ir.actions.act_window">
+            <field name="name">Message Form</field>
+            <field name="res_model">message.ept</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_message_ept_tree_1"/>
+        </record>
+        
+        
+        
+        <menuitem id="menu_message_form_ept_1"
+     	name="Customer Registration Form"
+        action="action_message_form_ept_1"
+        parent="base.menu_sales"
+        groups="base.group_sale_salesman_all_leads"
+/>
+        
+       <record id="action_message_form_ept" model="ir.actions.act_window">
+            <field name="name">Message Form</field>
+            <field name="res_model">message.ept</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="message_form_view_ept"/>
+            <field name="target">inline</field>
+        </record>
+    	
+    	<menuitem id="menu_message_form_ept"
+     	name="Customer Registration Form"
+        action="action_message_form_ept"
+        groups="portal.group_anonymous"
+/>
+
+		<menuitem name="Portal"
+            id="portal.portal_menu"
+            groups="account.group_account_manager"
+            sequence="15"/>
+
+        <menuitem name="Messaging" id="portal.portal_messages" parent="portal.portal_menu" sequence="10" groups="account.group_account_manager"/>
+        
+        
+       </data>
+</openerp>

@@ -1,0 +1,1127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+<!-- product.fancy.color.intensity -->
+		<record model="ir.ui.view" id="product_fancy_color_intensity_form_view_ept">
+			<field name="name">product.fancy.color.intensity.form.view.ept</field>
+			<field name="model">product.fancy.color.intensity</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Fancy Color Intencity" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1"/>
+								<field name = "code" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>        
+
+		<record model="ir.ui.view" id="product_fancy_color_intensity_tree_view_ept">
+			<field name="name">product.fancy.color.intensity.tree.view.ept</field>
+			<field name="model">product.fancy.color.intensity</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Fancy Color Intencity" version = "7.0">
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record> 
+		
+		<record model="ir.actions.act_window" id="action_product_fancy_color_intensity_view_ept">
+			<field name="name">Product Fancy Color Intensity</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.fancy.color.intensity</field>
+			<field name="view_id" ref="product_fancy_color_intensity_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+		<record model="ir.ui.view" id="product_fancy_color_intensity_search_view_ept">
+			<field name="name">product.fancy.color.intensity.search.view.ept</field>
+			<field name="model">product.fancy.color.intensity</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Fancy Color Intensity" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<menuitem name="Product Fancy Color Intensity" 
+			id="menu_product_fancy_color_intensity_ept"
+			parent="product.prod_config_main"
+			action="action_product_fancy_color_intensity_view_ept"
+			groups="base.group_user"
+			/>
+
+<!-- product.fancy.color.overtone -->
+		<record model="ir.ui.view" id="product_fancy_color_overtone_form_view_ept">
+			<field name="name">product.fancy.color.overtone.form.view.ept</field>
+			<field name="model">product.fancy.color.overtone</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Fancy Color Overtone" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1"/>
+								<field name = "code" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>        
+
+		<record model="ir.ui.view" id="product_fancy_color_overtone_tree_view_ept">
+			<field name="name">product.fancy.color.overtone.tree.view.ept</field>
+			<field name="model">product.fancy.color.overtone</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Fancy Color Overtone" version = "7.0">
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record> 
+
+		<record model="ir.ui.view" id="product_fancy_color_ovetone_search_view_ept">
+			<field name="name">product.fancy.color.overtone.search.view.ept</field>
+			<field name="model">product.fancy.color.overtone</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Fancy Color Overtone" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_product_fancy_color_overtone_view_ept">
+			<field name="name">Product Fancy Color Overtone</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.fancy.color.overtone</field>
+			<field name="view_id" ref="product_fancy_color_overtone_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Fancy Color Overtone" 
+			id="menu_product_fancy_color_overtone_ept"
+			parent="product.prod_config_main"
+			action="action_product_fancy_color_overtone_view_ept"
+			groups="base.group_user"
+			/>	
+<!-- 	for shape line	 -->
+		<record model="ir.ui.view" id="product_shape_line_tree_view_ept">
+			<field name="name">product.shape.line.tree.view.ept</field>
+			<field name="model">shape.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Shape" version = "7.0" >
+					<field name = "categ_id" />
+					<field name = "shape_id" />
+					<field name = "sale_price" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_product_shape_line_view_ept">
+			<field name="name">Product Shape Line</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">shape.line</field>
+			<field name="view_id" ref="product_shape_line_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>		
+		
+		<menuitem name="Category Sale Price" 
+			id="menu_product_shape_line_ept"
+			parent="product.prod_config_main"
+			action="action_product_shape_line_view_ept"
+			groups="base.group_user"
+			/>
+
+
+		<!--Product Shape-->
+		<record model="ir.ui.view" id="product_shape_form_view_ept">
+			<field name="name">product.shape.form.view.ept</field>
+			<field name="model">product.shape</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Shape" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "code" />
+							</group>
+							<group>
+						    </group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_shape_tree_view_ept">
+			<field name="name">product.shape.tree.view.ept</field>
+			<field name="model">product.shape</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Shape" version = "7.0" >
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_shape_search_view_ept">
+			<field name="name">product.shape.search.view.ept</field>
+			<field name="model">product.shape</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Shape" version = "7.0">
+					<field name = "name" />
+					<field name = "code" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_shape_view_ept">
+			<field name="name">Product Shape</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.shape</field>
+			<field name="view_id" ref="product_shape_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Shape" 
+			id="menu_product_shape_ept"
+			parent="product.prod_config_main"
+			action="action_product_shape_view_ept"
+			groups="base.group_user"
+			/>
+		
+		
+		<!--Product Color-->
+		<record model="ir.ui.view" id="product_colour_form_view_ept">
+			<field name="name">product.colour.form.view.ept</field>
+			<field name="model">product.color</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Colour" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "code" />
+							</group>
+							<group></group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_colour_tree_view_ept">
+			<field name="name">product.colour.tree.view.ept</field>
+			<field name="model">product.color</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top"  string="Product Colour" version = "7.0">
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_colour_search_view_ept">
+			<field name="name">product.colour.search.view.ept</field>
+			<field name="model">product.color</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Colour" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_colour_view_ept">
+			<field name="name">Product Colour</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.color</field>
+			<field name="view_id" ref="product_colour_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Color" 
+			id="menu_product_colour_ept"
+			parent="product.prod_config_main"
+			action="action_product_colour_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Clarity-->
+		<record model="ir.ui.view" id="product_clarity_form_view_ept">
+			<field name="name">product.clarity.form.view.ept</field>
+			<field name="model">product.clarity</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Clarity" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "code" />
+							</group>
+							<group></group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_clarity_tree_view_ept">
+			<field name="name">product.clarity.tree.view.ept</field>
+			<field name="model">product.clarity</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Clarity" version = "7.0">
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_clarity_search_view_ept">
+			<field name="name">product.clarity.search.view.ept</field>
+			<field name="model">product.clarity</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Clarity" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_clarity_view_ept">
+			<field name="name">Product Clarity</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.clarity</field>
+			<field name="view_id" ref="product_clarity_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Clarity" 
+			id="menu_product_clarity_ept"
+			parent="product.prod_config_main"
+			action="action_product_clarity_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Cut-->
+		<record model="ir.ui.view" id="product_cut_form_view_ept">
+			<field name="name">product.cut.form.view.ept</field>
+			<field name="model">product.cut</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Cut" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1"/>
+								<field name = "code" />
+							</group>
+							<group></group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_cut_tree_view_ept">
+			<field name="name">product.cut.tree.view.ept</field>
+			<field name="model">product.cut</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Cut" version = "7.0">
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_cut_search_view_ept">
+			<field name="name">product.cut.search.view.ept</field>
+			<field name="model">product.cut</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Cut" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_cut_view_ept">
+			<field name="name">Product Cut</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.cut</field>
+			<field name="view_id" ref="product_cut_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Cut" 
+			id="menu_product_cut_ept"
+			parent="product.prod_config_main"
+			action="action_product_cut_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Polish-->
+		<record model="ir.ui.view" id="product_polish_form_view_ept">
+			<field name="name">product.polish.form.view.ept</field>
+			<field name="model">product.polish</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Polish" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "code" />
+							</group>
+							<group>
+							</group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_polish_tree_view_ept">
+			<field name="name">product.polish.tree.view.ept</field>
+			<field name="model">product.polish</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Polish" version = "7.0">
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_polish_search_view_ept">
+			<field name="name">product.polish.search.view.ept</field>
+			<field name="model">product.polish</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Polish" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_polish_view_ept">
+			<field name="name">Product Polish</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.polish</field>
+			<field name="view_id" ref="product_polish_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Polish" 
+			id="menu_product_polish_ept"
+			parent="product.prod_config_main"
+			action="action_product_polish_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Symmetry-->
+		<record model="ir.ui.view" id="product_symmetry_form_view_ept">
+			<field name="name">product.symmetry.form.view.ept</field>
+			<field name="model">product.symmetry</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Symmetry" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "code" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_symmetry_tree_view_ept">
+			<field name="name">product.symmetry.tree.view.ept</field>
+			<field name="model">product.symmetry</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Symmetry" version = "7.0">
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_symmetry_search_view_ept">
+			<field name="name">product.symmetry.search.view.ept</field>
+			<field name="model">product.symmetry</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Symmetry" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_symmetry_view_ept">
+			<field name="name">Product Symmetry</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.symmetry</field>
+			<field name="view_id" ref="product_symmetry_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Symmetry" 
+			id="menu_product_symmetry_ept"
+			parent="product.prod_config_main"
+			action="action_product_symmetry_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Fluorescence Intensity-->
+		<record model="ir.ui.view" id="product_fluorescence_intensity_form_view_ept">
+			<field name="name">product.fluorescence.intensity.form.view.ept</field>
+			<field name="model">product.fluorescence.intensity</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Fluorescence Intensity" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "code" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fluorescence_intensity_tree_view_ept">
+			<field name="name">product.fluorescence.intensity.tree.view.ept</field>
+			<field name="model">product.fluorescence.intensity</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Fluorescence Intensity" version = "7.0">
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fluorescence_intensity_search_view_ept">
+			<field name="name">product.fluorescence.intensity.search.view.ept</field>
+			<field name="model">product.fluorescence.intensity</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Fluorescence Intensity" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_fluorescence_intensity_view_ept">
+			<field name="name">Product Fluorescence Intensity</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.fluorescence.intensity</field>
+			<field name="view_id" ref="product_fluorescence_intensity_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Fluorescence Intensity" 
+			id="menu_product_fluorescence_intensity_ept"
+			parent="product.prod_config_main"
+			action="action_product_fluorescence_intensity_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Lab-->
+		<record model="ir.ui.view" id="product_lab_form_view_ept">
+			<field name="name">product.lab.form.view.ept</field>
+			<field name="model">product.lab</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Lab" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "code" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_lab_tree_view_ept">
+			<field name="name">product.lab.tree.view.ept</field>
+			<field name="model">product.lab</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Lab" version = "7.0">
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_lab_search_view_ept">
+			<field name="name">product.lab.search.view.ept</field>
+			<field name="model">product.lab</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Lab" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_lab_view_ept">
+			<field name="name">Product Lab</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.lab</field>
+			<field name="view_id" ref="product_lab_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Lab" 
+			id="menu_product_lab_ept"
+			parent="product.prod_config_main"
+			action="action_product_lab_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Gridle Thin-->
+		<record model="ir.ui.view" id="product_gridle_thin_form_view_ept">
+			<field name="name">product.gridle.thin.form.view.ept</field>
+			<field name="model">product.gridle_thin</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Gridle Thin" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "code" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_gridle_thin_tree_view_ept">
+			<field name="name">product.gridle.thin.tree.view.ept</field>
+			<field name="model">product.gridle_thin</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Gridle Thin" version = "7.0">
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_gridle_thin_search_view_ept">
+			<field name="name">product.gridle.thin.search.view.ept</field>
+			<field name="model">product.gridle_thin</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Gridle Thin" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_gridle_thin_view_ept">
+			<field name="name">Product Gridle Thin</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.gridle_thin</field>
+			<field name="view_id" ref="product_gridle_thin_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Gridle Thin" 
+			id="menu_product_gridle_thin_ept"
+			parent="product.prod_config_main"
+			action="action_product_gridle_thin_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Gridle Thick-->
+		<record model="ir.ui.view" id="product_gridle_thick_form_view_ept">
+			<field name="name">product.gridle.thick.form.view.ept</field>
+			<field name="model">product.gridle_thick</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Gridle Thick" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "code" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_gridle_thick_tree_view_ept">
+			<field name="name">product.gridle.thick.tree.view.ept</field>
+			<field name="model">product.gridle_thick</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Gridle Thick" version = "7.0">
+					<field name = "name"  required="1" />
+					<field name = "code" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_gridle_thick_search_view_ept">
+			<field name="name">product.gridle.thick.search.view.ept</field>
+			<field name="model">product.gridle_thick</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Gridle Thick" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_gridle_thick_view_ept">
+			<field name="name">Product Gridle Thick</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.gridle_thick</field>
+			<field name="view_id" ref="product_gridle_thick_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Gridle Thick" 
+			id="menu_product_gridle_thick_ept"
+			parent="product.prod_config_main"
+			action="action_product_gridle_thick_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Culet-->
+		<record model="ir.ui.view" id="product_culet_form_view_ept">
+			<field name="name">product.culet.form.view.ept</field>
+			<field name="model">product.culet</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Culet" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_culet_tree_view_ept">
+			<field name="name">product.culet.tree.view.ept</field>
+			<field name="model">product.culet</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Culet" version = "7.0">
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_culet_search_view_ept">
+			<field name="name">product.culet.search.view.ept</field>
+			<field name="model">product.culet</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Culet" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_culet_view_ept">
+			<field name="name">Product Culet</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.culet</field>
+			<field name="view_id" ref="product_culet_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Culet" 
+			id="menu_product_culet_ept"
+			parent="product.prod_config_main"
+			action="action_product_culet_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Fluorescence Color-->
+		<record model="ir.ui.view" id="product_fluorescence_color_form_view_ept">
+			<field name="name">product.fluorescence.color.form.view.ept</field>
+			<field name="model">product.fluorescence.color</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Fluorescence Color" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fluorescence_color_tree_view_ept">
+			<field name="name">product.fluorescence.color.tree.view.ept</field>
+			<field name="model">product.fluorescence.color</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Fluorescence Color" version = "7.0">
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fluorescence_color_search_view_ept">
+			<field name="name">product.fluorescence.color.search.view.ept</field>
+			<field name="model">product.fluorescence.color</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Fluorescence Color" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_fluorescence_color_view_ept">
+			<field name="name">Product Fluorescence Color</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.fluorescence.color</field>
+			<field name="view_id" ref="product_fluorescence_color_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Fluorescence Color" 
+			id="menu_product_fluorescence_color_ept"
+			parent="product.prod_config_main"
+			action="action_product_fluorescence_color_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Fancy Color-->
+		<record model="ir.ui.view" id="product_fancy_color_form_view_ept">
+			<field name="name">product.fancy.color.form.view.ept</field>
+			<field name="model">product.fancy.color</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Fancy Color" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fancy_color_tree_view_ept">
+			<field name="name">product.fancy.color.tree.view.ept</field>
+			<field name="model">product.fancy.color</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Fancy Color" version = "7.0">
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fancy_color_search_view_ept">
+			<field name="name">product.fancy.color.search.view.ept</field>
+			<field name="model">product.fancy.color</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Fancy Color" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_fancy_color_view_ept">
+			<field name="name">Product Fancy Color</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.fancy.color</field>
+			<field name="view_id" ref="product_fancy_color_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Fancy Color" 
+			id="menu_product_fancy_color_ept"
+			parent="product.prod_config_main"
+			action="action_product_fancy_color_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product Insure-->
+		<record model="ir.ui.view" id="product_insure_form_view_ept">
+			<field name="name">product.insure.form.view.ept</field>
+			<field name="model">product.insure</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Laser Inscription" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_insure_tree_view_ept">
+			<field name="name">product.insure.tree.view.ept</field>
+			<field name="model">product.insure</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Laser Inscription" version = "7.0">
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_insure_search_view_ept">
+			<field name="name">product.insure.search.view.ept</field>
+			<field name="model">product.insure</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Laser Inscription" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_insure_view_ept">
+			<field name="name">Laser Inscription</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.insure</field>
+			<field name="view_id" ref="product_insure_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Laser Inscription"
+			id="menu_product_insure_ept"
+			parent="product.prod_config_main"
+			action="action_product_insure_view_ept"
+			groups="base.group_user"
+			/>
+		
+		<!--Product status-->
+		<record model="ir.ui.view" id="product_status_form_view_ept">
+			<field name="name">product.status.form.view.ept</field>
+			<field name="model">product.status</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Status" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_status_tree_view_ept">
+			<field name="name">product.status.tree.view.ept</field>
+			<field name="model">product.status</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Status" version = "7.0">
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_status_search_view_ept">
+			<field name="name">product.status.search.view.ept</field>
+			<field name="model">product.status</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Product Status" version = "7.0">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_status_view_ept">
+			<field name="name">Product Status</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.status</field>
+			<field name="view_id" ref="product_status_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Status" 
+			id="menu_product_status_ept"
+			parent="product.prod_config_main"
+			action="action_product_status_view_ept"
+			groups="base.group_user"
+			/>
+			
+			
+		<!--Product Box-->
+		<record model="ir.ui.view" id="product_box_form_view_ept">
+			<field name="name">product.box.form.view.ept</field>
+			<field name="model">product.box.ept</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Box" version = "7.0">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "code" required="1" />
+							</group>
+							<group>
+							</group>
+
+						</group>
+						<group>
+							<field name="product_ids" nolabel="1">
+								<tree>
+									<field name="name"/>
+									<field name="default_code"/>								
+								</tree>
+							</field>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_box_tree_view_ept">
+			<field name="name">product.box.view.ept</field>
+			<field name="model">product.box.ept</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Product Status" version = "7.0">
+					<field name = "name" />
+					<field name = "code"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_box_search_view_ept">
+			<field name="name">product.box.search.view.ept</field>
+			<field name="model">product.box.ept</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Box" version = "7.0">
+					<field name = "name" />
+					<field name = "code" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_box_view_ept">
+			<field name="name">Product Box</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.box.ept</field>
+			<field name="view_id" ref="product_box_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem name="Product Box" 
+			id="menu_product_box_ept"
+			parent="product.prod_config_main"
+			action="action_product_box_view_ept"
+			groups="base.group_user"
+			/>
+	</data>
+</openerp>

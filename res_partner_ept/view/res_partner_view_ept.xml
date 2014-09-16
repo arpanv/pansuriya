@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	
+    	<record id="view_registration_partner_tree_ept" model="ir.ui.view">
+    		<field name="name">view.registration.partner.form.ept</field>
+       		<field name="model">res.partner</field>
+        	<field name="arch" type="xml">
+        		<tree string="Customer Registration">
+        			<field name="name" />
+        			<field name="owner_name_ept" />
+        			<field name="email" />
+        			<field name="phone" />
+        			<field name="city" />
+        			<field name="country_id" />
+        			<field name="nature_of_business_ept" />
+        			<field name="broker_ept" />
+        			<field name="agent_ept" />
+        			<field name="state" />
+        		</tree>
+        	</field>
+        </record>
+    	
+    	
+    	<record id="view_registration_partner_form_ept" model="ir.ui.view">
+    	<field name="name">view.registration.partner.form.ept</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+			<form string="Partner Registration">
+					<header>
+		    			<button name="set_to_approve" string="Approve" states="on_draft" type="object" class="oe_highlight" />
+		    			<button name="set_to_draft" string="Set to Draft" states="on_approval,on_reject" type="object" class="oe_highlight" />
+		    			<button name="set_to_reject" string="Reject" states="on_draft" type="object" class="oe_highlight" />
+	           			<field name="state" widget="statusbar" />
+	            	</header>
+		    	<sheet>
+		            <group>
+		               	<group string="Personal Information" >
+		               		<field name="title" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="first_name" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}" />
+           		            <field name="last_name" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}" />
+           					<field name="gender_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="birthdate_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="anniversary_date_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           				</group> 
+           				<group string="Contact Information" >
+           					<field name="email" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="alternate_email_ept" placeholder="e.g info@yourcompany.com" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="mobile" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="contact_number_ept" placeholder="e.g. +32.81.81.37.00" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="extension_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="fax" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           				</group>
+           				<group string="Company Information" >
+           				  	<field name="name" default_focus="1" string="Name" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           				  	<field name="owner_name_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}" />
+           					<field name="company_type" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}" />
+           					<field name="street" string="Address" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}" />
+            				<field name="city" placeholder="City" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"  />
+            				<field name="state_id" class="oe_no_button" placeholder="State" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}" />    
+            				<field name="country_id" placeholder="Country" class="oe_no_button" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}" /> 
+            				<field name="phone" placeholder="e.g. +32.81.81.37.00" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/> 
+            				<field name="zip" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}" />      
+            				<field name="website" widget="url" placeholder="e.g. www.openerp.com" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/> 				
+           				</group>
+           				<group string="Business Information" >
+           					<field name="nature_of_business_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="broker_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="agent_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="dun_bradstreet_number_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>            					
+           				</group>
+           				<group string="Member Of" >
+           					<field name="members_of_trade_portal_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="members_of_trade_association_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           				</group>
+           				<group string="Third Party Reference" >
+           					<field name="third_party_name_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="third_party_contact_number_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>     
+           					<field name="third_party_address_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+           					<field name="third_party_email_ept" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>            					       					
+           				</group>
+           				
+		             </group>
+		             <newline />
+            		 <group colspan="2" col="4" string="Bank Information" >
+            		 	  <field name="bank_ids" nolabel="1" attrs="{'readonly':[('state', 'in',('on_approval','on_reject'))]}"/>
+            		 </group>
+				 </sheet>
+				 <div class="oe_chatter">
+	             	<field name="message_follower_ids" widget="mail_followers"/>
+	              	<field name="message_ids" widget="mail_thread"/>
+	          	 </div>
+			  </form>
+			</field>    		
+    	</record>
+    	
+    	
+    	
+        <record id="action_res_partner_ept" model="ir.actions.act_window">
+            <field name="name">Partner</field>
+            <field name="res_model">res.partner</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="domain">[('registration_type','=',True)]</field>
+        </record>
+        <record id="act_res_partner_tree_ept" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_registration_partner_tree_ept"/>
+            <field name="act_window_id" ref="action_res_partner_ept"/>
+        </record> 
+        <record id="act_res_partner_form_ept" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_registration_partner_form_ept"/>
+            <field name="act_window_id" ref="action_res_partner_ept"/>
+        </record>        
+        
+        
+        <menuitem id="menu_registration_type_partner"
+     	name="Partner Ragistration"
+        action="action_res_partner_ept"
+        parent="base.menu_sales"/>
+    </data>
+</openerp>

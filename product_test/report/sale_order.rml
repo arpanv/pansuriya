@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(595.0,842.0)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+      <frame id="first" x1="57.0" y1="57.0" width="481" height="728"/>
+    </pageTemplate>
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table1">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify"/>
+    </initialize>
+    <paraStyle name="P1" fontName="Helvetica"/>
+    <paraStyle name="P2" fontName="Helvetica" alignment="CENTER"/>
+    <paraStyle name="P3" fontName="Helvetica" fontSize="12.0" leading="15"/>
+    <paraStyle name="P4" fontName="Helvetica"/>
+    <paraStyle name="P5" fontName="Helvetica" fontSize="14.0" leading="17"/>
+    <paraStyle name="Standard" fontName="Helvetica"/>
+    <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Caption" fontName="Helvetica" fontSize="12.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Helvetica"/>
+    <paraStyle name="Table Contents" fontName="Helvetica"/>
+    <images/>
+  </stylesheet>
+  <story>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> </font>
+    </para>
+    <para style="Standard">
+      <font color="white"> .........</font>
+      <font color="white"> .........</font>
+      <font color="white"> .........</font>
+      <font color="white"> .........</font>
+      <font color="white"> .........</font>
+      <font color="white"> .........</font>
+      <font color="white"> .........</font>
+      <font color="white"> .........</font>
+      <font face="Helvetica" size="22.0">SALE ORDER REPORT</font>
+    </para>
+    <para style="P3">
+      <font face="Helvetica">[[repeatIn(objects,'sale_obj')]]</font>
+    </para>
+    <para style="P1">ID<font face="Helvetica"/>SHAPE<font face="Helvetica"/>LAB<font face="Helvetica"/>CARET<font face="Helvetica"/>COLOR<font face="Helvetica"/>POLISH<font face="Helvetica"/>SYM<font face="Helvetica">. </font>FLUE<font face="Helvetica">. </font><font face="Helvetica">TABLE</font><font face="Helvetica">% </font>DEPTH<font face="Helvetica">% </font>CR<font face="Helvetica">.</font>ANGLE<font face="Helvetica"/>RAP<font face="Helvetica">.</font>PRICE<font face="Helvetica"/>CARETPRICE<font face="Helvetica"/>BACK<font face="Helvetica"/>TOTAL</para>
+    <section>
+      <blockTable colWidths="870.0" style="Table1">
+        <tr>
+          <td>
+            <para style="P5">
+              <font color="white"> </font>
+            </para>
+          </td>
+        </tr>
+      </blockTable>
+      <para style="P1">
+        <font color="white"> </font>
+      </para>
+    </section>
+    <para style="P1">
+      <font color="white"> </font>
+    </para>
+    <para style="P4"/>
+    <para style="P1">
+      <font color="white"> </font>
+    </para>
+    <para style="P2">
+      <font color="white"> </font>
+    </para>
+    <para style="P1">
+      <font color="white"> </font>
+    </para>
+  </story>
+</document>

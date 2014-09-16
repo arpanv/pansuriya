@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!--Crm Case Section Form View. Add Reply-to In form view-->
+		<record id="reply_to_in_form_ept" model="ir.ui.view">
+            <field name="name">reply.to.in.form.ept</field>
+            <field name="model">crm.case.section</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="crm.crm_case_section_view_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='alias_domain']" position="after">
+					<field name = 'reply_to' string = "Reply To"/>									
+				</xpath>
+			</field>
+		</record>
+	</data>
+</openerp>

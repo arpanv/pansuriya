@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="store_view_form_view_ept" model="ir.ui.view">
+            <field name="name">magento.store.store_view.form.ept</field>
+            <field name="model">magento.store.store_view</field>
+            <field name="inherit_id" ref="magento_integration.store_view_form_view"/>
+            <field eval="7" name="priority"/>
+            <field name="arch" type="xml">
+            	<xpath expr="/form[@string='Store View']/sheet/group/group[9]/h3" position="after">            		
+            		<field name="fiscal_position"/>
+            	</xpath>            		            	
+            </field>
+        </record>
+    </data>
+</openerp>

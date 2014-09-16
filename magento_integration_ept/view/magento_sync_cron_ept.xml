@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    
+<!-- Export catalog to magento     -->
+        <record id="ir_cron_export_catalog_to_magento" model="ir.cron">
+            <field name="name">Export Catalog To Magento Ept</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model">magento.instance.website</field>
+            <field name="function">export_catalog_to_magento</field>
+            <field name="args">()</field>
+            <field name="active" eval="False"/>
+        </record>
+     
+<!-- Export saleorder state to magento         -->
+        <record id="ir_cron_export_order_state_to_magento" model="ir.cron">
+            <field name="name">Export Sale Order To Magento Ept</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model">magento.store.store_view</field>
+            <field name="function">export_sale_order_state_to_magento</field>
+            <field name="args">()</field>
+            <field name="active" eval="False"/>
+        </record>
+     
+<!-- Import sale order from magento         -->
+        <record id="ir_cron_import_sale_order_from_magento" model="ir.cron">
+            <field name="name">Import Sale Order From Magento Ept</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model">magento.store.store_view</field>
+            <field name="function">import_sale_order_from_magento</field>
+            <field name="args">()</field>
+            <field name="active" eval="False"/>
+        </record>
+        
+    </data>
+</openerp>

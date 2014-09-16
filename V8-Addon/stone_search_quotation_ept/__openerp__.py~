@@ -1,0 +1,20 @@
+{
+    "name" : "Product In Quotation",
+    "version" : "1.0",
+    "author" : "Emipro Technologies",
+    'website': 'http://www.emiprotechnologies.com',
+    'category': 'Product',    
+    "depends" : ["sale"],
+    "init_xml" : [],
+    "demo_xml" : [],
+    "description": """
+    Selected product are added into Sales Quotation
+    """,
+    "update_xml" : [
+                    'product_in_quote_view.xml',
+                    'security/ir.model.access.csv',
+                    ],
+    "auto_install": False,
+    "installable": True,
+    "certificate" : "",    
+}

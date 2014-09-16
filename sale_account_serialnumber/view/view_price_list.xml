@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="product_price_type_view_ept" model="ir.ui.view">
+            <field name="name">product.price.type.form.ept</field>
+            <field name="model">product.price.type</field>
+            <field name="inherit_id" ref="product.product_price_type_view"/>
+            <field name="arch" type="xml">
+                         
+            	<field name="active" position="after">
+	            	<field name="by_serial_number"/>
+	            	<field name="serial_number_field" attrs="{'required':[('by_serial_number','=',True)],'invisible':[('by_serial_number','=',False)]}"/>
+	            </field>	               	        	     
+	            <field name="field" position="replace">	            	
+	            	<field name="field" attrs="{'required':[('by_serial_number','=',False)]}"/>	            		            		        
+	            </field>	                                          
+            </field>
+        </record>
+      </data>
+</openerp>

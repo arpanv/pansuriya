@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="stock_inventory_form_view" model="ir.ui.view">
+            <field name="name">stock.inventory.form.view</field>
+            <field name="model">stock.inventory</field>
+            <field name="inherit_id" ref="stock.view_inventory_form" />
+            <field name="arch" type="xml">
+            	<field name="date" position="after" >
+            		<field name="default_loc_id" /><!--on_change="def_location_id_change(default_loc_id)" -->
+            		<field name="default_qty" />
+            	</field>
+            	
+            	<xpath expr="//field[@name='product_id']" position="attributes">            		
+            		<attribute name = "on_change">on_change_product_id(location_id,product_id,product_uom,parent.date,parent.default_qty)</attribute>
+            	</xpath>
+            		
+				<field name="inventory_line_id" position="attributes">
+					<attribute name="context">{'default_tally_location_ept':default_loc_id,'default_tally_qty_ept':default_qty}</attribute>
+				</field>
+			</field>
+		</record>	      
+	</data>
+</openerp>

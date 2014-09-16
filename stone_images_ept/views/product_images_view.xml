@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="view_product_image_form" model="ir.ui.view">
+			<field name="name">product.images.form</field>
+			<field name="model">product.images</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Product Images" version="7.0">
+					<notebook colspan="4">
+						<page string="Image">
+							<group col="6" colspan="4">
+								<field name="name" colspan="2" />
+                                <field name="extention" colspan="2" />
+								<field name="link" colspan="2" />
+							</group>
+                            <group attrs="{'invisible':[('link','=',0)]}" colspan="4">
+							    <separator string="File Location and Preview (Only when saved)" colspan="4"/>
+                                <field name="url" colspan="4" widget="url" nolabel="1"/>
+                            </group>
+							<field name="file" widget="image" class="oe_avatar oe_left" nolabel="1" filename="name" colspan="4" attrs="{'readonly':[('link','!=',0)]}"/>
+							<field name="file_db_store"/>
+						</page>
+						<page string="Comments">
+							<field name="comments" nolabel="1" colspan="4" />
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+		<record id="view_product_image_tree" model="ir.ui.view">
+			<field name="name">product.images.tree</field>
+			<field name="model">product.images</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Product Images">
+					<field name="name" select="1" />
+					<field name="comments" select="2" />
+				</tree>
+			</field>
+		</record>
+		<record id="product_form_view_inherit_ept_multi_images" model="ir.ui.view">
+            <field name="name">product.form.view.inherit.ept.multi.images</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product_stone_search_ept.product_form_view_inherit_ept" />
+			<field name="arch" type="xml">
+				<xpath expr="//page[@string='Extra Information']" position="after">
+					<page string="Images">
+						<group>
+							<field name="image_ids" mode="kanban" context="{'default_product_id': active_id}" nolabel="1">
+								<kanban>                                    
+                                    <field name="name"/>                                    
+                                    <field name="has_image"/>    
+                                    <field name="file"/>                                
+                                    <templates>
+                                        <t t-name="kanban-box">                                            
+                                            <div>
+	                                        	<a t-if="! read_only_mode" type="delete" style="position: absolute; right: 0; padding: 4px; diplay: inline-block">X</a>
+	                                            <div class="oe_module_vignette">
+	                                                <a type="open">
+	                                                    <t t-if="record.has_image.raw_value === true">	                                                        
+	                                                        <img t-att-src="'data:image/png;base64,'+record.file.raw_value" class="oe_avatar oe_kanban_avatar_smallbox"/>
+	                                                    </t>		                                                                                                       	                                                 
+	                                                </a>                                                    
+                                            	</div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                                <form string="Image" version="7.0">                                    
+                                    <div class="oe_title">
+                                        <group>
+                                            <group col="6" colspan="4">
+												<field name="name" colspan="2" />
+				                                <field name="extention" colspan="2" />
+												<field name="link" colspan="2" />
+											</group>
+                            				<group attrs="{'invisible':[('link','=',0)]}" colspan="4">
+							    				<separator string="File Location and Preview (Only when saved)" colspan="4"/>
+                                				<field name="url" colspan="4" widget="url" nolabel="1"/>
+                            				</group>
+											<field name="file" widget="image" class="oe_avatar oe_left" nolabel="1" filename="name" colspan="4" attrs="{'readonly':[('link','!=',0)]}"/>
+											<field name="file_db_store"/>                                                                                      
+                                        </group>
+                                    </div>
+                                </form>					 
+							</field>
+						</group>	
+					</page>
+				</xpath>
+			</field>
+		</record>		
+	</data>
+</openerp>

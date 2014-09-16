@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="fill_inventory_ept" model="ir.config_parameter">
+            <field name="key">fill_inventory</field>
+            <field name="value">NO</field>
+        </record>
+    </data>
+</openerp>

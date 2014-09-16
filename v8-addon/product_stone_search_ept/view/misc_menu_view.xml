@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+   		<menuitem name="Product Shape" 
+		id="menu_product_shape_ept"
+		parent="product.prod_config_main"
+		action="action_product_shape_view_ept"
+		groups="base.group_user"
+		/>
+		<menuitem name="Product Color" 
+			id="menu_product_colour_ept"
+			parent="product.prod_config_main"
+			action="action_product_colour_view_ept"
+			groups="base.group_user"
+			/>
+		<menuitem name="Product Clarity" 
+			id="menu_product_clarity_ept"
+			parent="product.prod_config_main"
+			action="action_product_clarity_view_ept"
+			groups="base.group_user"
+			/>
+		<menuitem name="Product Fancy Color Intensity" 
+			id="menu_product_fancy_color_intensity_ept"
+			parent="product.prod_config_main"
+			action="action_product_fancy_color_intensity_view_ept"
+			groups="base.group_user"
+			/>
+		<menuitem name="Product Fancy Color Overtone" 
+			id="menu_product_fancy_color_overtone_ept"
+			parent="product.prod_config_main"
+			action="action_product_fancy_color_overtone_view_ept"
+			groups="base.group_user"
+			/>
+		<menuitem name="Product Cut" 
+			id="menu_product_cut_ept"
+			parent="product.prod_config_main"
+			action="action_product_cut_view_ept"
+			groups="base.group_user"
+			/>
+		<menuitem name="Product Polish" 
+			id="menu_product_polish_ept"
+			parent="product.prod_config_main"
+			action="action_product_polish_view_ept"
+			groups="base.group_user"
+			/>
+		<menuitem name="Product Symmetry" 
+			id="menu_product_symmetry_ept"
+			parent="product.prod_config_main"
+			action="action_product_symmetry_view_ept"
+			groups="base.group_user"
+			/>
+		<menuitem name="Product Fluorescence Intensity" 
+			id="menu_product_fluorescence_intensity_ept"
+			parent="product.prod_config_main"
+			action="action_product_fluorescence_intensity_view_ept"
+			groups="base.group_user"
+			/>
+		<menuitem name="Product Lab" 
+			id="menu_product_lab_ept"
+			parent="product.prod_config_main"
+			action="action_product_lab_view_ept"
+			groups="base.group_user"
+			/>
+
+		<menuitem name="Product Culet" 
+			id="menu_product_culet_ept"
+			parent="product.prod_config_main"
+			action="action_product_culet_view_ept"
+			groups="base.group_user"
+			/>
+		<menuitem name="Product Fluorescence Color" 
+			id="menu_product_fluorescence_color_ept"
+			parent="product.prod_config_main"
+			action="action_product_fluorescence_color_view_ept"
+			groups="base.group_user"
+			/>
+		<menuitem name="Product Fancy Color" 
+			id="menu_product_fancy_color_ept"
+			parent="product.prod_config_main"
+			action="action_product_fancy_color_view_ept"
+			groups="base.group_user"
+			/>
+		<menuitem name="Insure"
+			id="menu_product_insure_ept"
+			parent="product.prod_config_main"
+			action="action_product_insure_view_ept"
+			groups="base.group_user"
+			/>
+   		<menuitem name="Product Gridle" 
+		id="menu_product_gridle_ept"
+		parent="product.prod_config_main"
+		action="action_product_gridle_view_ept"
+		groups="base.group_user"
+		/>
+   		<menuitem name="Product Culet Condition" 
+		id="menu_product_culet_condition_ept"
+		parent="product.prod_config_main"
+		action="action_product_culet_condition_view_ept"
+		groups="base.group_user"
+		/>	
+	</data>
+</openerp>

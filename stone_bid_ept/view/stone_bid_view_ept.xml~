@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<openerp>
+	<data>
+		<record id='stone_bid_tree_view_ept' model='ir.ui.view'>
+			<field name = 'name'>stone.bid.tree.view.ept</field>
+			<field name = 'model'>stone.bid.ept</field>
+			<field name = 'arch' type = 'xml'>
+				<tree string = 'Stone Bid'>
+					<field name = 'partner_id'/>
+					<field name = 'product_id'/>
+					<field name = 'bid_amount' string='amount'/>
+					<field name = 'bid_time'/>					
+				</tree>
+			</field>
+		</record>
+		
+		<record id='stone_bid_form_view_ept' model='ir.ui.view'>
+			<field name = 'name'>stone.bid.form.view.ept</field>
+			<field name = 'view_type'>form</field>
+			<field name = 'model'>stone.bid.ept</field>
+			<field name = 'arch' type = 'xml'>
+				<form string = 'Stone Bid'>
+					<group>
+						<group>
+						<field name = 'partner_id'/>
+						<field name = 'product_id'/>
+						<field name = 'bid_amount'/>
+						<field name = 'bid_time'/>
+						</group>
+					</group>	
+				</form>
+			</field>
+		</record>
+		
+		<record id="action_stone_bid_ept" model='ir.actions.act_window'>
+			<field name = 'name'>Stone Bid</field>
+			<field name = 'type'>ir.actions.act_window</field>
+			<field name = 'res_model'>stone.bid.ept</field>
+			<field name = 'view_type'>form</field>
+			<field name = 'view_model'>tree,form</field>
+		</record>
+		
+		<menuitem id = 'stone_bid_ept_menu' 
+				action = 'action_stone_bid_ept'
+				name = 'Stone Bid'
+				groups='base.group_user'
+				parent = 'base.menu_product'/>
+				
+		<record id='stone_form_view_inherit_ept1' model='ir.ui.view'>
+			<field name = 'name'>stone.form.view.inherit.ept</field>
+			<field name="model">product.product</field>
+			<field name = 'inherit_id' ref='product.stone_form_view_ept'/>
+			<field name = 'arch' type = 'xml'>
+				<field name='seller_id' position='after'>
+					<field name = 'current_bid_amount' />
+				</field>
+			</field>
+		</record>
+		<record id='stone_form_view_inherit_ept2' model='ir.ui.view'>
+			<field name = 'name'>stone.form.view.inherit.ept</field>
+			<field name="model">product.product</field>
+			<field name = 'inherit_id' ref='product.stone_form_view_ept'/>
+			<field name = 'arch' type = 'xml'>
+				<notebook position='inside'>
+					<page string='Bid Info'>
+						<group>
+							<field name = 'current_bid_amount' />
+						</group>
+							<field name = 'stone_bid_ids' nolabel="1"/>
+					</page>
+				</notebook>
+			</field>
+		</record>
+		<record id='partner_form_view_inherit_ept' model='ir.ui.view'>
+			<field name = 'name'>partner.form.view.inherit.ept</field>
+			<field name="model">res.partner</field>
+			<field name = 'inherit_id' ref='base.view_partner_form'/>
+			<field name = 'arch' type = 'xml'>
+				<notebook position='inside'>
+					<page string="Bids">
+						<field name = 'stone_bid_ids'/>
+					</page>
+				</notebook>
+			</field>
+		</record>	
+		
+		
+		
+<!-- 		<record id='partner_form_view_inherit_ept' model='ir.ui.view'> -->
+<!-- 			<field name = 'name'>partner.form.view.inherit.ept</field> -->
+<!-- 			<field name="model">res.partner</field> -->
+<!-- 			<field name = 'inherit_id' ref='base.view_partner_form'/> -->
+<!-- 			<field name = 'arch' type = 'xml'> -->
+<!-- 				<field name='website' position='after'> -->
+<!-- 					<field name = 'stone_bid_ids'/> -->
+<!-- 				</field> -->
+<!-- 			</field> -->
+<!-- 		</record>		 -->
+<!-- 				<record id='stone_bid_form_view_ept' model='ir.ui.view'> -->
+<!-- 			<field name = 'name'>stone.bid.form.view.ept</field> -->
+<!-- 			<field name = 'model'>stone.bid.ept</field> -->
+<!-- 			<field name = 'arch' type = 'xml'> -->
+<!-- 				<form string = 'Stone Bid'> -->
+<!-- 					<field name = 'customer_id'/> -->
+<!-- 					<field name = 'product_id'/> -->
+<!-- 					<field name = 'bid_amount'/> -->
+<!-- 					<field name = 'bid_time'/>	 -->
+<!-- 				</form> -->
+<!-- 			</field> -->
+<!-- 		</record> -->
+				
+				
+	</data>
+</openerp>

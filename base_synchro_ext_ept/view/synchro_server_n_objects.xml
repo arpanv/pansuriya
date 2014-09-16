@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+<!-- Define Server -->
+    	<record id="pansuriya_product_download_server" model="base.synchro.server">
+    		<field name="name">Pansuriya Product Download</field>
+    		<field name="login">admin</field>
+    		<field name="password">RUNlet123</field>
+    		<field name="server_url">168.144.170.94</field>
+    		<field name="server_port">8069</field>
+    		<field name="server_db">ERPSystem</field>
+    	</record>
+    	
+<!--  Define Server Objects  -->
+
+		<record id="server_object_id1" model="base.synchro.obj">
+			<field name="name">Product</field>
+ 			<field name="domain">[('is_certified','=',True)]</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product.model_product_product"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">20</field>
+		</record>
+		
+		<record id="server_object_id2" model="base.synchro.obj">
+			<field name="name">Product Cut</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_cut"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id3" model="base.synchro.obj">
+			<field name="name">Product Culet</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_culet"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id4" model="base.synchro.obj">
+			<field name="name">Product Shape</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_shape"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id5" model="base.synchro.obj">
+			<field name="name">Product Fluorescence Color</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_fluorescence_color"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id6" model="base.synchro.obj">
+			<field name="name">Product Color</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_color"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id7" model="base.synchro.obj">
+			<field name="name">Product Fancy Color</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_fancy_color"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id8" model="base.synchro.obj">
+			<field name="name">Product Clarity</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_clarity"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>		
+		
+		<record id="server_object_id9" model="base.synchro.obj">
+			<field name="name">Product Polish</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_polish"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id10" model="base.synchro.obj">
+			<field name="name">Product Symmetry</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_symmetry"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id11" model="base.synchro.obj">
+			<field name="name">Product Lab</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_lab"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id12" model="base.synchro.obj">
+			<field name="name">Product Gridle Thin</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_gridle_thin"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id13" model="base.synchro.obj">
+			<field name="name">Product Gridle Thick</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_gridle_thick"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id15" model="base.synchro.obj">
+			<field name="name">Product Fluorescence Intensity</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_fluorescence_intensity"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+		
+		<record id="server_object_id16" model="base.synchro.obj">
+			<field name="name">Product Category</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_product_category"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">0</field>
+		</record>
+
+		<record id="server_object_id17" model="base.synchro.obj">
+			<field name="name">Shape Line</field>
+			<field name="server_id" ref="pansuriya_product_download_server"/>
+			<field name="model_id" ref="product_stone_search_ept.model_shape_line"/>
+			<field name="action">d</field>
+			<field name="active">True</field>
+			<field name="sequence">16</field>
+		</record>
+	</data>
+</openerp>

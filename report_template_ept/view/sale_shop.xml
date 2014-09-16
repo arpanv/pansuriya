@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record id="view_shop_form_ept" model="ir.ui.view">
+            <field name="name">sale.shop.ept</field>
+            <field name="model">sale.shop</field>
+            <field name="inherit_id" ref="sale.view_shop_form"/>
+            <field name="arch" type="xml">                
+            	<field name="pricelist_id" position="after">
+            		<field name="partner_id"/>
+            	</field>
+           </field>
+        </record>
+    </data>
+</openerp>

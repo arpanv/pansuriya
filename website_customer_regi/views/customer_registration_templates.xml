@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+	
+        <template id="auth_signup.thankyou" name="Thank you signup">
+        	<t t-call="website.layout">
+        	<div style="margin:0px auto;text-align:center;"><h1>Thank you for Registration</h1></div>
+        	</t>
+		</template>
+		
+        <template id="auth_signup.signup" name="Sign up login">
+        	<t t-call="website.layout">
+        	<link type="text/css" href="/website_customer_regi/static/src/css/customer_registration.css" rel="stylesheet" media="screen" />		
+        	<link type="text/css" href="/website_customer_regi/static/src/css/datepicker.css" rel="stylesheet" media="screen" />		
+  		<script src="/website_customer_regi/static/src/js/jquery.validate.min.js"></script>
+  		<script src="/website_customer_regi/static/src/js/customer_registration.js"></script>
+  		<script src="/website_customer_regi/static/src/js/bootstrap-datepicker.js"></script>
+                <form class="oe_signup_form" role="form" method="post" t-if="not message" enctype="multipart/form-data">
+					<div style="width:84%;margin:10px auto;" >
+                    	<t t-call="auth_signup.fields"/>
+					</div>
+                    <p class="alert alert-danger" t-if="error">
+                        <t t-esc="error"/>
+                    </p>
+                    <input type="hidden" name="redirect" t-att-value="redirect"/>
+                    <input type="hidden" name="token" t-att-value="token"/>
+                    <div class="clearfix oe_login_buttons" style="width:84%;margin:10px auto;">
+                        <a t-attf-href="/web/login?{{ keep_query() }}" class="btn btn-link pull-right">Back to Login</a>
+                        <button type="submit" class="btn btn-primary pull-left">Sign up</button>
+                    </div>
+
+                </form>
+            </t>
+        </template>
+
+
+        <template id="auth_signup.fields" name="Auth Signup/ResetPassword form fields">
+            <t t-call="web.database_select"/>
+			<h4>Personal Information</h4>
+			<hr/>
+			<!-- convert here -->
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-3">
+						<label for="prefix" class="control-label">Prefix<em>*</em></label>						
+						<select name="prefix" class="form-control">
+							<t t-foreach="prefix_objects" t-as="prefix">
+								<option t-att-value="prefix.id"><t t-esc="prefix.name"/></option> 
+							</t>
+						</select>
+					</div>
+					<div class="col-md-3">
+		                <label for="name" class="control-label">First Name<em>*</em></label>
+		                <input type="text" name="name" t-att-value="name" id="name" class="form-control" placeholder="e.g. John Doe"
+		                    t-att-readonly="'readonly' if only_passwords else None"
+		                    t-att-autofocus="'autofocus' if login and not only_passwords else None" />		                    
+		            </div>
+					<div class="col-md-3">
+						<label for="lastName" class="control-label">Last Name<em>*</em></label>
+						<input type="text" name="lastname" id="lastname" class="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+			<div class="row">
+					<div class="col-md-3">
+						<label for="gender" class="control-label">Gender<em>*</em></label>
+						<select name="gender" class="form-control">
+							<option selected="selected" value="">Select</option>
+							<option value="male">Male</option>
+							<option value="female">Female</option>				
+						</select>
+					</div>
+					<div class="col-md-3">
+						<label for="dob" class="control-label">Date of Birth<em>*</em></label>
+						<input type="text" name="dob" id="dob" class="form-control" placeholder="MM/DD/YYYY"/>
+					</div>
+					<div class="col-md-3">
+						<label for="Anniversary" class="control-label">Anniversary</label>
+						<input type="text" name="anniversary" id="anniversary" class="form-control" placeholder="MM/DD/YYYY"/>					
+					</div>
+				</div>
+			</div>
+			<h4>Login Information</h4>
+			<hr/>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-3">
+		                <label for="login" class="control-label">Email Address<em>*</em></label>
+		                <input type="text" name="login" t-att-value="login" id="login" class="form-control" autofocus="autofocus"
+		                     t-att-readonly="'readonly' if only_passwords else None"/>
+		            </div>
+		            <div class="col-md-3">
+		                <label for="password" class="control-label">Password<em>*</em></label>
+		                <input type="password" name="password" id="password" class="form-control"
+		                     t-att-autofocus="'autofocus' if only_passwords else None"/>
+		            </div>
+		
+		            <div class="col-md-3">
+		                <label for="confirm_password" class="control-label">Confirm Password<em>*</em></label>
+		                <input type="password" name="confirm_password" id="confirm_password" class="form-control" />                
+		            </div> 
+	            </div>
+            </div>
+            
+            <h4>Contact Information</h4>
+			<hr/>
+			<div class="form-group">
+			<div class="row">
+					<div class="col-md-3">
+						<label for="alt_email" class="control-label">Alternate Email ID</label>
+						<input type="text" name="alt_email" id="alt_email" class="form-control"/>
+					</div>
+					<div class="col-md-3">
+						<label for="mobile_no" class="control-label">Mobile Number</label>
+						<input type="text" name="mobile_no" id="mobile_no" class="form-control"/>
+					</div>
+					<div class="col-md-3">
+						<label for="contact_no" class="control-label">Contact Number<em>*</em></label>
+						<input type="text" name="contact_no" id="contact_no" class="form-control" />
+					</div>				
+				</div>
+			</div>
+			<div class="form-group field-password">
+			<div class="row">
+					<div class="col-md-3">
+						<label for="extension" class="control-label">Extension</label>
+						<input type="text" name="extension" id="extension" class="form-control"/>
+					</div>
+					<div class="col-md-3">
+						<label for="fax_no" class="control-label">Fax Number</label>
+						<input type="text" name="fax_no" id="fax_no" class="form-control"/>
+					</div>		
+				</div>
+			</div>
+			
+			<h4>Company Information</h4>
+			<hr/>
+			<div class="form-group">
+			<div class="row">
+					<div class="col-md-3">
+						<label for="company_name" class="control-label">Company Name<em>*</em></label>
+						<input type="text" name="company_name" id="company_name" class="form-control" />
+					</div>
+					<div class="col-md-3">
+						<label for="owner_name" class="control-label">Owner Name<em>*</em></label>
+						<input type="text" name="owner_name" id="owner_name" class="form-control" />
+					</div>
+					<div class="col-md-3">
+						<label for="company_type" class="control-label">Company Type</label>
+						<select id="company_type" name="company_type" class="form-control">
+							<option value="" selected="selected">Select</option>
+							<option value="individual">Individual</option>
+							<option value="partnership">Partnership</option>
+							<option value="private_ltd">Private Ltd</option>
+							<option value="limited_liability_partnership">Limited Liability Partnership</option>						</select>
+					</div>		
+				</div>
+			</div>
+			<div class="form-group">
+			<div class="row">
+					<div class="col-md-3">
+						<label for="company_address" class="control-label">Company Address<em>*</em></label>
+						<textarea name="company_address" id="company_address" row="2" class="form-control"></textarea>
+					</div>	
+					<div class="col-md-3">
+						<label for="city" class="control-label">City<em>*</em></label>
+						<input type="text" name="city" id="city" class="form-control" />
+					</div>
+					<div class="col-md-3">
+						<label for="state" class="control-label">State/Province<em>*</em></label>						
+						<select id="state" name="state" class="form-control" >
+						<t t-foreach="state_objects" t-as="state">
+								<option t-att-value="state.id"><t t-esc="state.name"/></option> 
+						</t>                             							
+                        </select>
+					</div>	
+				</div>
+			</div>
+			<div class="form-group">
+			<div class="row">
+					<div class="col-md-3">
+						<label for="country" class="control-label">Country<em>*</em></label>
+						<select id="country" name="country" class="form-control" >
+                        	<t t-foreach="country_objects" t-as="country">
+								<option t-att-value="country.id"><t t-esc="country.name"/></option> 
+							</t>								
+                        </select>
+					</div>
+					<div class="col-md-3">
+						<label for="telephone" class="control-label">Telephone<em>*</em></label>
+						<input type="text" name="telephone" id="telephone" class="form-control" />
+					</div>
+					<div class="col-md-3">
+						<label for="zip" class="control-label">Zip/Postal Code<em>*</em></label>
+						<input type="text" name="zip" id="zip" class="form-control" />
+					</div>		
+				</div>
+			</div>		
+			<div class="form-group">
+				<div class="row">					
+					<div class="col-md-3">
+						<label for="photo_id_proof" class="control-label">Photo Identity Proof</label>
+						<input type="file" name="photo_id_proof" id="photo_id_proof" class="form-control"/>
+					</div>
+					<div class="col-md-3">
+						<label for="company_website" class="control-label">Company Website</label>
+						<input type="text" name="company_website" id="company_website" class="form-control"/>
+					</div>		
+				</div>
+			</div>	
+					
+			<h4>Business Information</h4>
+			<hr/>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-3">
+						<label for="nature_of_business" class="control-label">Nature of Business<em>*</em></label>
+						<select id="nature_of_business" name="nature_of_business" class="form-control">
+							<option value="" selected="selected">Select</option>
+							<option value="jewellary_manufacturer">Jewellary Manufacturer</option>							
+							<option value="polish_distributor">Polish distributor</option>
+							<option value="retailer">Retailer</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+					<div class="col-md-3">
+							<label for="broker" class="control-label">Broker<em>*</em></label>
+							<select id="broker" name="broker" class="form-control">
+								<option value="" selected="selected">Select</option>
+								<option value="yes">Yes</option>
+								<option value="no">No</option>
+							</select>
+					</div>
+					<div class="col-md-3">
+						<label for="agent" class="control-label" >Agent<em>*</em></label>
+						<select id="agent" name="agent" class="form-control">
+							<option value="" selected="selected">Select</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select>
+					</div>		
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-3">
+						<label for="dun_bradstreet_no" class="control-label">Dun and Bradstreet Number</label>
+						<input type="text" name="dun_bradstreet_no" id="dun_bradstreet_no" class="form-control"/>
+					</div>
+					<div class="col-md-3">
+						<label for="proof_of_business_reg_copy" class="control-label" >Proof of Business Registration Copy</label>
+						<input type="file" name="proof_of_business_reg_copy" id="proof_of_business_reg_copy" class="form-control" />
+					</div>		
+				</div>
+			</div>
+			
+			<h4>Bank Information</h4>
+			<hr/>
+			<div class="form-group">
+			<div class="row">
+					<div class="col-md-3">
+						<label for="bank_name" class="control-label">Bank Name</label>
+						<input type="text" name="bank_name" id="bank_name" class="form-control" />
+					</div>
+					<div class="col-md-3">
+						<label for="branch_name" class="control-label">Branch Name</label>
+						<input type="text" name="branch_name" id="branch_name" class="form-control" />
+					</div>
+					<div class="col-md-3">
+						<label for="type_of_account" class="control-label">Type of Account</label>
+						<select name="type_of_account" id="type_of_account" class="form-control">
+							<option value='bank' >Normal Bank Account</option>
+						</select>						
+<!-- 						<input type="text" name="type_of_account" id="type_of_account" class="form-control" /> -->
+					</div>		
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="row">					
+					<div class="col-md-3">
+						<label for="account_no" class="control-label">Account Number</label>
+						<input type="text" name="account_no" id="account_no" class="form-control" />
+					</div>
+					<div class="col-md-3">
+						<label for="branch_address" class="control-label">Branch Address</label>
+						<textarea name="branch_address" id="branch_address" row="2" class="form-control"></textarea>
+					</div>
+					<div class="col-md-3">
+						<label for="bank_city" class="control-label">City</label>
+						<input type="text" name="bank_city" id="bank_city" class="form-control" />
+					</div>		
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="row">					
+					<div class="col-md-3">
+						<label for="bank_state" class="control-label">State</label>
+						<select id="bank_state" name="bank_state" class="form-control">
+						<t t-foreach="state_objects" t-as="state">
+								<option t-att-value="state.id"><t t-esc="state.name"/></option> 
+						</t>                             							
+                        </select>
+<!-- 						<input type="text" name="bank_state" id="bank_state" class="form-control" /> -->
+					</div>
+					<div class="col-md-3">
+						<label for="bank_zip_code" class="control-label">Zip Code</label>
+						<input type="text" name="bank_zip_code" id="bank_zip_code" class="form-control" />
+					</div>		
+				</div>
+			</div>
+			
+			<h4>Member Of</h4>
+			<hr/>
+			<div class="form-group">
+			<div class="row">
+					<div class="col-md-3">
+						<label for="member_of_trade_portal" class="control-label">Members of Trade Portal</label>
+						<input type="text" name="member_of_trade_portal" id="member_of_trade_portal" class="form-control" />
+					</div>
+					<div class="col-md-3">
+						<label for="member_of_teade_association" class="control-label">Members of Trade Association</label>
+						<input type="text" name="member_of_teade_association" id="member_of_teade_association" class="form-control" />
+					</div>		
+				</div>
+			</div>	
+									
+			<h4>Third Party Reference</h4>
+			<hr/>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-3">
+						<label for="third_name" class="control-label">Name</label>
+						<input type="text" name="third_name" id="third_name" class="form-control" />
+					</div>
+					<div class="col-md-3">
+						<label for="third_contact_number" class="control-label">Contact Number</label>
+						<input type="text" name="third_contact_number" id="third_contact_number" class="form-control" />
+					</div>
+					<div class="col-md-3">
+						<label for="third_address" class="control-label">Address</label>
+						<textarea name="third_address" row="2" id="third_address" class="form-control"></textarea>
+					</div>		
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-3">
+						<label for="third_email" class="control-label">Email</label>
+						<input type="text" name="third_email" id="third_email" class="form-control" />
+					</div>		
+				</div>
+			</div>
+			<hr/>					
+		</template>
+		
+	</data>
+</openerp>

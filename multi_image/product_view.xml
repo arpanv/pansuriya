@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="product_form_view_inherit_ept_multi_images" model="ir.ui.view">
+            <field name="name">product.form.view.inherit.ept.multi.images</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product_stone_search_ept.product_form_view_new_inherit_ept" />
+			<field name="arch" type="xml">
+				<xpath expr="//page[@string='Extra Information']" position="after">
+					<page string="Images">
+                        <field name="multi_images" widget="image_multi"/>
+                    </page>
+				</xpath>
+			</field>
+		</record>	        
+    </data>
+</openerp>

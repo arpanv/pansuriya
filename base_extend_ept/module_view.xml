@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="module_kanban_view_ext_ept" model="ir.ui.view">
+            <field name="name">module.kanban.view.ext.ept</field>
+            <field name="model">ir.module.module</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.module_view_kanban" />
+			<field name="arch" type="xml">
+				<xpath expr="//button[@name='button_immediate_install']" position="after">
+					<button type="object" name="button_immediate_upgrade" states="installed">Upgrade</button>
+				</xpath>
+				<xpath expr="//button[@t-if='installed']" position="replace">
+				</xpath>
+			</field>
+		</record>
+		
+		<menuitem id="base.module_mi" parent="base.menu_management" sequence="1000" action="base.modules_act_cl"/>
+		<menuitem id="base.menu_module_updates" parent="base.menu_management" sequence="1001" action="base.modules_updates_act_cl"/>
+	</data>
+</openerp>

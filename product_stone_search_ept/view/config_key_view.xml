@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="product_system_parameter" model="ir.config_parameter">
+			<field name="key">product_rapnet_price_multiple</field>
+			<field name="value">100</field>
+		</record>	
+	</data>
+</openerp>		

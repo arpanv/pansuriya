@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="product_auction_form_view" model="ir.ui.view">
+            <field name="name">product.auction.form.view</field>
+            <field name="model">product.auction</field>
+            <field name="arch" type="xml">
+                <form string="Auction Information" version="7.0">
+	                <group colspan="2" col="4">
+	                    <field name="auction_time" string="Auction Time" required="True"/>
+	                    <field name="auction_date" string="Auction Date" required="1"/>
+	                    <footer>
+	                        <button string="Update" type="object"
+	                            name="calculate_auction" />
+	                        <button string="Close" special="cancel" class="oe_link"/>
+	                    </footer>
+                    </group>
+                </form>
+            </field>
+        </record>
+       
+        <record id="product_auction_search_view" model="ir.ui.view">
+            <field name="name">product.auction.search.view</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product_stone_search_ept.product_search_form_view"/>
+            <field name="arch" type="xml">
+	            <field name="name" position = "after">   
+                    <filter icon="terp-check" string="Auction" domain="[('is_auction','=',True)]"/>
+                </field>    
+            </field>
+       </record>
+               
+       <record id="product_auction_remove_confirmation_form_view" model="ir.ui.view">
+            <field name="name">product.auction.remove.confirmation.form.view</field>
+            <field name="model">product.auction</field>
+            <field name="arch" type="xml">
+                <form string="Auction Remove Confirmation" version="7.0">
+	                <group colspan="2" col="4">
+	                    <h2><label string = "Are you sure to remove stones from auction ???"/></h2>
+	                    <footer>
+	                        <button string="Remove" type="object"
+	                            name="remove_auction" />
+	                        <button string="Cancel" special="cancel" class="oe_link"/>
+	                    </footer>
+                    </group>
+                </form>
+            </field>
+        </record>
+      		
+   		<act_window name = "Add To Auction" 
+			   		res_model = "product.auction"
+					src_model = "product.product" 
+					view_mode = "form" 
+					view_type = "form"
+					target = "new" 
+					multi = "True" 
+					key2 = "client_action_multi"
+					id = "action_add_to_auction"
+					view_id = "product_auction_form_view"/>
+					
+	   		<act_window name = "Remove From Auction" 
+			   		res_model = "product.auction"
+					src_model = "product.product" 
+					view_mode = "form" 
+					view_type = "form"
+					target = "new" 
+					multi = "True" 
+					key2 = "client_action_multi"
+					id = "action_remove_from_auction"
+					view_id = "product_auction_remove_confirmation_form_view"/>  
+	</data>
+</openerp>

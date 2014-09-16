@@ -1,0 +1,139 @@
+body{
+	color: #818181;
+    font: 12px/1.55 'TeXGyreAdventorRegular';
+    text-align: center;
+}
+.askpopup{
+	display:block;
+	width:250px;
+	margin:0px auto;
+	padding:12px;
+	background-color:#333333;
+	font-size:14px;
+	font-family: inherit;
+	z-index:1001;
+	-webkit-box-shadow: 0px 0px 13px 0px rgba(48, 50, 50, 0.45);
+	-moz-box-shadow:    0px 0px 13px 0px rgba(48, 50, 50, 0.45);
+	box-shadow:         0px 0px 13px 0px rgba(48, 50, 50, 0.45);
+	}
+	.spancolor{
+	color:white;
+	}
+	.spancontent{
+		color:#66ccdd;	
+	}
+        /* popup style start */
+        
+        .fl{float: left;}
+        .fr{float: right;}
+        .txt-center{text-align: center;}
+        .txt-left{text-align: left;}
+        
+        .popupMainDiv
+        {
+            width: 100%;
+        }
+        .popupLeftMainDiv
+        {
+            width: 97%;
+            box-shadow: 0px 0px 2px 0px #999999;
+        }
+        .popupPart_2
+        {
+            width: 100%;
+        }
+        .attributeRow
+        {
+            width: 100%;
+            height: 20px;            
+        }
+        .colspan1
+        {
+            width: 80px;
+            height: 20px;                        
+        }
+        .labelDiv
+        {
+            width: 80px;
+            height: 20px;            
+            text-transform: uppercase;
+            font-size: 11px;
+            color: #333;
+        }
+        .valueDiv
+        {            
+            width: 70px;
+            color: #333;
+            height: 20px;            
+            text-transform: lowercase;
+            border-bottom: 1px solid lightgray;
+            margin-left: 5px;
+            margin-right: 5px;                                
+        }
+        .popupLeftMainDivHeading
+        {            
+            padding: 7px;
+            background-color: #66ccdd;
+            color: #333;                        
+            border-bottom: 1px solid lightgray;
+            font-size: 14px;
+        }
+        .priceMainDiv
+        {
+            width: 100%;
+            margin-left: 10px;            
+        }
+        .priceDivRow
+        {
+            width: 100%;
+            height: 20px;
+        }
+        .priceDiv
+        {
+            width: 33.33%;
+        }
+        .popupPart_2_Main
+        {
+            width: 97%;
+            box-shadow: 0px 0px 2px 0px #999999;
+            height: 310px;
+        }
+        .menu_send_button
+        {
+			padding: 5px 30px 5px 30px;
+			background-color: #66ccdd;
+			border: none;
+			vertical-align: top;
+			color: black;
+			font-size: 13px;
+			margin-left: 10px;			
+			cursor:pointer;			
+		}
+		.menu_send_button:hover
+		{				
+			transition: background-color 1s ease 0s;
+			background-color: rgb(93, 185, 201);			
+		}
+
+		.auction_timer_main_div
+		{
+			float: left; 
+			font-size: 16px; 
+			background-color: lightpink; 
+			margin-left: 10px; 
+			padding: 4px 26px; 
+			color: white;
+		}
+		.current_bid
+		{
+			display:inline-block;
+			width:100%;
+		}
+        /* popup style end */
+        
+        .minbid{
+			clear: both;
+			font-size: 11px;
+			width: auto;
+			margin-left: 102px;
+		}

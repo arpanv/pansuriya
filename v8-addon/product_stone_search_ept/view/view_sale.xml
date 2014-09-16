@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+     	<record id="view_order_form_ept" model="ir.ui.view">
+            <field name="name">sale.order.form.ept</field>
+            <field name="inherit_id" ref="sale_stock.view_order_form_inherit"/>
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+              	<field name="product_id" position="after">
+			<field name="certificate_no"/>
+			<field name="shape_id" /> 
+			<field name="color_id" />
+		       	<field name="clarity_id" />
+		       	<field name="cut_id" />
+		       	<field name="polish_id" />
+		       	<field name="symmetry_id"/>
+			<field name="fluorescence_intensity_id" string="Flur" /> 
+			<field name="rapnet_price" />
+			<field name="price_caret" />
+			<field name="lab_id" />
+			<field name="product_table" />
+			<field name="product_depth" />
+			<field name="crown_angle" /> 
+			<field name="product_length" />
+			<field name="product_width" />
+			<field name="product_height" /> 
+             	</field>  
+            </field>
+        </record> 
+
+		<record id="view_order_tree_ept" model="ir.ui.view">
+            <field name="name">sale.order.tree.ept</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="model">sale.order</field>
+            <field name="arch" type="xml">
+            
+	        <xpath expr="//notebook/page[@string='Order Lines']/field[@name='order_line']/form/group[1]/group/field[@name='product_id']" position="attributes">            		
+            		<attribute name = "domain">[('product_status','=','available')]</attribute>
+            	</xpath>
+
+            	<field name="amount_untaxed" position="before">
+            		<field name="avg_discount"/>
+            	</field>
+            	
+            	<button name="action_cancel" position="after">
+            		<button name="%(act_wizard_sale_discount_ept_action)d" string="Set Discount"
+                            type="action" states="draft,sent"/>
+            	</button>   
+            	     	 	
+				<xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree/field[@name='name']" position="after">				                    
+				   <field name="certificate_no" />
+                   <field name="shape_id" />
+				   <field name="th_weight" />
+				   <field name="color_id" />
+               	   <field name="clarity_id" />
+               	   <field name="cut_id" />
+               	   <field name="polish_id" />
+               	   <field name="symmetry_id" />
+               	   <field name="fluorescence_intensity_id" string="Flur"/> 
+               	   <field name="rapnet_price"/>    
+                </xpath>
+                
+                <xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree/field[@name='name']" position="attributes">
+                	<attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree/field[@name='discount']" position="after">
+                	<field name="price_caret"/>  
+                </xpath>
+                
+                <xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree/field[@name='product_uom_qty']" position="attributes">
+                	<attribute name="invisible">1</attribute>
+                </xpath>
+                
+                <xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree/field[@name='product_uom']" position="attributes">                
+                	<attribute name="invisible">1</attribute>
+                </xpath>
+                             
+                <xpath expr="//page[@string='Order Lines']/field[@name='order_line']/tree/field[@name='tax_id']" position="attributes">                 
+                	<attribute name="invisible">1</attribute>
+                </xpath>       
+            </field>
+        </record>  
+		             
+		<record id="sale.view_order_form_editable_list" model="ir.ui.view">
+            <field name="name">sale.order.form.editable.list</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="groups_id" eval="[(6, 0, [])]"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                    <attribute name="editable"/>
+                </xpath>
+            </field>
+        </record>        
+        
+    </data>
+</openerp>

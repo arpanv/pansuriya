@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        	<record id="product_search_form_view" model="ir.ui.view">
+            <field name="name">product.search.form</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <search string="Product">
+                   <filter name="is_certified" icon="terp-check" string="Certified" domain="[('is_certified','=',True)]"/>
+                   <filter name="is_export" icon="terp-check" string="Exportable" domain="[('is_export','=',True)]"/>
+                   <filter name="is_fancy_color" icon="terp-check" string="Fancy color" domain="[('is_fancy_color','=',True)]"/>
+                   <field name="name" string="Product" filter_domain="['|',('name','ilike',self),('default_code','ilike',self)]"/>
+                   <filter string="Services" icon="terp-accessories-archiver" domain="[('type','=','service')]"/>
+                   <filter string="Consumable" name="consumable" icon="terp-accessories-archiver" domain="[('type','=','consu')]" help="Consumable products"/>
+                   <separator/>
+                   <filter string="Can be Sold" name="filter_to_sell" icon="terp-accessories-archiver-minus" domain="[('sale_ok','=',1)]"/>
+                   <field name="categ_id"/>
+                   <group expand="0" string="Context...">
+                       <field name="pricelist_id" widget="selection" context="{'pricelist': self}" filter_domain="[]" groups="product.group_sale_pricelist"/> <!-- Keep widget=selection on this field to pass numeric `self` value, which is not the case for regular m2o widgets! -->
+                       <field name="company_id" groups="base.group_multi_company"/>
+                   </group>
+                   <group  expand='0' string='Group by...'>
+                       <filter string='Category' icon="terp-stock_symbol-selection" domain="[]" context="{'group_by' : 'categ_id'}"/>
+                       <filter string='Default Unit of Measure' icon="terp-mrp" domain="[]" context="{'group_by' : 'uom_id'}"/>
+                       <filter string='Type' icon="terp-stock_symbol-selection" domain="[]" context="{'group_by' : 'type'}"/>
+                       <filter string='Company' icon="terp-go-home" domain="[]" context="{'group_by' : 'company_id'}" groups="base.group_multi_company"/>
+                   </group>
+                </search>
+            </field>
+        </record>
+			<record id="product.stone_tree_view_ept" model="ir.ui.view">
+            <field name="name">stone.tree.view.ept</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+            	<tree string="Stones">
+                    <field name="name" string="NAME" />
+					<field name="location_id" string="LN" context="{'no_complete_name':True}" />                    
+					<field name="product_status" string="STATUS" invisible="1"/>
+					<field name="certificate_no" string="CERTIFICATE&#35;"/>
+                    <field name="shape_id" string="SHP" />
+                    <field name="weight" string="CRT" />
+                    <field name="color_id" string="CLR" />
+                    <field name="clarity_id" string="CLARITY" />
+                    <field name="cut_id" string="CUT" />
+                    <field name="polish_id" string="POL" />
+                    <field name="symmetry_id" string="SYM" />
+                    <field name="fluorescence_intensity_id" string="FLUR" />
+                    <field name="lab_id" string="LAB" />
+					<field name="laser_inspection" string="LS.I" />
+					<field name="rapnet_price" string="RATE"/>
+					<field name="discount" />
+					<field name="price_caret" />					
+					<field name="list_price" string="PRICE" />					
+					<field name="tinge" string="TINGE" invisible="1" />
+					<field name="is_auction" invisible="1" />
+            		<button name="is_auction" icon="auction" string="Auction" class="oe_highlight" attrs="{'invisible':[('is_auction','!=',True)]}" />					
+					<button name="product_status" icon="available" string="Available" attrs="{'invisible':[('product_status','!=','available')]}" />
+					<button name="product_status" icon="hold" string="Hold or On Approval" attrs="{'invisible':[('product_status','not in',('hold','on_approval'))]}" />
+                </tree>
+            </field>
+        </record>
+        
+        <record id="product.stone_form_view_ept" model="ir.ui.view">
+            <field name="name"> stone.form.view.ept </field>
+            <field name="model">product.product</field>
+			<field name="arch" type="xml">
+				<form string="Stone">
+					<sheet>
+				 		<group> 
+					 		<group name="header_left">
+			                    <div class="oe_title">
+									<label for="name" class="oe_edit_only" string="Name"/>
+			                        <h1>
+			                            	<field name="name" class="oe_inline"/>
+			                        </h1>
+			                        <label for="product_status" class="oe_edit_only" string="Status"/>
+			                        <h3>
+			                        	<field name="product_status"/>
+			                        </h3>	
+			                        <label for="categ_id" class="oe_edit_only" string="Category"/>
+			                        <h3>
+			                        	<field name="categ_id"/>
+			                        </h3>
+										<label for="rfid_tag" class="oe_edit_only" string="RFID"/>
+									<h3>
+										<field name = "rfid_tag" attrs="{'readonly':[('product_status','=','sold')]}"/>
+									</h3>
+									<label for="location_id" class="oe_edit_only" string="Location"/>
+									<h3>
+										<field name="location_id"/>
+									</h3>
+									<label for="default_code" class="oe_edit_only" string="Internal Reference"/>
+									<h3>
+										<field name="default_code"/>
+									</h3>
+			                    </div>
+			                 </group>
+		              	</group>
+		              	<group>
+							<field name = "is_certified" on_change="is_certified_checked(is_certified)"/>
+							<field name = "is_export"  string="Export to magento" attrs="{'invisible':[('is_certified','=',False)]}"/>
+							<field name = "is_fancy_color" />
+		              	</group>
+		              	<group>					
+					  		<group string="Price">	  	 	 
+								<field name="rapnet_price" attrs="{'invisible':['|',('is_certified','=',False),('is_fancy_color','=',True)]}" />
+								<field name="discount" attrs="{'invisible':['|',('is_certified','=',False),('is_fancy_color','=',True)]}" />
+								<field name="price_caret" attrs="{'invisible':['|',('is_certified','=',False),('is_fancy_color','=',True)]}" />
+								<field name="price_unit" attrs="{'invisible':['|',('is_certified','=',False),('is_fancy_color','=',True)]}" />
+								<field name="ppc_non_ceritified" attrs="{'invisible':['|',('is_certified','=',True),('is_fancy_color','=',True)]}" />
+								<field name="price_stone" attrs="{'invisible':[('is_fancy_color','=',False)]}" />
+								<field name="list_price" attrs = "{'invisible':['|',('is_fancy_color','=',True),('is_certified','=',False)]}" />
+								<field name="type" invisible = "1" />
+							</group>
+						</group>		 
+						<notebook colspan = "4">
+							<page string = "Extra Information">
+								<group>
+									<group>
+								        <field name = "seller_id" />										
+										<field name = "certificate_no" />
+										<field name = "shape_id" />
+										<field name = "weight" />
+										<field name = "color_id" />
+										<field name = "clarity_id" />
+										<field name = "cut_id" />
+										<field name = "polish_id" />
+										<field name = "symmetry_id" />
+										<field name = "fluorescence_intensity_id" />
+										<field name = "product_length" />
+										<field name = "product_width" />
+										<field name = "product_height" />
+										<field name = "product_depth" />
+										<field name = "milky" />
+										<field name = "shade" />
+										<field name = "lab_id" />
+										<field name = "eye_clean" />
+										<field name = "browness" />
+										<field name = "laser_inspection" />
+										<field name = "natts" />
+									</group>
+									<group>
+										<field name = "table_inc" />
+										<field name = "product_table" />
+										<field name = "culet_id" />
+										<field name = "culet_condition" />
+										<field name = "girdle_id" />
+										<field name = "girdle_condition" />
+										<field name = "girdle_percentage" />
+										<field name = "diameter" />
+										<field name = "treatment" />
+										<field name = "tinge" />
+										<field name = "hna" />
+										<field name = "fluorescence_color_id" />
+										<field name = "fancy_color_id" />
+										<field name = "fancy_color_intensity" />
+										<field name = "fancy_color_overtone" />
+										<field name = "crown_height" />
+										<field name = "crown_angle" />
+										<field name = "pavilion_depth" />
+										<field name = "pavilion_height" />
+										<field name = "rough_origin" />
+										<field name = "insure_id" />
+									</group>
+								</group>
+								<group string="Auction Information">
+									<group>
+										<field name="is_auction" />
+					             		<field name="auction_time" attrs="{'invisible':[('is_auction','=',False)],'required':[('is_auction','=',)]}" readonly="1" /> 
+					             		<field name="auction_date" attrs="{'invisible':[('is_auction','=',False)]}" readonly="1" /> 
+					             		<button name="auction_info" string="Auction Info" type="object" attrs="{'invisible':[('is_auction','=',False)]}" />
+									</group>
+								<group/>
+							</group>								
+							</page>
+							<page string="Manufacturer Info">
+								<field name="seller_ids" >
+									<tree name="Supplier Info">
+										<field name = "name" string="Manufacturer"/>
+										<field name = "product_code" string="Manufacturer code"/>
+									</tree>
+								</field>
+							</page>
+						</notebook>		 
+					</sheet>	 
+				    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+				</form>	
+			</field>
+		</record>
+        
+        <record id="action_stone_view_ept" model="ir.actions.act_window">
+            <field name="name">Stones Details</field>
+            <field name="res_model">product.product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="context">{"no_complete_name":True,"default_is_certified":True,}</field>
+           <field name="domain">[('is_certified','=',True)]</field> 
+             <field name="search_view_id" ref="product_search_form_view"/>
+        </record>
+        
+        <record model="ir.actions.act_window.view" id="action_stone_tree_view_ept">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="product.stone_tree_view_ept"/>
+            <field name="act_window_id" ref="action_stone_view_ept"/>
+        </record>
+        
+        <record model="ir.actions.act_window.view" id="action_stone_form_view_ept">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="product.stone_form_view_ept"/>
+            <field name="act_window_id" ref="action_stone_view_ept"/>
+        </record>
+        
+        <menuitem name="Stones"
+			groups="base.group_user" 
+			id="product_stone_ept"
+			parent="base.menu_product"
+			action="action_stone_view_ept"
+			/>
+    </data>
+</openerp>
+

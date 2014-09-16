@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="instance_website_form_view_ept" model="ir.ui.view">
+            <field name="name">magento.instance.website.form.ept</field>
+            <field name="model">magento.instance.website</field>
+            <field name="inherit_id" ref="magento_integration.instance_website_form_view"/>      
+            <field name="arch" type="xml">     
+            	<xpath expr="/form/header/button[@string='Export Catalog']" position="after">                    
+	            	<button name="%(action_magento_import_category)d" type='action' class="oe_highlight" string='Import Categories'/>
+	            	<button name="%(action_magento_import_customer)d" type='action' class="oe_highlight" string='Import Customers'/>
+	           	</xpath>
+	           	
+	           	<field name="default_product_uom" position="after">
+            		<field name="category_id"/>
+            		<field name="attribute_id"/>
+            	</field>
+        	</field>
+        </record>
+    </data>
+</openerp>               

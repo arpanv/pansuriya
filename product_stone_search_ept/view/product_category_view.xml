@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		
+		<record id="product_form_view_inherit_category_ept" model="ir.ui.view">
+			<field name="name">product.form.view.inherit.category.ept</field>
+			<field name="model">product.category</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+			<field name="arch" type="xml">
+				<field name="type" position="after">
+					
+					
+					<field name="weight_from"/>
+					<field name="weight_to"/>
+					<field name="color_id"/>
+					<field name="clarity_id"/>
+					<group colspan="4">
+					<notebook>
+                        <page string="Shape Info">
+                            <field name="shape_line" >
+<!--                             	 <form string="Shape Info"> -->
+<!--                             	 	<field name="shape_id"/> -->
+<!--                    					<field name="sale_price"/> -->
+<!--                             	 </form> -->
+                            	 <tree string="Shape Info" editable="top">
+                   					<field name="shape_id"/>
+                   					<field name="sale_price"/>
+               					</tree>
+                            </field>
+                        </page>
+	                </notebook>
+	                </group>
+				</field>
+			</field>	
+		</record>
+	</data>
+</openerp>
+
+

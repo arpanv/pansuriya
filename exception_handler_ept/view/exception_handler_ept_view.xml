@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<openerp>
+	<data>
+		<record id='exception_handler_tree_view' model='ir.ui.view'>
+			<field name = 'name'>exception.handler.tree.view</field>
+			<field name = 'model'>exception.handler</field>
+			<field name = 'arch' type = 'xml'>
+				<tree string = 'exception handler'>
+					<field name = 'exce_id'/>
+					<field name = 'create_date'/>
+					<field name = 'model_nm'/>
+					<field name = 'state'/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id='exception_handler_form_view' model='ir.ui.view'>
+			<field name = 'name'>exception.handler.form.view</field>
+			<field name = 'model'>exception.handler</field>
+			<field name = 'arch' type = 'xml'>
+				<form string = 'exception handler Data' version="7.0">
+					<header>
+                    	<button name="reimport"  string="Re-import" type="object" attrs="{'invisible' : [('model_nm','!=','sale.order')]}"/>
+                    	<button name="reexport"  string="Re-export" type="object" attrs="{'invisible' : [('model_nm','!=','product.product')]}"/>
+                    	<field name="state" widget="statusbar" statusbar_visible="exception,done"/>
+					</header>
+					<group>
+	                    <group>
+							<field name = 'exce_id'/>
+							<field name = 'data' />
+							<field name = 'model_nm' />
+						</group>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="selected_order_reimport_wizard_ept">
+			<field name="name">selected.order.reimport.ept</field>
+			<field name="model">selected.order.reimport</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Selected Order Reimport" version = "7.0">
+                        <button name="cancel" string="Cancel" type="object" special="cancel" class="oe_highlight"/>
+                        <button name="selected_reimport" string="Order Re-import" type="object" class="oe_highlight"/>
+				</form>
+			</field>
+		</record>
+		
+		
+		<record id="action_exception_handler" model='ir.actions.act_window'>
+			<field name = 'name'>exception handler</field>
+			<field name = 'type'>ir.actions.act_window</field>
+			<field name = 'res_model'>exception.handler</field>
+			<field name = 'view_type'>form</field>
+			<field name = 'view_model'>tree,form</field>
+		</record>
+		
+		<act_window name = "Reimport" 
+		    		res_model = "selected.order.reimport"
+					src_model = "exception.handler" 
+					view_mode = "form" 
+					view_type = "form"
+					target = "new" 
+					multi = "True" 
+					key2 = "client_action_multi"
+					id = "action_reimport"
+					view_id = "selected_order_reimport_wizard_ept"/>
+		
+		<menuitem id = 'exception_handler_menu' 
+				  action = 'action_exception_handler'
+				  name = 'Exception Report'
+				  sequence="21"
+				  parent = 'magento_integration.menu_magento_config'
+				  />
+<!-- 				parent = 'base.menu_sales'/> -->
+	</data>
+</openerp>

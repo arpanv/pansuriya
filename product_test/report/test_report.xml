@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+<!--         <report auto="False" -->
+<!--         		id="report_product_test" -->
+<!--         		model="product.test" -->
+<!--         		name="test_report" -->
+<!--                 rml="product_test/report/test_report.rml"  -->
+<!--                 string="Report Test" -->
+<!--                 usage="default" -->
+<!--                 menu="True"/> -->
+                
+        <report auto="False"
+        		id="sale_test_report"
+        		model="sale.order"
+        		name="sale_test_report"
+                rml="product_test/report/sale_test_report.rml" 
+                string="Sale Report"
+                usage="default"
+                menu="True"/>
+                
+         <report auto="False"
+        		id="new_sale_report"
+        		model="sale.order"
+        		name="new_sale_report"
+                rml="product_test/report/new_sale_report.rml" 
+                string="New Sale Report"
+                usage="default"
+                menu="True"/>
+                
+         <report auto="False"
+        		id="test"
+        		model="sale.order"
+        		name="test"
+                rml="product_test/report/test.rml" 
+                string="TEST REPORT"
+                usage="default"
+                menu="True"/>
+    </data>
+</openerp>

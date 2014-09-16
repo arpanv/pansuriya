@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+<!--1.product.color -->
+		<record model="ir.ui.view" id="product_colour_form_view_ept">
+			<field name="name">product.colour.form.view.ept</field>
+			<field name="model">product.color</field>
+			<field name="arch" type="xml">
+				<form string="Product Colour">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "seq" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_colour_tree_view_ept">
+			<field name="name">product.colour.tree.view.ept</field>
+			<field name="model">product.color</field>
+			<field name="arch" type="xml">
+				<tree editable="top"  string="Product Colour">
+					<field name = "name"  required="1" />
+					<field name = "seq" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_colour_search_view_ept">
+			<field name="name">product.colour.search.view.ept</field>
+			<field name="model">product.color</field>
+			<field name="arch" type="xml">
+				<search string="Product Colour">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_colour_view_ept">
+			<field name="name">Product Colour</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.color</field>
+			<field name="view_id" ref="product_colour_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>  
+		  	
+<!--2.product.clarity -->
+    	<record model="ir.ui.view" id="product_clarity_form_view_ept">
+			<field name="name">product.clarity.form.view.ept</field>
+			<field name="model">product.clarity</field>
+	
+			<field name="arch" type="xml">
+				<form string="Product Clarity">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "seq" />
+							</group>
+							<group></group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_clarity_tree_view_ept">
+			<field name="name">product.clarity.tree.view.ept</field>
+			<field name="model">product.clarity</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Clarity">
+					<field name = "name"  required="1" />
+					<field name = "seq" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_clarity_search_view_ept">
+			<field name="name">product.clarity.search.view.ept</field>
+			<field name="model">product.clarity</field>
+			
+			<field name="arch" type="xml">
+				<search string="Product Clarity">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_clarity_view_ept">
+			<field name="name">Product Clarity</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.clarity</field>
+			<field name="view_id" ref="product_clarity_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--3.product.cut-->
+		<record model="ir.ui.view" id="product_cut_form_view_ept">
+			<field name="name">product.cut.form.view.ept</field>
+			<field name="model">product.cut</field>
+			
+			<field name="arch" type="xml">
+				<form string="Product Cut">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1"/>
+								<field name = "seq" />
+							</group>
+							<group></group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_cut_tree_view_ept">
+			<field name="name">product.cut.tree.view.ept</field>
+			<field name="model">product.cut</field>
+			
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Cut">
+					<field name = "name"  required="1" />
+					<field name = "seq" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_cut_search_view_ept">
+			<field name="name">product.cut.search.view.ept</field>
+			<field name="model">product.cut</field>
+			<field name="arch" type="xml">
+				<search string="Product Cut">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_product_cut_view_ept">
+			<field name="name">Product Cut</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.cut</field>
+			<field name="view_id" ref="product_cut_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--4.product.culet-->
+		<record model="ir.ui.view" id="product_culet_form_view_ept">
+			<field name="name">product.culet.form.view.ept</field>
+			<field name="model">product.culet</field>
+			<field name="arch" type="xml">
+				<form string="Product Culet">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_culet_tree_view_ept">
+			<field name="name">product.culet.tree.view.ept</field>
+			<field name="model">product.culet</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Culet">
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_culet_search_view_ept">
+			<field name="name">product.culet.search.view.ept</field>
+			<field name="model">product.culet</field>
+			<field name="arch" type="xml">
+				<search string="Product Culet">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_culet_view_ept">
+			<field name="name">Product Culet</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.culet</field>
+			<field name="view_id" ref="product_culet_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--5.product.culet_condition-->
+		<record model="ir.ui.view" id="product_culet_condition_form_view_ept">
+			<field name="name">product.culet_condition.form.view.ept</field>
+			<field name="model">product.culet_condition</field>
+			<field name="arch" type="xml">
+				<form string="Product Culet Condition">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_culet_condition_tree_view_ept">
+			<field name="name">product.culet.condition.tree.view.ept</field>
+			<field name="model">product.culet_condition</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Culet Condition">
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_culet_condition_search_view_ept">
+			<field name="name">product.culet_condition.search.view.ept</field>
+			<field name="model">product.culet_condition</field>
+			<field name="arch" type="xml">
+				<search string="Product Culet Condition">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_product_culet_condition_view_ept">
+			<field name="name">Product Culet Condition</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.culet_condition</field>
+			<field name="view_id" ref="product_culet_condition_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--6.product.fancy.color-->
+		<record model="ir.ui.view" id="product_fancy_color_form_view_ept">
+			<field name="name">product.fancy.color.form.view.ept</field>
+			<field name="model">product.fancy.color</field>
+			<field name="arch" type="xml">
+				<form string="Product Fancy Color">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fancy_color_tree_view_ept">
+			<field name="name">product.fancy.color.tree.view.ept</field>
+			<field name="model">product.fancy.color</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Fancy Color">
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fancy_color_search_view_ept">
+			<field name="name">product.fancy.color.search.view.ept</field>
+			<field name="model">product.fancy.color</field>
+			<field name="arch" type="xml">
+				<search string="Product Fancy Color">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_product_fancy_color_view_ept">
+			<field name="name">Product Fancy Color</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.fancy.color</field>
+			<field name="view_id" ref="product_fancy_color_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--7.product.fancy.color.intensity -->
+		<record model="ir.ui.view" id="product_fancy_color_intensity_form_view_ept">
+			<field name="name">product.fancy.color.intensity.form.view.ept</field>
+			<field name="model">product.fancy.color.intensity</field>
+			
+			<field name="arch" type="xml">
+				<form string="Product Fancy Color Intencity">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1"/>
+								
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>        
+
+		<record model="ir.ui.view" id="product_fancy_color_intensity_tree_view_ept">
+			<field name="name">product.fancy.color.intensity.tree.view.ept</field>
+			<field name="model">product.fancy.color.intensity</field>
+		
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Fancy Color Intencity">
+					<field name = "name"  required="1" />
+					
+				</tree>
+			</field>
+		</record> 
+		
+		<record model="ir.actions.act_window" id="action_product_fancy_color_intensity_view_ept">
+			<field name="name">Product Fancy Color Intensity</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.fancy.color.intensity</field>
+			<field name="view_id" ref="product_fancy_color_intensity_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+		<record model="ir.ui.view" id="product_fancy_color_intensity_search_view_ept">
+			<field name="name">product.fancy.color.intensity.search.view.ept</field>
+			<field name="model">product.fancy.color.intensity</field>
+			
+			<field name="arch" type="xml">
+				<search string="Product Fancy Color Intensity">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+<!--8.product.fancy.color.overtone -->
+		<record model="ir.ui.view" id="product_fancy_color_overtone_form_view_ept">
+			<field name="name">product.fancy.color.overtone.form.view.ept</field>
+			<field name="model">product.fancy.color.overtone</field>
+			
+			<field name="arch" type="xml">
+				<form string="Product Fancy Color Overtone">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1"/>
+								
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>        
+
+		<record model="ir.ui.view" id="product_fancy_color_overtone_tree_view_ept">
+			<field name="name">product.fancy.color.overtone.tree.view.ept</field>
+			<field name="model">product.fancy.color.overtone</field>
+			
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Fancy Color Overtone">
+					<field name = "name"  required="1" />
+					
+				</tree>
+			</field>
+		</record> 
+
+		<record model="ir.ui.view" id="product_fancy_color_ovetone_search_view_ept">
+			<field name="name">product.fancy.color.overtone.search.view.ept</field>
+			<field name="model">product.fancy.color.overtone</field>
+			
+			<field name="arch" type="xml">
+				<search string="Product Fancy Color Overtone">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_product_fancy_color_overtone_view_ept">
+			<field name="name">Product Fancy Color Overtone</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.fancy.color.overtone</field>
+			<field name="view_id" ref="product_fancy_color_overtone_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--9.product.fluorescence.color-->
+		<record model="ir.ui.view" id="product_fluorescence_color_form_view_ept">
+			<field name="name">product.fluorescence.color.form.view.ept</field>
+			<field name="model">product.fluorescence.color</field>
+			<field name="arch" type="xml">
+				<form string="Product Fluorescence Color">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fluorescence_color_tree_view_ept">
+			<field name="name">product.fluorescence.color.tree.view.ept</field>
+			<field name="model">product.fluorescence.color</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Fluorescence Color">
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fluorescence_color_search_view_ept">
+			<field name="name">product.fluorescence.color.search.view.ept</field>
+			<field name="model">product.fluorescence.color</field>
+			<field name="arch" type="xml">
+				<search string="Product Fluorescence Color">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_product_fluorescence_color_view_ept">
+			<field name="name">Product Fluorescence Color</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.fluorescence.color</field>
+			<field name="view_id" ref="product_fluorescence_color_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--10.product.fluorescence.intensity-->
+		<record model="ir.ui.view" id="product_fluorescence_intensity_form_view_ept">
+			<field name="name">product.fluorescence.intensity.form.view.ept</field>
+			<field name="model">product.fluorescence.intensity</field>
+			<field name="arch" type="xml">
+				<form string="Product Fluorescence Intensity">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "seq" />
+							</group>
+							<group></group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fluorescence_intensity_tree_view_ept">
+			<field name="name">product.fluorescence.intensity.tree.view.ept</field>
+			<field name="model">product.fluorescence.intensity</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Fluorescence Intensity">
+					<field name = "name"  required="1" />
+					<field name = "seq" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_fluorescence_intensity_search_view_ept">
+			<field name="name">product.fluorescence.intensity.search.view.ept</field>
+			<field name="model">product.fluorescence.intensity</field>
+			<field name="arch" type="xml">
+				<search string="Product Fluorescence Intensity">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_product_fluorescence_intensity_view_ept">
+			<field name="name">Product Fluorescence Intensity</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.fluorescence.intensity</field>
+			<field name="view_id" ref="product_fluorescence_intensity_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--11.product.gridle-->
+		<record model="ir.ui.view" id="product_gridle_form_view_ept">
+			<field name="name">product.gridle.form.view.ept</field>
+			<field name="model">product.gridle</field>
+			<field name="arch" type="xml">
+				<form string="Product Gridle">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "seq" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_gridle_tree_view_ept">
+			<field name="name">product.gridle.tree.view.ept</field>
+			<field name="model">product.gridle</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Gridle">
+					<field name = "name"  required="1" />
+					<field name = "seq" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_gridle_search_view_ept">
+			<field name="name">product.gridle.search.view.ept</field>
+			<field name="model">product.insure</field>
+			<field name="arch" type="xml">
+				<search string="Product Gridle">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_product_gridle_view_ept">
+			<field name="name">Product Gridle</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.gridle</field>
+			<field name="view_id" ref="product_gridle_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--12.product.insure-->
+		<record model="ir.ui.view" id="product_insure_form_view_ept">
+			<field name="name">product.insure.form.view.ept</field>
+			<field name="model">product.insure</field>
+			<field name="arch" type="xml">
+				<form string="Laser Inscription">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group></group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_insure_tree_view_ept">
+			<field name="name">product.insure.tree.view.ept</field>
+			<field name="model">product.insure</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Laser Inscription">
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_insure_search_view_ept">
+			<field name="name">product.insure.search.view.ept</field>
+			<field name="model">product.insure</field>
+			<field name="arch" type="xml">
+				<search string="Laser Inscription">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_product_insure_view_ept">
+			<field name="name">Laser Inscription</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.insure</field>
+			<field name="view_id" ref="product_insure_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--13.product.lab-->
+		<record model="ir.ui.view" id="product_lab_form_view_ept">
+			<field name="name">product.lab.form.view.ept</field>
+			<field name="model">product.lab</field>
+			<field name="arch" type="xml">
+				<form string="Product Lab">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group></group>
+
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_lab_tree_view_ept">
+			<field name="name">product.lab.tree.view.ept</field>
+			<field name="model">product.lab</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Lab">
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_lab_search_view_ept">
+			<field name="name">product.lab.search.view.ept</field>
+			<field name="model">product.lab</field>
+			<field name="arch" type="xml">
+				<search string="Product Lab">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_product_lab_view_ept">
+			<field name="name">Product Lab</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.lab</field>
+			<field name="view_id" ref="product_lab_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--14.product.polish-->
+		<record model="ir.ui.view" id="product_polish_form_view_ept">
+			<field name="name">product.polish.form.view.ept</field>
+			<field name="model">product.polish</field>
+			<field name="arch" type="xml">
+				<form string="Product Polish">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "seq" />
+							</group>
+							<group>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_polish_tree_view_ept">
+			<field name="name">product.polish.tree.view.ept</field>
+			<field name="model">product.polish</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Polish">
+					<field name = "name"  required="1" />
+					<field name = "seq" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_polish_search_view_ept">
+			<field name="name">product.polish.search.view.ept</field>
+			<field name="model">product.polish</field>
+			<field name="arch" type="xml">
+				<search string="Product Polish">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		
+		<record model="ir.actions.act_window" id="action_product_polish_view_ept">
+			<field name="name">Product Polish</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.polish</field>
+			<field name="view_id" ref="product_polish_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+
+<!--15.product.shape-->	
+		<record model="ir.ui.view" id="product_shape_form_view_ept">
+			<field name="name">product.shape.form.view.ept</field>
+			<field name="model">product.shape</field>
+			<field name="arch" type="xml">
+				<form string="Product Shape">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+							</group>
+							<group>
+						    </group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_shape_tree_view_ept">
+			<field name="name">product.shape.tree.view.ept</field>
+			<field name="model">product.shape</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Shape" >
+					<field name = "name"  required="1" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_shape_search_view_ept">
+			<field name="name">product.shape.search.view.ept</field>
+			<field name="model">product.shape</field>
+			<field name="arch" type="xml">
+				<search string="Product Shape">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_product_shape_view_ept">
+			<field name="name">Product Shape</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.shape</field>
+			<field name="view_id" ref="product_shape_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>    
+	
+
+<!--16.product.symmetry-->
+		<record model="ir.ui.view" id="product_symmetry_form_view_ept">
+			<field name="name">product.symmetry.form.view.ept</field>
+			<field name="model">product.symmetry</field>
+			<field name="arch" type="xml">
+				<form string="Product Symmetry">
+					<sheet>
+						<group>
+							<group>
+								<field name = "name" required="1" />
+								<field name = "seq" />
+							</group>
+							<group></group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_symmetry_tree_view_ept">
+			<field name="name">product.symmetry.tree.view.ept</field>
+			<field name="model">product.symmetry</field>
+			<field name="arch" type="xml">
+				<tree editable="top" string="Product Symmetry">
+					<field name = "name"  required="1" />
+					<field name = "seq" />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="product_symmetry_search_view_ept">
+			<field name="name">product.symmetry.search.view.ept</field>
+			<field name="model">product.symmetry</field>
+			<field name="arch" type="xml">
+				<search string="Product Symmetry">
+					<field name = "name" />
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.actions.act_window" id="action_product_symmetry_view_ept">
+			<field name="name">Product Symmetry</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.symmetry</field>
+			<field name="view_id" ref="product_symmetry_tree_view_ept"/>
+			<field name="view_type">form</field>
+			<field name="view_type">form</field>
+		</record>
+    </data>
+</openerp>

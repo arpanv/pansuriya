@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="stone_form_view_extended_ept" model="ir.ui.view">
+            <field name="name">stone.form.view.extended.ept</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.stone_form_view_ept" />
+            <field name="arch" type="xml">
+				<xpath expr="//form/sheet/notebook/page[@string='Extra Information']">
+					<group string="Auction Information">
+						<group>
+							<field name="is_auction" />
+		             		<field name="auction_time" attrs="{'invisible':[('is_auction','=',False)]}" readonly="1" /> 
+		             		<field name="auction_date" attrs="{'invisible':[('is_auction','=',False)]}" readonly="1" /> 
+		             		<button name="auction_info" string="Auction Info" type="object" attrs="{'invisible':[('is_auction','=',False)]}" />
+						</group>
+						<group/>
+					</group>
+				</xpath>
+            </field>
+        </record>
+        
+        <record id="stone_tree_view_extended_ept" model="ir.ui.view">
+            <field name="name">stone.tree.view.extended.ept</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.stone_tree_view_ept" />
+            <field name="arch" type="xml">
+            	<field name="tinge" position="after">
+            		<field name="is_auction" invisible="1" />
+            		<button name="is_auction" icon="auction" string="Auction" class="oe_highlight" attrs="{'invisible':[('is_auction','!=',True)]}" />
+            	</field>
+        	</field>
+        </record>
+    </data>
+</openerp>

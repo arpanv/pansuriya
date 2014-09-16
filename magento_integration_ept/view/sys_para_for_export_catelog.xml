@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="time_for_export_catalog_to_magento_ept" model="ir.config_parameter">
+            <field name="key">time_for_export_catalog_to_magento_ept</field>
+            <field name="value">5</field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<record id="email_attachment_form_ept" model="ir.ui.view">
+			<field name="name">email.attachment.form.ept</field>
+			<field name="model">email.template</field>
+			<field name="inherit_id" ref="email_template.email_template_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr = "//field[@name='report_template']" position="after">
+            		<field name="email_attachment_ids" widget="many2many_tags" domain="[('model','=',model)]" string="Optional report to print and attach "/>
+            	</xpath>
+            	
+            	<xpath expr = "//field[@name='report_template']" position="attributes">
+            		<attribute name="invisible">1</attribute>
+            	</xpath>
+            	
+				<xpath expr = "//field[@name='report_name']" position="attributes">
+            		<attribute name="invisible">1</attribute>
+            	</xpath>
+
+            </field>
+		</record>
+    </data>
+</openerp>
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<!-- <openerp> -->
+<!-- 	<data> -->
+<!-- 		<record id="email_template_form_ept" model="ir.ui.view"> -->
+<!-- 			<field name="name">email.template.form.ept</field> -->
+<!-- 			<field name="model">email.template</field> -->
+<!-- 			<field name="inherit_id" ref="email_template.email_template_form"/> -->
+<!--             <field name="arch" type="html"> -->
+<!--              	<xpath expr = "//field[@name='report_template']" position="replace"> -->
+<!--              		 <field name="report_template" domain="[('model','=',model)]" invisible="1"/> -->
+<!--             		<field name="email_attachment_ids" widget="many2many_tags" domain="[('model','=',model)]"/> -->
+<!--             	</xpath> -->
+<!--            	</field> -->
+<!--         </record> -->
+<!--     </data> -->
+<!-- </openerp> -->
+
+

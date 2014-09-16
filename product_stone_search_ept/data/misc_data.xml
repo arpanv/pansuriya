@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="True">
+    
+<!-- 1.product.color -->
+		<record id="product_color_id1" model="product.color">
+    		<field name="name">D</field>
+    		<field name="seq" eval="1" />
+    	</record>
+    	<record id="product_color_id2" model="product.color">
+    		<field name="name">E</field>
+    		<field name="seq" eval="2" />
+    	</record>
+    	<record id="product_color_id3" model="product.color">
+    		<field name="name">F</field>
+    		<field name="seq" eval="3" />
+    	</record>
+    	<record id="product_color_id4" model="product.color">
+    		<field name="name">G</field>
+    		<field name="seq" eval="4" />
+    	</record>
+    	<record id="product_color_id5" model="product.color">
+    		<field name="name">H</field>
+    		<field name="seq" eval="5" />
+    	</record>
+    	<record id="product_color_id6" model="product.color">
+    		<field name="name">I</field>
+    		<field name="seq" eval="6" />
+    	</record>
+    	<record id="product_color_id7" model="product.color">
+    		<field name="name">J</field>
+    		<field name="seq" eval="7" />
+    	</record>
+    	<record id="product_color_id8" model="product.color">
+    		<field name="name">K</field>
+    		<field name="seq" eval="8" />
+    	</record>
+    	<record id="product_color_id9" model="product.color">
+    		<field name="name">L</field>
+    		<field name="seq" eval="9" />
+    	</record>
+    	<record id="product_color_id10" model="product.color">
+    		<field name="name">M</field>
+    		<field name="seq" eval="10" />
+    	</record>
+    	<record id="product_color_id11" model="product.color">
+    		<field name="name">N</field>
+    		<field name="seq" eval="11" />
+    	</record>
+    	<record id="product_color_id12" model="product.color">
+    		<field name="name">O-P</field>
+    		<field name="seq" eval="12" />
+    	</record>
+    	<record id="product_color_id13" model="product.color">
+    		<field name="name">Q-R</field>
+    		<field name="seq" eval="13" />
+    	</record>
+    	<record id="product_color_id14" model="product.color">
+    		<field name="name">S-T</field>
+    		<field name="seq" eval="14" />
+    	</record>
+    	<record id="product_color_id15" model="product.color">
+    		<field name="name">U-V</field>
+    		<field name="seq" eval="15" />
+    	</record>
+    	<record id="product_color_id16" model="product.color">
+    		<field name="name">W-X</field>
+    		<field name="seq" eval="16" />
+    	</record>
+    	<record id="product_color_id17" model="product.color">
+    		<field name="name">Y-Z</field>
+    		<field name="seq" eval="17" />
+    	</record>
+    	
+<!-- 2.product.clarity -->
+    	<record id="product_clarity_id1" model="product.clarity">
+    		<field name="name">FL</field>
+    		<field name="seq" eval="1" />
+    	</record>
+    	<record id="product_clarity_id13" model="product.clarity">
+    		<field name="name">I1</field>
+    		<field name="seq" eval="2" />
+    	</record>
+    	<record id="product_clarity_id14" model="product.clarity">
+    		<field name="name">I2</field>
+    		<field name="seq" eval="3" />
+    	</record>
+    	<record id="product_clarity_id15" model="product.clarity">
+    		<field name="name">I3</field>
+    		<field name="seq" eval="4" />
+    	</record>
+    	<record id="product_clarity_id2" model="product.clarity">
+    		<field name="name">IF</field>
+    		<field name="seq" eval="5" />
+    	</record>
+    	<record id="product_clarity_id3" model="product.clarity">
+    		<field name="name">IF-VVS</field>
+    		<field name="seq" eval="6" />
+    	</record>
+    	<record id="product_clarity_id10" model="product.clarity">
+    		<field name="name">SI1</field>
+    		<field name="seq" eval="7" />
+    	</record>
+    	<record id="product_clarity_id11" model="product.clarity">
+    		<field name="name">SI2</field>
+    		<field name="seq" eval="8" />
+    	</record>
+    	<record id="product_clarity_id12" model="product.clarity">
+    		<field name="name">SI3</field>
+    		<field name="seq" eval="9" />
+    	</record>
+    	<record id="product_clarity_id9" model="product.clarity">
+    		<field name="name">VS</field>
+    		<field name="seq" eval="10" />
+    	</record>
+    	<record id="product_clarity_id7" model="product.clarity">
+    		<field name="name">VS1</field>
+    		<field name="seq" eval="11" />
+    	</record>
+    	<record id="product_clarity_id8" model="product.clarity">
+    		<field name="name">VS2</field>
+    		<field name="seq" eval="12" />
+    	</record>
+    	<record id="product_clarity_id6" model="product.clarity">
+    		<field name="name">VVS</field>
+    		<field name="seq" eval="13" />
+    	</record>
+    	<record id="product_clarity_id4" model="product.clarity">
+    		<field name="name">VVS1</field>
+    		<field name="seq" eval="14" />
+    	</record>
+    	<record id="product_clarity_id5" model="product.clarity">
+    		<field name="name">VVS2</field>
+    		<field name="seq" eval="15" />
+    	</record>
+
+<!-- 3.product.cut -->
+    	<record id="product_cut_id2" model="product.cut">
+    		<field name="name">EX</field>
+    		<field name="seq" eval="1" />
+    	</record>
+    	<record id="product_cut_id5" model="product.cut">
+    		<field name="name">FR</field>
+    		<field name="seq" eval="2" />
+    	</record>
+    	<record id="product_cut_id4" model="product.cut">
+    		<field name="name">GD</field>
+    		<field name="seq" eval="3" />
+    	</record>
+    	<record id="product_cut_id1" model="product.cut">
+    		<field name="name">Ideal</field>
+    		<field name="seq" eval="4" />
+    	</record>
+    	<record id="product_cut_id7" model="product.cut">
+    		<field name="name">NON</field>
+    		<field name="seq" eval="5" />
+    	</record>
+    	<record id="product_cut_id6" model="product.cut">
+    		<field name="name">PR</field>
+    		<field name="seq" eval="6" />
+    	</record>
+    	<record id="product_cut_id3" model="product.cut">
+    		<field name="name">VG</field>
+    		<field name="seq" eval="7" />
+    	</record>
+
+<!-- 4.product.culet -->
+		<record id="product_culet_id1" model="product.culet">
+    		<field name="name">None</field>
+    	</record> 
+    	<record id="product_culet_id2" model="product.culet">
+    		<field name="name">Very Small</field>
+    	</record> 
+    	<record id="product_culet_id3" model="product.culet">
+    		<field name="name">Small</field>
+    	</record> 
+    	<record id="product_culet_id4" model="product.culet">
+    		<field name="name">Medium</field>
+    	</record> 
+    	<record id="product_culet_id5" model="product.culet">
+    		<field name="name">Large</field>
+    	</record>
+
+<!-- 5. product.culet.condition -->
+        <record id="product_culet_condition_id1" model="product.culet_condition">
+    		<field name="name">Pointed</field>
+    	</record>
+        <record id="product_culet_condition_id2" model="product.culet_condition">
+    		<field name="name">Chiped</field>
+    	</record>       	
+
+<!--6.product.fluorescence.color -->
+		<record id="product_fluorescence_color_id1" model="product.fluorescence.color">
+    		<field name="name">Green</field>
+    	</record> 
+    	<record id="product_fluorescence_color_id2" model="product.fluorescence.color">
+    		<field name="name">Blue</field>
+    	</record> 
+    	<record id="product_fluorescence_color_id3" model="product.fluorescence.color">
+    		<field name="name">Yellow</field>
+    	</record> 
+    	<record id="product_fluorescence_color_id4" model="product.fluorescence.color">
+    		<field name="name">Red</field>
+    	</record> 
+    	<record id="product_fluorescence_color_id5" model="product.fluorescence.color">
+    		<field name="name">Orange</field>
+    	</record> 
+    	<record id="product_fluorescence_color_id6" model="product.fluorescence.color">
+    		<field name="name">White</field>
+    	</record> 
+
+<!--7.product.fluorescence.intensity -->
+    	<record id="product_fluorescence_intensity_id3" model="product.fluorescence.intensity">
+    		<field name="name">FNT</field>
+    		<field name="seq">1</field>
+    	</record>
+    	<record id="product_fluorescence_intensity_id5" model="product.fluorescence.intensity">
+    		<field name="name">MED</field>
+    		<field name="seq">2</field>
+    	</record>
+		<record id="product_fluorescence_intensity_id1" model="product.fluorescence.intensity">
+    		<field name="name">NON</field>
+    		<field name="seq">3</field>
+    	</record>    	
+    	<record id="product_fluorescence_intensity_id4" model="product.fluorescence.intensity">
+    		<field name="name">SLT</field>
+    		<field name="seq">4</field>
+    	</record>
+    	<record id="product_fluorescence_intensity_id2" model="product.fluorescence.intensity">
+    		<field name="name">STG</field>
+    		<field name="seq">5</field>
+    	</record>
+    	<record id="product_fluorescence_intensity_id6" model="product.fluorescence.intensity">
+    		<field name="name">VSL</field>
+    		<field name="seq">6</field>
+    	</record>
+    	<record id="product_fluorescence_intensity_id7" model="product.fluorescence.intensity">
+    		<field name="name">VST</field>
+    		<field name="seq">7</field>
+    	</record>   
+
+<!--8.product.gridle -->
+    	<record id="product_gridle_id9" model="product.gridle">
+    		<field name="name">Extra Thick</field>
+    		<field name="seq">1</field>
+    	</record>    	
+    	<record id="product_gridle_id1" model="product.gridle">
+    		<field name="name">Ext Thin</field>
+    		<field name="seq">2</field>
+    	</record>
+		<record id="product_gridle_id10" model="product.gridle">
+    		<field name="name">Medium Thick</field>
+    		<field name="seq">3</field>
+    	</record>
+    	<record id="product_gridle_id5" model="product.gridle">
+    		<field name="name">Medium Thin</field>
+    		<field name="seq">4</field>
+    	</record>
+    	<record id="product_gridle_id6" model="product.gridle">
+    		<field name="name">Slight Thick</field>
+    		<field name="seq">5</field>
+    	</record>
+    	<record id="product_gridle_id4" model="product.gridle">
+    		<field name="name">Slight Thin</field>
+    		<field name="seq">6</field>
+    	</record>
+		<record id="product_gridle_id7" model="product.gridle">
+    		<field name="name">Thick</field>
+    		<field name="seq">7</field>
+    	</record>
+    	<record id="product_gridle_id3" model="product.gridle">
+    		<field name="name">Thin</field>
+    		<field name="seq">8</field>
+    	</record>
+    	<record id="product_gridle_id8" model="product.gridle">
+    		<field name="name">Very Thick</field>
+    		<field name="seq">9</field>
+    	</record>
+    	<record id="product_gridle_id2" model="product.gridle">
+    		<field name="name">Very Thin</field>
+    		<field name="seq">10</field>
+    	</record>
+
+<!--9.product.fancy.color -->
+		<record id="product_fancy_color_id1" model="product.fancy.color">
+    		<field name="name">Green</field>
+    	</record>
+    	<record id="product_fancy_color_id2" model="product.fancy.color">
+    		<field name="name">Yellow</field>
+    	</record>
+    	<record id="product_fancy_color_id3" model="product.fancy.color">
+    		<field name="name">Pink</field>
+    	</record>
+    	<record id="product_fancy_color_id4" model="product.fancy.color">
+    		<field name="name">Blue</field>
+    	</record>
+    	<record id="product_fancy_color_id5" model="product.fancy.color">
+    		<field name="name">Red</field>
+    	</record>
+    	<record id="product_fancy_color_id6" model="product.fancy.color">
+    		<field name="name">Purple</field>
+    	</record>
+    	<record id="product_fancy_color_id7" model="product.fancy.color">
+    		<field name="name">Orange</field>
+    	</record>
+    	<record id="product_fancy_color_id8" model="product.fancy.color">
+    		<field name="name">Violate</field>
+    	</record>
+    	<record id="product_fancy_color_id9" model="product.fancy.color">
+    		<field name="name">Gray</field>
+    	</record>
+    	<record id="product_fancy_color_id10" model="product.fancy.color">
+    		<field name="name">Black</field>
+    	</record>
+    	<record id="product_fancy_color_id11" model="product.fancy.color">
+    		<field name="name">Brown</field>
+    	</record>
+    	<record id="product_fancy_color_id12" model="product.fancy.color">
+    		<field name="name">Champange</field>
+    	</record>
+    	<record id="product_fancy_color_id13" model="product.fancy.color">
+    		<field name="name">Cognac</field>
+    	</record>
+    	<record id="product_fancy_color_id14" model="product.fancy.color">
+    		<field name="name">Chameleon</field>
+    	</record>
+    	<record id="product_fancy_color_id15" model="product.fancy.color">
+    		<field name="name">White</field>
+    	</record>
+    	<record id="product_fancy_color_id16" model="product.fancy.color">
+    		<field name="name">Other</field>
+    	</record> 
+    	
+<!--10.product.fancy.color.intencity -->    	
+
+        <record id="product_fancy_color_intensity_id1" model="product.fancy.color.intensity">
+    		<field name="name">Fancy Deep</field>
+    	</record>
+        <record id="product_fancy_color_intensity_id2" model="product.fancy.color.intensity">
+    		<field name="name">Fancy Vivid</field>
+    	</record>
+        <record id="product_fancy_color_intensity_id3" model="product.fancy.color.intensity">
+    		<field name="name">Fancy Intense</field>
+    	</record>
+        <record id="product_fancy_color_intensity_id4" model="product.fancy.color.intensity">
+    		<field name="name">Fancy Dark</field>
+    	</record>
+        <record id="product_fancy_color_intensity_id5" model="product.fancy.color.intensity">
+    		<field name="name">Fancy</field>
+    	</record>
+        <record id="product_fancy_color_intensity_id6" model="product.fancy.color.intensity">
+    		<field name="name">Fancy Light</field>
+    	</record>
+        <record id="product_fancy_color_intensity_id7" model="product.fancy.color.intensity">
+    		<field name="name">Light</field>
+    	</record>
+        <record id="product_fancy_color_intensity_id8" model="product.fancy.color.intensity">
+    		<field name="name">Very Light</field>
+    	</record>
+        <record id="product_fancy_color_intensity_id9" model="product.fancy.color.intensity">
+    		<field name="name">Faint</field>
+    	</record>
+    	
+<!--11.product.fancy.color.overtone --> 
+
+        <record id="product_fancy_color_overtone_id1" model="product.fancy.color.overtone">
+    		<field name="name">Bluish</field>
+    	</record>
+        <record id="product_fancy_color_overtone_id2" model="product.fancy.color.overtone">
+    		<field name="name">Orangey</field>
+    	</record>
+        <record id="product_fancy_color_overtone_id3" model="product.fancy.color.overtone">
+    		<field name="name">Purplish</field>
+    	</record>
+    	<record id="product_fancy_color_overtone_id4" model="product.fancy.color.overtone">
+    		<field name="name">Yelowish</field>
+    	</record>
+        <record id="product_fancy_color_overtone_id5" model="product.fancy.color.overtone">
+    		<field name="name">Brownish</field>
+    	</record>
+        <record id="product_fancy_color_overtone_id6" model="product.fancy.color.overtone">
+    		<field name="name">Reddish</field>
+    	</record>
+        <record id="product_fancy_color_overtone_id7" model="product.fancy.color.overtone">
+    		<field name="name">Grayish</field>
+    	</record>
+        <record id="product_fancy_color_overtone_id8" model="product.fancy.color.overtone">
+    		<field name="name">Pinkish</field>
+    	</record>
+        <record id="product_fancy_color_overtone_id9" model="product.fancy.color.overtone">
+    		<field name="name">Greenish</field>
+    	</record>
+
+<!--12.product.lab -->
+		<record id="product_lab_id1" model="product.lab">
+    		<field name="name">GIA</field>
+    	</record>
+    	<record id="product_lab_id2" model="product.lab">
+    		<field name="name">IGI</field>
+    	</record>
+    	<record id="product_lab_id3" model="product.lab">
+    		<field name="name">AGS</field>
+    	</record>
+    	<record id="product_lab_id4" model="product.lab">
+    		<field name="name">HRD</field>
+    	</record>   	
+
+<!--13.product.polish -->
+    	<record id="product_polish_id2" model="product.polish">
+    		<field name="name">EX</field>
+    		<field name="seq" eval="1" />
+    	</record>
+    	<record id="product_polish_id5" model="product.polish">
+    		<field name="name">FR</field>
+    		<field name="seq" eval="2" />
+    	</record>
+    	<record id="product_polish_id4" model="product.polish">
+    		<field name="name">GD</field>
+    		<field name="seq" eval="3" />
+    	</record>
+    	<record id="product_polish_id1" model="product.polish">
+    		<field name="name">Ideal</field>
+    		<field name="seq" eval="4" />
+    	</record>
+    	<record id="product_polish_id6" model="product.polish">
+    		<field name="name">PR</field>
+    		<field name="seq" eval="5" />
+    	</record>
+    	<record id="product_polish_id3" model="product.polish">
+    		<field name="name">VG</field>
+    		<field name="seq" eval="6" />
+    	</record>
+    	
+<!--14.product.symmetry -->
+    	<record id="product_symmetry_id2" model="product.symmetry">
+    		<field name="name">EX</field>
+    		<field name="seq" eval="1" />
+    	</record>
+    	<record id="product_symmetry_id5" model="product.symmetry">
+    		<field name="name">FR</field>
+    		<field name="seq" eval="2" />
+    	</record>
+    	<record id="product_symmetry_id4" model="product.symmetry">
+    		<field name="name">GD</field>
+    		<field name="seq">3</field>
+    	</record>
+    	<record id="product_symmetry_id1" model="product.symmetry">
+    		<field name="name">Ideal</field>
+    		<field name="seq">4</field>
+    	</record>
+    	<record id="product_symmetry_id6" model="product.symmetry">
+    		<field name="name">PR</field>
+    		<field name="seq">5</field>
+    	</record>
+    	<record id="product_symmetry_id3" model="product.symmetry">
+    		<field name="name">VG</field>
+    		<field name="seq">6</field>
+    	</record>
+	
+<!--15.product.shape  -->
+    	<record id="product_shape_id1" model="product.shape">
+    		<field name="name">Round</field>
+    	</record>
+		<record id="product_shape_id2" model="product.shape">
+    		<field name="name">Radiant</field>
+    	</record>
+    	<record id="product_shape_id3" model="product.shape">
+    		<field name="name">Emerald</field>
+    	</record>
+    	<record id="product_shape_id4" model="product.shape">
+    		<field name="name">Baguette</field>
+    	</record>
+		<record id="product_shape_id5" model="product.shape">
+    		<field name="name">Asscher &amp; Square Emerald</field>
+    	</record>
+    	<record id="product_shape_id6" model="product.shape">
+    		<field name="name">Pear</field>
+    	</record>
+    	<record id="product_shape_id7" model="product.shape">
+    		<field name="name">Oval</field>
+    	</record>
+    	<record id="product_shape_id8" model="product.shape">
+    		<field name="name">Princess</field>
+    	</record>
+    	<record id="product_shape_id9" model="product.shape">
+    		<field name="name">Heart</field>
+    	</record>
+    	<record id="product_shape_id10" model="product.shape">
+    		<field name="name">Triangular</field>
+    	</record>
+    	<record id="product_shape_id11" model="product.shape">
+    		<field name="name">Rectangular</field>
+    	</record>
+    	<record id="product_shape_id12" model="product.shape">
+    		<field name="name">Square</field>
+    	</record>
+    	<record id="product_shape_id13" model="product.shape">
+    		<field name="name">Marquise</field>
+    	</record>
+    	<record id="product_shape_id14" model="product.shape">
+    		<field name="name">Cushion</field>
+    	</record>
+    	<record id="product_shape_id15" model="product.shape">
+    		<field name="name">Bullets</field>
+    	</record>
+    	<record id="product_shape_id16" model="product.shape">
+    		<field name="name">CMB</field>
+    	</record>    	    	
+    	<record id="product_shape_id17" model="product.shape">
+    		<field name="name">CRMB</field>
+    	</record>    	
+    	<record id="product_shape_id18" model="product.shape">
+    		<field name="name">Cushion Brilliant</field>
+    	</record>    	
+    	<record id="product_shape_id19" model="product.shape">
+    		<field name="name">Cushion Modified</field>
+    	</record>    	
+    	<record id="product_shape_id20" model="product.shape">
+    		<field name="name">European Cut</field>
+    	</record>   
+     	<record id="product_shape_id21" model="product.shape">
+    		<field name="name">Flanders</field>
+    	</record>  
+
+    	<record id="product_shape_id22" model="product.shape">
+    		<field name="name">Half Moon</field>
+    	</record> 
+    	<record id="product_shape_id23" model="product.shape">
+    		<field name="name">Hexagonal</field>
+    	</record> 
+    	<record id="product_shape_id24" model="product.shape">
+    		<field name="name">Kite</field>
+    	</record> 
+    	<record id="product_shape_id25" model="product.shape">
+    		<field name="name">Lozenge</field>
+    	</record> 
+    	<record id="product_shape_id26" model="product.shape">
+    		<field name="name">MSB</field>
+    	</record>
+    	<record id="product_shape_id27" model="product.shape">
+    		<field name="name">Old Miner</field>
+    	</record> 
+    	<record id="product_shape_id28" model="product.shape">
+    		<field name="name">Pentagoal</field>
+    	</record>
+    	<record id="product_shape_id29" model="product.shape">
+    		<field name="name">Rose</field>
+    	</record> 
+    	<record id="product_shape_id30" model="product.shape">
+    		<field name="name">Shield</field>
+    	</record>
+    	<record id="product_shape_id31" model="product.shape">
+    		<field name="name">SQ. Emerald</field>
+    	</record> 
+    	<record id="product_shape_id32" model="product.shape">
+    		<field name="name">SQ. Radiant</field>
+    	</record>     	    	     	    	     	    	     	    	    	
+    	<record id="product_shape_id33" model="product.shape">
+    		<field name="name">Star</field>
+    	</record>  
+    	<record id="product_shape_id34" model="product.shape">
+    		<field name="name">Tapered Baguete</field>
+    	</record>  
+    	<record id="product_shape_id35" model="product.shape">
+    		<field name="name">Trapezoid</field>
+    	</record>      	    	
+    	<record id="product_shape_id36" model="product.shape">
+    		<field name="name">Trilliant</field>
+    	</record>         
+     </data>
+</openerp>

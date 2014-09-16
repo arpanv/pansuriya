@@ -1,0 +1,33 @@
+
+{
+    'name': 'Extension of CRM Module',
+    'version': '1.0',
+    'category': 'CRM Extension',
+    "sequence": 14,
+    'complexity': "normal",
+    'description': """
+     This is solution of following problem 
+
+        1) Go to Customer Kanban View
+        2) Search any customer from parent Company
+        3) Open that customer and create meeting
+        4) While saving meeting record integrity error will be there.
+        5) It's due to wrong parent_id pass in context that makes problem in mail.message create method.
+
+    """,
+    'author': 'Emipro Technologies',
+    'website': 'http://www.emiprotechnologies.com',
+    'images': [],
+    'depends': ['crm'],
+    'init_xml': [],
+    'update_xml': [
+                   'crm_case_section_view.xml',
+                   'server_action.xml',
+                   ],
+    'demo_xml': [],
+    'data' : [],
+    'test': [],
+    'installable': True,
+    'auto_install': False,
+    'application': False,
+}

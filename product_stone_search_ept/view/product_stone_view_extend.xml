@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="stone_product_view_tree_ept" model="ir.ui.view">
+            <field name="name">stone.product.view.tree.ept</field>
+            <field name="model">stock.production.lot</field>
+            <field name="arch" type="xml">
+                <tree string="Stones">
+                    <field name="name" string="NAME"/>
+					<field name="status_id" string="STATUS"/>
+					<field name="certificate_no" string="CERTIFICATE&#35;"/>
+                    <field name="shape_id" string="SHAPE"/>
+                    <field name="weight" string="WEIGHT"/>
+                    <field name="color_id" string="COLOR"/>
+                    <field name="clarity_id" string="CLARITY"/>
+                    <field name="cut_id" string="CUT"/>
+                    <field name="polish_id" string="POL"/>
+                    <field name="symmetry_id" string="SYM"/>
+                    <field name="fluorescence_intensity_id" string="FLUR"/>
+                    <field name="lab_id" string="LAB"/>
+					<field name="laser_inspection" string="INSCRI"/>
+					<field name="location_id" string="LN" />
+					<field name="rapnet_price"/>
+					<field name="unit_price"/>
+					<field name="discount"/>
+					<field name="price_caret"/>					
+					<field name="list_price" string="TOTAL"/>					
+					<field name = "tinge" string="TINGE" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+		
+		<record id="stone_product_view_form_ept" model="ir.ui.view">
+            <field name="name"> stone.product.view.form.ept </field>
+            <field name="model">stock.production.lot</field>
+            <field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Stone" version="7.0">
+				 <sheet>
+				 	<group> 
+					 		<group name="header_left">
+			                    <div class="oe_title">
+									<label for="name" class="oe_edit_only" string="Name"/>
+			                        <h1>
+			                            <field name="name"/>
+			                        </h1>
+										<label for="name" class="oe_edit_only" string="RFID"/>
+									<h3>
+										<field name = "rfid_tag" />
+									</h3>
+									<h2>
+										<label for="name" class="oe_edit_only" string="Available"/>
+									</h2>	
+									<h2>
+										<field name = "stock_available" />
+									</h2>
+			                    </div>
+			                 </group>
+			                 
+		              </group>
+		              <group>					
+							<group string="Product Info"> 			
+								<field name="product_id"/>
+								<field name="categ_id"/>
+								<field name="location_id"  />
+							</group>	
+							<group string="Price">	  	 	 
+								<field name="rapnet_price"/>
+								<field name="discount"/>
+								<field name="price_caret"/>
+								<field name="list_price"/>
+								<field name="unit_price" string="Unit Price"/>
+								<field name="type" invisible="1"/>
+							</group>
+					</group>		 
+					<notebook colspan="4">
+							<page string = "Extra Information" >
+							<group>
+							<group>
+								<field name = "certificate_no" />
+								<field name = "status_id" />
+								<field name = "shape_id" />
+								<field name = "weight" />
+								<field name = "color_id" />
+								<field name = "clarity_id" />
+								<field name = "cut_id" />
+								<field name = "polish_id" />
+								<field name = "symmetry_id" />
+								<field name = "fluorescence_intensity_id" />
+								<field name = "product_length" />
+								<field name = "product_width" />
+								<field name = "product_height" />
+								<field name = "milky" />
+								<field name = "shade" />
+								<field name = "lab_id" />
+								<field name = "laser_inspection" />
+								<field name = "tinge" />
+							</group>
+							<group>
+								<field name = "product_table" />
+								<field name = "gridle_thin_id" />
+								<field name = "gridle_thick_id" />
+<!-- added-->
+								<field name = "gridle_id" />
+								<field name = "gridle_percentage" />
+								
+								<field name = "gridle_condition" />
+								
+<!-- 								<field name = "diameter" /> -->
+<!-- 								<field name = "treatment" /> -->
+								
+								<field name = "culet_id" />
+								<field name = "culet_condition" />
+								<field name = "fluorescence_color_id" />
+								<field name = "crown_height" />
+								<field name = "crown_angle" />
+								<field name = "pavilion_depth" />
+								<field name = "pavilion_height" />
+								<field name = "fancy_color_id" />
+								<field name = "fancy_color_intensity" />
+								<field name = "fancy_color_overtone" />
+								<field name = "rough_origin" />
+								<field name = "product_depth" />
+								<field name = "insure_id" />
+							</group>
+							</group>
+							</page>
+						<!--<page string="Stock Moves">
+                            <field name="move_ids">
+                                <tree string="Stock Moves">
+                                    <field name="picking_id" string="Reference"/>
+                                    <field name="origin"/>
+                                    <field name="product_id"/>
+                                    <field name="product_qty" on_change="onchange_quantity(product_id, product_qty, product_uom, product_uos)"/>
+                                    <field name="product_uom" string="Unit of Measure" groups="product.group_uom"/>
+                                    <field name="tracking_id" groups="stock.group_tracking_lot"/>
+                                    <field name="date"/>
+                                    <field name="prodlot_id"/>
+                                    <field name="location_id" groups="stock.group_locations"/>
+                                    <field name="location_dest_id" groups="stock.group_locations"/>
+                                    <field name="state"/>
+                                </tree>
+                             </field>
+                        </page>-->
+					</notebook>		 
+				</sheet>	 
+				</form>	
+			</field>
+		</record>
+		
+		<record id="stone_action_view_ept" model="ir.actions.act_window">
+			<field name="name">Stone</field>
+			<field name="domain">[('type','=','Stone')]</field>
+			<field name="context">{'no_complete_name':1,'default_type':'Stone'}</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">stock.production.lot</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<record model="ir.actions.act_window.view" id="action_stone_tree_ept">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="stone_product_view_tree_ept"/>
+            <field name="act_window_id" ref="stone_action_view_ept"/>
+        </record>
+		
+		<record model="ir.actions.act_window.view" id="action_stone_view_form_ept">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="stone_product_view_form_ept"/>
+            <field name="act_window_id" ref="stone_action_view_ept"/>
+        </record>
+		
+<!-- 		<menuitem name="Stones" -->
+<!-- 			groups="base.group_user"  -->
+<!-- 			id="stone_menu_ept" -->
+<!-- 			parent="base.menu_product" -->
+<!-- 			action="stone_action_view_ept" -->
+<!-- 			/> -->
+		
+	</data>
+</openerp>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	<record model="ir.ui.view" id="stone_search_form_view_ept">
+			<field name="name">stone.search.form.view.ept</field>
+			<field name="model">product.search</field>
+			<field name="arch" type="xml">
+				<form string="Product Search" version = "7.0">
+					<group col="4">
+						 <field name="product_ids" invisible="1" /> 
+					</group>
+				</form>
+			</field>
+		</record> 
+		
+		<record model="ir.actions.act_window" id="action_product_advance_search_ept">
+			<field name="name">Stone Search</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">product.search</field>
+			<field name="view_id" ref="stone_search_form_view_ept" />
+			<field name="view_type">form</field>
+			<field name="target">new</field>
+			<field name="view_mode">form</field>
+		</record>
+		
+		<menuitem name="Stone Search" 
+			id="menu_product_advance_search"
+			parent="base.menu_product"
+			groups="base.group_user"
+			action="action_product_advance_search_ept"
+			/>
+	</data>
+</openerp>

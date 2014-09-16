@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="action_assign_responsible_person_ept" model="ir.actions.server">
+            <field name="name">Assign Responsible Person</field>
+            <field name="condition">True</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_crm_helpdesk" />
+            <field name="state">code</field>
+            <field name="code">
+#msg_ids = self.pool.get('mail.message').search(cr, uid, [('model', '=', context.get('active_model')), ('res_id','=', context.get('active_id'))],context=context)
+#if msg_ids:
+#    #Assign Sales Team to Helpdesk record
+#	if object and object.partner_id and object.partner_id.section_id:
+#		self.write(cr, uid, context.get('active_id'), {'section_id':object.partner_id.section_id.id}, context=context)
+#    if object and object.partner_id and object.partner_id.user_id:
+#        self.pool.get('mail.message').write(cr,uid,msg_ids,{'notified_partner_ids':[(6,0,[object.partner_id.user_id.partner_id.id])]})
+self.assign_sales_person(cr, uid, context.get('active_ids'), context=context)
+			</field>
+        </record>
+
+        <!--<record model="ir.values" id="action_module_immediate_install">
+            <field name="name">action_module_immediate_install</field>
+            <field name="action_id" ref="action_server_module_immediate_install" />
+            <field name="value" eval="'ir.actions.server,' + str(ref('action_server_module_immediate_install'))" />
+            <field name="key">action</field>
+            <field name="model_id" ref="model_ir_module_module" />
+            <field name="model">ir.module.module</field>
+            <field name="key2">client_action_multi</field>
+        </record>-->
+    </data>
+</openerp>
