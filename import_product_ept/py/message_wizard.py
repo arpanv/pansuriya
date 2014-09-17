@@ -23,12 +23,12 @@ class product_message(osv.osv_memory):
         total_stones = context.get('count',0)
         if context.get('not_imported_product')>0:
             reimportable_file=context.get('reimportable_file','')
-            
+            path=context.get('reimportable_file','')
             file_read = open(reimportable_file,'rb')
             reimportable_file_out = base64.encodestring(file_read.read())
             file_read.close()
             
-            res.update(reimportable_file=reimportable_file_out, file_path='/tmp/reimport_product_%s.csv' %(uid))
+            res.update(reimportable_file=reimportable_file_out, file_path=path)
             
         res.update(
                    imported_product = imported_product,

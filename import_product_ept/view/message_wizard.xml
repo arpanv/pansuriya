@@ -10,7 +10,7 @@
                 <form string="Import Product" version="7.0">
 		    		<header>
 		    			<button name="import_products_n_inventory" string="Re-import" type="object" attrs="{'invisible':[('not_imported_product','=',0)]}" icon="gtk-ok" context='{"test":"test"}' />
-				    	<button string="Cancel" icon="gtk-cancel" special="cancel" />
+				    	<button string="Ok" icon="gtk-cancel" special="cancel" />
 		    		</header>
 		    		
 		    		<sheet>

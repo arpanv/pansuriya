@@ -221,6 +221,7 @@
 						<group>
 							<group>
 								<field name = "name" required="1" />
+								<field name = "seq" />
 								<field name = "code" />
 							</group>
 							<group></group>
@@ -237,7 +238,7 @@
 			<field name="arch" type="xml">
 				<tree editable="top"  string="Product Colour" version = "7.0">
 					<field name = "name"  required="1" />
-					<field name = "code" />
+					<field name = "seq" />
 				</tree>
 			</field>
 		</record>
@@ -281,6 +282,7 @@
 						<group>
 							<group>
 								<field name = "name" required="1" />
+								<field name = "seq" />
 								<field name = "code" />
 							</group>
 							<group></group>
@@ -297,7 +299,7 @@
 			<field name="arch" type="xml">
 				<tree editable="top" string="Product Clarity" version = "7.0">
 					<field name = "name"  required="1" />
-					<field name = "code" />
+					<field name = "seq" />
 				</tree>
 			</field>
 		</record>
@@ -341,7 +343,8 @@
 						<group>
 							<group>
 								<field name = "name" required="1"/>
-								<field name = "code" />
+								<field name = "seq" />
+								<field name="code"/>
 							</group>
 							<group></group>
 						</group>
@@ -402,6 +405,7 @@
 							<group>
 								<field name = "name" required="1" />
 								<field name = "code" />
+								<field name="seq"/>
 							</group>
 							<group>
 							</group>
@@ -464,6 +468,7 @@
 							<group>
 								<field name = "name" required="1" />
 								<field name = "code" />
+								<field name="seq"/>
 							</group>
 							<group></group>
 
@@ -525,6 +530,7 @@
 							<group>
 								<field name = "name" required="1" />
 								<field name = "code" />
+								<field name = "seq" />
 							</group>
 							<group></group>
 
@@ -708,6 +714,7 @@
 							<group>
 								<field name = "name" required="1" />
 								<field name = "code" />
+								<field name="seq"/>
 							</group>
 							<group></group>
 

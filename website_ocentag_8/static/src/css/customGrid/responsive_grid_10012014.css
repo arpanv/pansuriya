@@ -1,0 +1,33 @@
+@media only screen and (max-width: 480px)
+{
+	.gridcolumn0,.gridcolumn5,.gridcolumn6,.gridcolumn7,.gridcolumn8,.gridcolumn9,.gridcolumn10,.gridcolumn11,
+	.gridcolumn12,.gridcolumn13,.gridcolumn14,.gridcolumn15,.gridcolumn16,.gridcolumn17,.gridcolumn18,.gridcolumn19,.gridcolumn20
+	{
+		display: none;
+	}
+	.gridcolumn1,.gridcolumn2,.gridcolumn3,.gridcolumn4
+	{
+		width: 23%;
+	}
+	.responsive_data
+	{
+		display: none;
+		background-color: #ffffff;
+		border-bottom: 5px solid #CCCCCC;
+	}
+	.responsive_data_col_1,.responsive_data_col_2
+	{
+		width: 50%;
+		float: left;
+	}
+
+	.responsive_div, .responsive_comment
+	{
+		margin: 4px;
+	}
+
+	.responsive_data_col_1,.responsive_comment
+	{
+
+	}
+}

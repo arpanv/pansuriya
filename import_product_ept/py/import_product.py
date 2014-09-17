@@ -5,7 +5,6 @@ import base64
 import sys
 import time
 from datetime import datetime
-
 import os
 import logging
 _logger = logging.getLogger(__name__)
@@ -46,7 +45,7 @@ class import_product(osv.osv_memory):
         fluorescence_color_obj = self.pool.get('product.fluorescence.color')
         fluorescence_intencity_obj=self.pool.get('product.fluorescence.intensity')  
         lab_obj=self.pool.get('product.lab')
-        gridle_obj=self.pool.get('product.gridle')
+        girdle_obj=self.pool.get('product.gridle')
         culet_size_obj=self.pool.get('product.culet')
         culet_condition_obj=self.pool.get('product.culet_condition')
                
@@ -73,7 +72,9 @@ class import_product(osv.osv_memory):
         inventory_entry=False
                 
         opening_stock = 'Opening Stock Of ' + time.strftime("%d-%B")
-        new_inventory_id = inventory_obj.create(cr, uid, {'name':opening_stock,})     
+        new_inventory_id = inventory_obj.create(cr, uid, {'name':opening_stock,'location_id':1})
+        inventory_obj.prepare_inventory(cr, uid,new_inventory_id,context={})
+             
         
 #for not imported product
         fault=False
@@ -109,7 +110,6 @@ class import_product(osv.osv_memory):
                                      'price_stone' : row.get('Price',0.0),
                                      'standard_price' : row.get('Cost Price',0.0),
                                      'cost_price_discount' : row.get('Cost Price Discount',0.0),
-
                                      'type' : 'product',
                                      'supply_method' : 'buy',
                                      'procure_method' : 'make_to_stock',
@@ -207,11 +207,11 @@ class import_product(osv.osv_memory):
                         message.append("lab %s Not exist"%(row.get('Lab')))
  
                 if row.get('Girdle',False) and row.get('Girdle')!='NA':
-                    gridle_id = gridle_obj.search(cr, uid, [('name','=',(row.get('Girdle')).strip())])
-                    if gridle_id:
-                        product_data.update({'gridle_id' : gridle_id[0]})                      
+                    girdle_id = girdle_obj.search(cr, uid, [('name','=',(row.get('Girdle')).strip())])
+                    if girdle_id:
+                        product_data.update({'girdle_id' : girdle_id[0]})                      
                     else:
-                        message.append("gridle %s Not exist"%(row.get('Girdle')))
+                        message.append("girdle %s Not exist"%(row.get('Girdle')))
                                               
                 if row.get('Culet Size',False) and row.get('Culet Size')!='NA':
                     culet_id = culet_size_obj.search(cr, uid, [('name','=',(row.get('Culet Size')).strip())])
@@ -231,7 +231,7 @@ class import_product(osv.osv_memory):
                 if row.get('Location',False):
                     location_id = stock_location_obj.search(cr, uid, [('name','=',(row.get('Location')).strip())])
                     if not location_id:
-                        message.append("Location '%s' Not exist"%(row.get('Location')))
+                        message.append("Location %s Not exist"%(row.get('Location')))
                         
                 if row.get('Manufacturer',False):
                     res_partner_id = res_partner_obj.search(cr, uid, [('name','=',(row.get('Manufacturer')).strip())])
@@ -244,9 +244,15 @@ class import_product(osv.osv_memory):
                     product_id = product_obj.search(cr, uid,[('name','=',row.get('Name'))],context=context)
                     if not product_id:
                         new_product_id = product_obj.create(cr, uid, product_data, context={})
+                        cr.commit()
                         if row.get('Manufacturer'):
                             product_template = product_obj.browse(cr, uid, new_product_id, context={})
                             res_partner_id = res_partner_obj.search(cr, uid, [('name','=',row.get('Manufacturer'))])
+#for tick as manufacturer
+                            #res_partner_data = res_partner_obj.read(cr,uid,res_partner_id[0])
+                            #if res_partner_data('is_manufacture',False)==False:
+                            #    res_partner_obj.write(cr, uid, res_partner_id[0],{'is_manufacture':True})
+                                
                             if res_partner_id:
                                 product_supplier_obj.create(cr, uid, {
                                                               'name' : res_partner_id[0],
@@ -254,17 +260,17 @@ class import_product(osv.osv_memory):
                                                               'min_qty' :0.0,
                                                               'delay' : 1,
                                                               'product_code' : row.get('Manufacturer Code',''),
-                                                              'product_id' : product_template.product_tmpl_id.id,
+                                                              'product_tmpl_id' : product_template.product_tmpl_id.id,
                                                               })                         
                         if row.get('Location',False):
-                            stock_line_value.update({'value': {'product_qty': 1.0, 
-                                                               'product_uom': 1, 
+                            stock_line_value.update({'value': {'product_qty': 1.0,
+                                                               'product_uom_id' : 1, 
                                                                'prod_lot_id': False,
                                                                'inventory_id' : new_inventory_id,
                                                                'product_id' : new_product_id,
                                                                'location_id': location_id[0],
                                                                }
-                                                    })
+                                                    })#'product_uom': 1, 
                             stock_inventory_line_obj.create(cr, uid, stock_line_value.get('value'), context={})
                             inventory_entry=True
                         imported_product += 1
@@ -272,7 +278,6 @@ class import_product(osv.osv_memory):
                         if self_obj.is_update==True:
                             product_obj.write(cr, uid, product_id,product_data, context={})
                             updated_product+=1
-                    
                
                 else:
                     row.update({'Error':str(message)})
@@ -288,7 +293,6 @@ class import_product(osv.osv_memory):
                 fill_inventory = config_param_obj.get_param(cr,uid,'fill_inventory')
                 
                 if fill_inventory and fill_inventory.lower()=='yes':
-                    inventory_obj.action_confirm(cr, uid, [new_inventory_id], context=context)
                     inventory_obj.action_done(cr, uid, [new_inventory_id], context=context)      
             
             except Exception,e:
@@ -360,4 +364,6 @@ class import_product(osv.osv_memory):
         print '%s-after fill inventory-%s'%(datetime.strftime(datetime.now(),'%H %M %S'),count)
         return value          
     
+
+#        _logger.info('Email successfully sent to: %s', addresses)
 

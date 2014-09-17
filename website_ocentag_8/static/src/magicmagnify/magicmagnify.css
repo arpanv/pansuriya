@@ -1,0 +1,75 @@
+
+/* Contaner with main image and selectors container */
+div.MagicToolboxContainer {
+    text-align: center;
+}
+
+/* Main image styles */
+div.MagicToolboxContainer a {
+    margin: 0 auto;
+}
+
+/* Container with selectors*/
+div.MagicToolboxSelectorsContainer {
+    clear: both;
+}
+
+/* Selectors styles */
+div.MagicToolboxSelectorsContainer a {
+    display: inline-block;
+    margin: 4px 1px;
+}
+
+.MagicMagnifyPlusContainer, .MagicMagnifyContainer {margin:0 auto;}
+div.MagicMagnify-container {
+    margin:0 auto;
+}
+
+div.MagicToolboxMessage {
+    text-align: center;
+}
+
+/* selectors-left */
+div.MagicToolboxContainer.selectorsLeft .MagicToolboxMainContainer {
+    float: left;
+}
+div.MagicToolboxContainer.selectorsLeft .MagicToolboxSelectorsContainer {
+    float: left;
+}
+
+/* selectors-right */
+div.MagicToolboxContainer.selectorsRight .MagicToolboxMainContainer {
+    float: right;
+}
+div.MagicToolboxContainer.selectorsRight .MagicToolboxSelectorsContainer {
+    float: right;
+}
+
+.MagicScrollItem a {
+    /* NOTE: magicscroll makes the image smaller if there is a margin */
+    margin: 0 !important;
+}
+div.MagicToolboxSelectorsContainer {
+    clear: none;
+}
+.product-view .product-img-box .more-views ul {
+    margin-left: 0px;
+}
+.products-list .MagicToolboxContainer {
+    /* for List View */
+    float: left;
+}
+.MagicMagnifyContainer, div.MagicToolboxContainer a {
+    margin: 0 auto;
+}
+.hidden-selector {
+    display: none !important;
+}
+.ignore-magento-css {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+}
+.product-img-box {
+    text-align: center;
+}

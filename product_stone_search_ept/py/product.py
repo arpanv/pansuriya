@@ -459,6 +459,7 @@ class product_gridle_thick(osv.osv):
     _columns = {
                 'name' : fields.char('Girdle Thick', size=512),
                 'code' : fields.char('Code'),
+                'seq': fields.char('sequence')
 #                 'product_ids' : fields.one2many('product.product', 'gridle_thick_id', 'Products'),
                 }
     
@@ -476,6 +477,8 @@ class product_gridle_thin(osv.osv):
                 }
     _sql_constraints = [
         ('name_unique', 'unique(name)', 'product Girdle Thin must be unique'),
+        ('seq_unique', 'unique(seq)', 'Sequence must be unique'),
+        ('check_seq','CHECK (seq>=0 )','Sequence must be grater than zero'),
     ]
 product_gridle_thin()
 
@@ -504,10 +507,13 @@ class product_fluorescence_intensity(osv.osv):
     _columns = {
                 'name' : fields.char('Fluorescence Intensity', size=512),
                 'code' : fields.char('Code'),
+                'seq' : fields.char('Sequence')
 #                 'product_ids' : fields.one2many('product.product', 'fluorescence_intensity_id', 'Products'),
                 }
     _sql_constraints = [
         ('name_unique', 'unique(name)', 'Product fluorescence intensity must be unique'),
+        ('seq_unique', 'unique(seq)', 'Sequence must be unique'),
+        ('check_seq','CHECK (seq>=0 )','Sequence must be grater than zero'),
     ]
 product_fluorescence_intensity()
 
@@ -516,10 +522,13 @@ class product_symmetry(osv.osv):
     _columns = {
                 'name' : fields.char('Symmetry', size=512),
                 'code' : fields.char('Code'),
+                'seq' : fields.char('Sequence')
                 }
     
     _sql_constraints = [
         ('name_unique', 'unique(name)', 'Product fluorescence intensity must be unique'),
+        ('seq_unique', 'unique(seq)', 'Sequence must be unique'),
+        ('check_seq','CHECK (seq>=0 )','Sequence must be grater than zero'),
     ]
 product_symmetry()
 
@@ -528,9 +537,12 @@ class product_polish(osv.osv):
     _columns = {
                 'name' : fields.char('Polish', size=512),
                 'code' : fields.char('Code'),
+                'seq': fields.char('Sequence')
                 }
     _sql_constraints = [
         ('name_unique', 'unique(name)', 'Product polish must be unique'),
+        ('seq_unique', 'unique(seq)', 'Sequence must be unique'),
+        ('check_seq','CHECK (seq>=0 )','Sequence must be grater than zero'),
     ]
 product_polish()
 
@@ -539,9 +551,18 @@ class product_cut(osv.osv):
     _columns = {
                 'name' : fields.char('Cut', size=512),
                 'code' : fields.char('Code'),
+                'seq' : fields.char('Sequence')
                 }
+    def _check_seq(self, cr, uid, ids, context={}):
+        for id in self.browse(cr, uid, ids, context=context):
+            if int(id.seq) <= 0:
+                return False
+        return True  
+          
     _sql_constraints = [
         ('name_unique', 'unique(name)', 'Product cut must be unique'),
+        ('seq_unique', 'unique(seq)', 'Sequence must be unique'),
+        ('check_seq','CHECK(seq>0)','Sequence must be grater than zero'),
     ]
 product_cut()
 
@@ -549,10 +570,13 @@ class product_clarity(osv.osv):
     _name = 'product.clarity'
     _columns = {
                 'name' : fields.char('Clarity', size=512),
-                'code' : fields.char('Code'),
+                'seq' : fields.char('Sequence'),
+                'code' : fields.char('Code')
                 }
     _sql_constraints = [
         ('name_unique', 'unique(name)', 'Product clarity must be unique'),
+        ('seq_unique', 'unique(seq)', 'Sequence must be unique'),
+        ('check_seq','CHECK (seq>=0 )','Sequence must be grater than zero'),
     ]
 product_clarity()
 
@@ -561,7 +585,14 @@ class product_color(osv.osv):
     _columns = {
                 'name' : fields.char('Color', size=512),
                 'code' : fields.char('Code'),
+                'seq' : fields.char('Sequence'),
                 }
+    
+    _sql_constraints = [
+         ('name_unique', 'unique(name)', 'Product color must be unique'),
+         ('seq_unique', 'unique(seq)', 'Sequence must be unique'),
+         ('check_seq','CHECK (seq>=0 )','Sequence must be grater than zero'),
+         ]
 #     _sql_constraints = [
 #         ('name_unique', 'unique(name)', 'Product color must be unique'),
 #     ]
@@ -584,9 +615,12 @@ class product_gridle(osv.osv):
     _columns = {
                 'name' : fields.char('Gridle', size=512),
                 'code' : fields.char('Code'),
+                'seq' : fields.char('Sequence'),
                 }
     _sql_constraints = [
         ('name_unique', 'unique(name)', 'Product gridle must be unique'),
+        ('seq_unique', 'unique(seq)', 'Sequence must be unique'),
+         ('check_seq','CHECK (seq>=0 )','Sequence must be grater than zero'),
     ]
 product_gridle()
 

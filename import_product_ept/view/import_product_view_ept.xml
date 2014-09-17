@@ -4,11 +4,11 @@
     	<record id="import_product_ept_form_view" model="ir.ui.view">
     		<field name="name">import.product.ept.form.view</field>
     		<field name="model">import.product.ept</field>
-    		<field name="arch" type="xml"/>
-                <field name="arch" type="xml">    		
-	    		<form string="Import Product" version="7.0">
+            <field name="arch" type="xml">    		
+	    		<form string="Import Product">
 	    		<header>
 	    			<button name="import_products_n_inventory" string="Import" type="object" icon="gtk-ok" />
+<!-- 			    	<button name="import_inventory" string="Import Inventory" type="object" icon="gtk-ok"/> -->
 			    	<button string="Cancel" icon="gtk-cancel" special="cancel" />
 	    		</header>
 	    			<sheet>
@@ -24,7 +24,7 @@
 	    	</field>
     	</record>
     	
-	<record id="action_import_product_ept" model="ir.actions.act_window">
+		<record id="action_import_product_ept" model="ir.actions.act_window">
             <field name="name">Import Product</field>
             <field name="res_model">import.product.ept</field>
             <field name="type">ir.actions.act_window</field>

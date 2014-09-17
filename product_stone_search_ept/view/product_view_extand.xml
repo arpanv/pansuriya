@@ -18,16 +18,17 @@
 					<label for="is_fancy_color" />
 				</field>
 				
-				<field name="list_price" position="before">
+				<xpath expr="//field[@name='lst_price']" position="before">
 						<field name="rapnet_price" attrs="{'invisible':['|',('is_certified','=',False),('is_fancy_color','=',True)]}" />
 						<field name="discount" attrs="{'invisible':['|',('is_certified','=',False),('is_fancy_color','=',True)]}" />
 						<field name="price_caret" attrs="{'invisible':['|',('is_certified','=',False),('is_fancy_color','=',True)]}" />
 						<field name="price_unit" attrs="{'invisible':['|',('is_certified','=',False),('is_fancy_color','=',True)]}" />
 						<field name="ppc_non_ceritified" attrs="{'invisible':['|',('is_certified','=',True),('is_fancy_color','=',True)]}" />
 						<field name="price_stone" attrs="{'invisible':[('is_fancy_color','=',False)]}" />
-				</field>
+				</xpath>
 				
-            	<xpath expr="//form/sheet/notebook/page[@string='Information']/group/group/field[@name='list_price']" position="attributes">            		
+<!--            	<xpath expr="//form/sheet/notebook/page[@string='Information']/group/group/field[@name='list_price']" position="attributes"-->
+            	<xpath expr="//field[@name='lst_price']" position="attributes">            		
             		<attribute name = "attrs">{'invisible':['|',('is_fancy_color','=',True),('is_certified','=',False)]}</attribute>
             	</xpath>
 		  <field name="cost_method" position="after">
@@ -64,7 +65,7 @@
 								<field name = "hna" attrs="{'invisible':[('is_certified','=',False)]}" />
 								<field name = "eye_clean" attrs="{'invisible':[('is_certified','=',False)]}" />
 								<field name = "browness" attrs="{'invisible':[('is_certified','=',False)]}" />
-<!-- 								<field name = "rfid_tag" attrs="{'invisible':[('is_certified','=',False)]}" /> -->
+ 								<field name = "rfid_tag" attrs="{'invisible':[('is_certified','=',False)]}" />
 							</group>
 							<group attrs="{'invisible':[('is_certified','=',False)]}">
 								<field name = "product_table"/>
@@ -101,9 +102,9 @@
 			<field name="name">product.form.view.new.inherit.ept2</field>
 			<field name="model">product.product</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="stock.view_normal_procurement_locations_form"/>
+            <field name="inherit_id" ref="stock.view_template_property_form"/>
 			<field name="arch" type="xml">
-				<field name="company_id" groups="base.group_multi_company" widget="selection" position="after">
+				<field name="property_stock_procurement" position="before">
 					<field name="location_id" />
 				</field>
 			</field>		
@@ -200,7 +201,7 @@
 					<field name="price_unit"/>					
 					<field name="categ_id" invisible="1"/>
                     <field name="type" invisible="1"/>
-                    <field name="variants" groups="product.group_product_variant" invisible="1"/>
+<!--                    <field name="variants" groups="product.group_product_variant" invisible="1"/-->
                     <field name="uom_id" string="Unit of Measure" groups="product.group_uom" invisible="1"/>
                     <field name="qty_available" invisible="1"/>
                     <field name="virtual_available" invisible="1"/>
